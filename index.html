@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>徐佳乐 · 服装设计作品集</title>
+<style>
+  :root {
+    --bg: #faf9f7; --text: #2c2c2c; --muted: #8c8c8c;
+    --accent: #c4815c; --card-bg: #fff; --border: #e8e4df;
+    --shadow: 0 2px 20px rgba(0,0,0,0.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Georgia','Noto Serif SC','STSong','PingFang SC','Microsoft YaHei',serif; background:var(--bg); color:var(--text); line-height:1.8; }
+  nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(250,249,247,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+  nav .inner { max-width:1200px; margin:0 auto; padding:18px 32px; display:flex; justify-content:space-between; align-items:center; }
+  nav .logo { font-size:1.3em; font-weight:700; letter-spacing:0.05em; color:var(--accent); }
+  nav .links { display:flex; gap:32px; list-style:none; }
+  nav .links a { color:var(--muted); text-decoration:none; font-size:0.9em; letter-spacing:0.05em; transition:color 0.3s; }
+  nav .links a:hover { color:var(--text); }
+  #hero { min-height:85vh; display:flex; align-items:center; padding:120px 32px 60px; max-width:1200px; margin:0 auto; gap:60px; }
+  #hero .hero-text { flex:1; }
+  #hero h1 { font-size:3.2em; font-weight:400; letter-spacing:0.08em; line-height:1.3; }
+  #hero h1 .name { color:var(--accent); }
+  #hero .subtitle { font-size:1.1em; color:var(--muted); margin-top:16px; letter-spacing:0.05em; line-height:2; }
+  #hero .hero-visual { flex:1; }
+  #hero .hero-visual img { width:100%; max-height:500px; object-fit:contain; border-radius:4px; box-shadow:var(--shadow); }
+  section { padding:80px 32px; }
+  section .section-inner { max-width:1200px; margin:0 auto; }
+  section h2 { font-size:1.8em; font-weight:400; letter-spacing:0.08em; margin-bottom:8px; }
+  section .section-desc { color:var(--muted); margin-bottom:48px; font-size:0.95em; }
+
+  /* 毕设图册 */
+  .album-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+  .album-grid img { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:2px; cursor:pointer; transition:transform 0.3s, box-shadow 0.3s; border:1px solid var(--border); }
+  .album-grid img:hover { transform:scale(1.03); box-shadow:var(--shadow); }
+
+  /* Lightbox */
+  .lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); z-index:999; justify-content:center; align-items:center; }
+  .lightbox.active { display:flex; }
+  .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; }
+  .lightbox .close { position:absolute; top:24px; right:32px; color:#fff; font-size:2em; cursor:pointer; z-index:1000; }
+  .lightbox .prev, .lightbox .next { position:absolute; top:50%; color:#fff; font-size:2.5em; cursor:pointer; padding:20px; user-select:none; }
+  .lightbox .prev { left:16px; } .lightbox .next { right:16px; }
+  .lightbox .counter { position:absolute; bottom:24px; left:50%; transform:translateX(-50%); color:#aaa; font-size:0.9em; }
+
+  /* 作品网格 */
+  .portfolio-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:28px; }
+  .portfolio-item { background:var(--card-bg); border:1px solid var(--border); border-radius:2px; overflow:hidden; transition:transform 0.3s, box-shadow 0.3s; }
+  .portfolio-item:hover { transform:translateY(-4px); box-shadow:var(--shadow); }
+  .portfolio-item img { width:100%; height:340px; object-fit:cover; }
+  .portfolio-info { padding:20px 24px; }
+  .portfolio-info h3 { font-size:1em; font-weight:600; margin-bottom:4px; }
+  .portfolio-info .meta { font-size:0.85em; color:var(--muted); }
+  .portfolio-info .desc-text { margin-top:8px; font-size:0.9em; color:#666; }
+  .portfolio-info .tags { margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+  .portfolio-info .tags span { font-size:0.75em; padding:3px 10px; border:1px solid var(--border); border-radius:100px; color:var(--muted); }
+
+  /* 时间线 */
+  .timeline { position:relative; padding-left:32px; }
+  .timeline::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:1px; background:var(--border); }
+  .timeline-item { margin-bottom:36px; position:relative; }
+  .timeline-item::before { content:''; position:absolute; left:-36px; top:8px; width:9px; height:9px; border-radius:50%; background:var(--accent); }
+  .timeline-item .tl-header { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; }
+  .timeline-item .tl-title { font-weight:700; font-size:1.05em; }
+  .timeline-item .tl-sub { color:var(--accent); font-size:0.9em; }
+  .timeline-item .tl-date { color:var(--muted); font-size:0.85em; }
+  .timeline-item .tl-detail { margin-top:8px; color:#555; font-size:0.9em; }
+  .timeline-item .tl-detail ul { padding-left:18px; }
+  .timeline-item .tl-detail li { margin-bottom:4px; }
+  .exp-images { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+  .exp-images img { width:180px; height:130px; object-fit:cover; border-radius:2px; border:1px solid var(--border); cursor:pointer; transition:transform 0.3s; }
+  .exp-images img:hover { transform:scale(1.05); }
+
+  /* 技能 */
+  .skills-list { display:flex; flex-wrap:wrap; gap:16px; }
+  .skill-category { flex:1; min-width:200px; }
+  .skill-category h4 { font-size:0.85em; letter-spacing:0.1em; color:var(--accent); margin-bottom:12px; text-transform:uppercase; }
+  .skill-category ul { list-style:none; }
+  .skill-category li { padding:6px 0; border-bottom:1px dotted var(--border); font-size:0.9em; }
+
+  /* 关于 */
+  #about .about-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:start; }
+  #about .about-avatar img { width:100%; aspect-ratio:3/4; object-fit:contain; border-radius:2px; box-shadow:var(--shadow); }
+  .highlight { color:var(--accent); font-weight:600; }
+
+  /* 证书 */
+  .cert-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; }
+  .cert-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:2px; border:1px solid var(--border); cursor:pointer; transition:transform 0.3s, box-shadow 0.3s; }
+  .cert-grid img:hover { transform:scale(1.02); box-shadow:var(--shadow); }
+
+  #contact { background:#f5f2ee; }
+  #contact .contact-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px; }
+  #contact .contact-item h4 { font-size:0.85em; letter-spacing:0.1em; color:var(--accent); margin-bottom:8px; text-transform:uppercase; }
+  footer { text-align:center; padding:40px; color:var(--muted); font-size:0.85em; letter-spacing:0.05em; border-top:1px solid var(--border); }
+
+  @media (max-width:768px) {
+    #hero { flex-direction:column; text-align:center; padding-top:100px; }
+    #hero h1 { font-size:2.2em; }
+    #about .about-grid { grid-template-columns:1fr; }
+    nav .links { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <div class="logo">XU JIALE</div>
+    <ul class="links">
+      <li><a href="#hero">首页</a></li>
+      <li><a href="#bachelor">毕设图册</a></li>
+      <li><a href="#work">作品</a></li>
+      <li><a href="#experience">实习</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#certificates">证书</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ====== Lightbox ====== -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
+  <span class="prev" onclick="event.stopPropagation();navLightbox(-1)">&#8249;</span>
+  <span class="next" onclick="event.stopPropagation();navLightbox(1)">&#8250;</span>
+  <img id="lightbox-img" src="" alt="">
+  <div class="counter" id="lightbox-counter"></div>
+</div>
+
+<!-- ====== Hero ====== -->
+<section id="hero">
+  <div class="hero-text">
+    <h1>
+      你好，我是<br><span class="name">徐佳乐</span>
+    </h1>
+    <p class="subtitle">
+      内蒙古工业大学 · 轻工与纺织学院<br>
+      服装设计与工程 · 2026届毕业生<br>
+      蒙古族配色 × 现代校服设计
+    </p>
+  </div>
+  <div class="hero-visual">
+    <img src="images/selfie.jpg" alt="徐佳乐" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- ====== 毕设图册 ====== -->
+<section id="bachelor">
+  <div class="section-inner">
+    <h2>毕业设计图册</h2>
+    <p class="section-desc">《蒙古族服饰配色特征的小学生校服系列设计——自然色》 · 导师：史慧 教授</p>
+    <p style="margin-bottom:24px; color:#555; font-size:0.95em;">
+      以蒙古族传统"五色说"（<span style="color:#4a90d9;">呼和蓝</span>·
+      <span style="color:#c8c0b0;">查干白</span>·
+      <span style="color:#6b9e6b;">诺干绿</span>·
+      <span style="color:#c0392b;">乌兰红</span>·
+      <span style="color:#d4a843;">西尔黄</span>）为色彩哲学，
+      完成四大系列小学生校服设计。
+    </p>
+    <div class="album-grid" id="album-grid"></div>
+  </div>
+</section>
+
+<!-- ====== 作品集 ====== -->
+<section id="work">
+  <div class="section-inner">
+    <h2>课程与项目作品</h2>
+    <p class="section-desc">CAD制版 · 3D虚拟设计 · 结构设计 · 工艺技术</p>
+    <div class="portfolio-grid">
+
+      <!-- 雅戈尔男西裤 -->
+      <div class="portfolio-item">
+        <img src="images/tech-drawings/雅戈尔工业样板设计.png" alt="雅戈尔工业样板设计" onerror="this.parentElement.querySelector('img').src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22340%22><rect fill=%22%23f5f0eb%22 width=%22350%22 height=%22340%22/><text x=%22175%22 y=%22170%22 text-anchor=%22middle%22 fill=%22%238c8c8c%22 font-size=%2214%22>效果图</text></svg>'">
+        <div class="portfolio-info">
+          <h3>雅戈尔双省双褶休闲男西裤</h3>
+          <div class="meta">课程设计 · 男装工艺</div>
+          <div class="desc-text">独立完成CAD结构图、毛样板、效果图、款式图、工艺流程图全套技术文档</div>
+          <div class="tags"><span>男西裤</span><span>CAD制版</span><span>工艺设计</span><span>雅戈尔</span></div>
+        </div>
+      </div>
+
+      <!-- Style3D -->
+      <div class="portfolio-item">
+        <img src="images/style3d/style3d-new.png" alt="Style3D虚拟服装" onerror="this.parentElement.querySelector('img').src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22340%22><rect fill=%22%23f5f0eb%22 width=%22350%22 height=%22340%22/><text x=%22175%22 y=%22170%22 text-anchor=%22middle%22 fill=%22%238c8c8c%22 font-size=%2214%22>Style3D 虚拟服装</text></svg>'">
+        <div class="portfolio-info">
+          <h3>Style3D 虚拟服装设计</h3>
+          <div class="meta">3D数字设计 · 2025</div>
+          <div class="desc-text">使用Style3D完成虚拟服装建模与试穿，用于毕设数字化预演，减少实物样衣轮次</div>
+          <div class="tags"><span>Style3D</span><span>虚拟试衣</span><span>数字服装</span></div>
+        </div>
+      </div>
+
+      <!-- 蒙古袍 AI -->
+      <div class="portfolio-item">
+        <img src="images/works/蒙古袍效果图.jpg" alt="蒙古袍效果图" onerror="this.parentElement.querySelector('img').src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22340%22><rect fill=%22%23f5f0eb%22 width=%22350%22 height=%22340%22/><text x=%22175%22 y=%22170%22 text-anchor=%22middle%22 fill=%22%238c8c8c%22 font-size=%2214%22>蒙古袍效果图</text></svg>'">
+        <div class="portfolio-info">
+          <h3>蒙古袍效果图</h3>
+          <div class="meta">课程作业 · 2024</div>
+          <div class="desc-text">Adobe Illustrator完成蒙古族传统服饰效果图，探索民族服饰数字化表达</div>
+          <div class="tags"><span>AI</span><span>蒙古族服饰</span><span>效果图</span></div>
+        </div>
+      </div>
+
+      <!-- 针织软件实操 -->
+      <div class="portfolio-item">
+        <img src="images/works/针织软件实操.png" alt="针织软件实操" onerror="this.parentElement.querySelector('img').src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22350%22 height=%22340%22><rect fill=%22%23f5f0eb%22 width=%22350%22 height=%22340%22/><text x=%22175%22 y=%22170%22 text-anchor=%22middle%22 fill=%22%238c8c8c%22 font-size=%2214%22>针织软件实操</text></svg>'">
+        <div class="portfolio-info">
+          <h3>针织软件实操</h3>
+          <div class="meta">课程实践 · 2025</div>
+          <div class="desc-text">使用专业针织CAD软件完成针织面料设计与工艺编程，掌握针织组织与花型设计</div>
+          <div class="tags"><span>针织CAD</span><span>面料设计</span><span>工艺编程</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== 实习经历 ====== -->
+<section id="experience">
+  <div class="section-inner">
+    <h2>实习经历</h2>
+    <p class="section-desc">从课堂到企业，从学校到职场</p>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <span class="tl-title">江苏苏创纺织新材料有限公司</span>
+          <span class="tl-date">2026.03</span>
+        </div>
+        <div class="tl-sub">生产部 / 技术部 / 质量检测中心 · 轮岗实习生</div>
+        <div class="tl-detail">
+          <ul>
+            <li>以轮岗形式深入三大核心部门，完成功能性面料从纤维到成品的全流程实践</li>
+            <li><strong>生产部：</strong>掌握剑杆织机基础操作与巡岗，学习辨识"跳花""纬缩""断经"等织疵及其成因</li>
+            <li><strong>质量检测中心：</strong>独立操作电子织物强力机完成断裂/撕破强力测试，实操耐摩擦色牢度仪，所有检测严格遵守国家标准（GB）</li>
+            <li><strong>技术部：</strong>参与"回收涤纶高强仿棉面料"实验数据整理，列席"凉感面料助剂优选"技术讨论会</li>
+            <li>独立完成公司面料样品库三维度（原料×工艺×功能）归类整理并建立电子索引</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <span class="tl-title">盛泓服装科技有限公司</span>
+          <span class="tl-date">2025.07 – 2025.08</span>
+        </div>
+        <div class="tl-sub">设计助理（实习）</div>
+        <div class="tl-detail">
+          <ul>
+            <li>参与服装产品开发流程，使用Photoshop和Illustrator协助设计师完成款式图绘制与修改</li>
+            <li>协助面辅料选配与样衣跟进，跟进工艺确认与修改反馈</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="tl-header">
+          <span class="tl-title">收钱吧</span>
+          <span class="tl-date">2024.06 – 2024.09</span>
+        </div>
+        <div class="tl-sub">市场推广（暑期兼职）</div>
+        <div class="tl-detail">
+          <ul>
+            <li>独立拓展商户60+家，客户满意度95%；日均处理交易600+笔，设备铺设成功率100%</li>
+            <li>协助HRBP完成新人培训工作（覆盖300+人次），锻炼了沟通与独立解决问题能力</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 技能 ====== -->
+<section id="skills">
+  <div class="section-inner">
+    <h2>专业技能</h2>
+    <p class="section-desc">课堂所学 + 实习所练 + 自学所得</p>
+    <div class="skills-list">
+      <div class="skill-category">
+        <h4>🎨 设计能力</h4>
+        <ul><li>女装/男装/针织设计</li><li>系列企划 & 趋势分析</li><li>手绘效果图 & 款式图</li><li>色彩搭配 & 面料选配</li><li>工艺单编制</li></ul>
+      </div>
+      <div class="skill-category">
+        <h4>✂️ 技术能力</h4>
+        <ul><li>服装CAD制版（富怡/ET）</li><li>Style3D 虚拟试衣</li><li>样衣工艺跟进 & 审版</li><li>面料性能检测（国标GB）</li><li>功能性纺织品认知</li></ul>
+      </div>
+      <div class="skill-category">
+        <h4>🖥️ 软件工具</h4>
+        <ul><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Style3D</li><li>服装CAD</li><li>Xmind / WPS Office</li></ul>
+      </div>
+      <div class="skill-category">
+        <h4>🔧 编程 & 其他</h4>
+        <ul><li>Node.js 脚本开发</li><li>HTML/CSS 网页搭建</li><li>AI API 集成应用</li><li>Git 版本管理</li><li>CET 英语</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 证书 ====== -->
+<section id="certificates">
+  <div class="section-inner">
+    <h2>证书与荣誉</h2>
+    <p class="section-desc">在校期间获得的各类证书</p>
+    <div class="cert-grid" id="cert-grid"></div>
+  </div>
+</section>
+
+<!-- ====== 关于我 ====== -->
+<section id="about">
+  <div class="section-inner">
+    <h2>关于我</h2>
+    <div class="about-grid">
+      <div class="about-avatar">
+        <img src="images/about-me.jpg" alt="徐佳乐" onerror="this.style.display='none'">
+      </div>
+      <div class="about-text">
+        <p>我是<span class="highlight">徐佳乐</span>，内蒙古工业大学轻工与纺织学院<span class="highlight">服装设计与工程</span>专业2022级本科生（2026年6月毕业），学号202211805007。</p>
+        <p>毕业设计《<span class="highlight">蒙古族服饰配色特征的小学生校服系列设计——自然色</span>》，以蒙古族传统"五色说"为色彩哲学基础，完成四大系列校服设计。使用Style3D虚拟试衣+实物样衣验证。</p>
+        <p>在江苏苏创纺织新材料的毕业实习中，以轮岗形式深入生产、质检、技术三大部门，系统学习功能性面料全流程，对<span class="highlight">"材料—设计—生产"</span>的完整链路有了立体认知。</p>
+        <p>课余自学编程，在毕设中独立开发答辩PPT自动生成工具和微信AI桥接系统。<span class="highlight">懂技术的设计师</span>——这是我看好的方向。</p>
+        <p>正在寻找<strong>服装设计 / 面料开发 / 产品开发</strong>方向就业机会。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 联系 ====== -->
+<section id="contact">
+  <div class="section-inner">
+    <h2>联系方式</h2>
+    <div class="contact-grid">
+      <div class="contact-item"><h4>📧 邮箱</h4><p>860824847@qq.com</p></div>
+      <div class="contact-item"><h4>📱 电话</h4><p>17280343262</p></div>
+      <div class="contact-item"><h4>🎓 学校</h4><p>内蒙古工业大学<br>轻工与纺织学院<br>服装22-1班</p></div>
+      <div class="contact-item"><h4>📍 所在地</h4><p>内蒙古 · 呼和浩特</p></div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 徐佳乐 · 内蒙古工业大学 · 服装设计与工程</p></footer>
+
+<script>
+// ====== 毕设图册（12页） ======
+const albumPages = 12;
+const albumGrid = document.getElementById('album-grid');
+for (let i = 1; i <= albumPages; i++) {
+  const n = String(i).padStart(3, '0');
+  const img = document.createElement('img');
+  img.src = `images/bachelor-project/page_${n}.png`;
+  img.alt = `毕设图册 第${i}页`;
+  img.loading = 'lazy';
+  img.onclick = function(e) { e.stopPropagation(); openLightbox(i - 1, 'bachelor'); };
+  albumGrid.appendChild(img);
+}
+
+// ====== 证书 ======
+const certFiles = [
+  '专利受理通知书.jpg',
+  '四级证书.png'
+];
+const certGrid = document.getElementById('cert-grid');
+certFiles.forEach(f => {
+  const img = document.createElement('img');
+  img.src = `images/certificates/${f}`;
+  img.alt = '证书';
+  img.loading = 'lazy';
+  img.onclick = function(e) { e.stopPropagation(); openLightboxSingle(`images/certificates/${f}`); };
+  certGrid.appendChild(img);
+});
+
+// ====== Lightbox逻辑 ======
+let currentAlbum = [];
+let currentIndex = 0;
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+const lbCounter = document.getElementById('lightbox-counter');
+
+function openLightbox(idx, type) {
+  if (type === 'bachelor') {
+    currentAlbum = [];
+    for (let i = 1; i <= albumPages; i++) {
+      currentAlbum.push(`images/bachelor-project/page_${String(i).padStart(3,'0')}.png`);
+    }
+  }
+  currentIndex = idx;
+  showImage();
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function openLightboxSingle(src) {
+  currentAlbum = [src];
+  currentIndex = 0;
+  showImage();
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function showImage() {
+  lbImg.src = currentAlbum[currentIndex];
+  lbCounter.textContent = `${currentIndex + 1} / ${currentAlbum.length}`;
+}
+
+function closeLightbox() {
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+  currentIndex = (currentIndex + dir + currentAlbum.length) % currentAlbum.length;
+  showImage();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+});
+</script>
+
+</body>
+</html>
