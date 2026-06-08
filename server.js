@@ -29,7 +29,7 @@ app.get('/api/profile', (req, res) => {
     },
     skills: {
       design: ['女装/男装设计', '系列企划', '趋势调研', '手绘效果图', '款式图绘制'],
-      tech: ['服装CAD制版（富怡/ET）', 'Style3D虚拟试衣', '工艺单制作', '面辅料性能评估', '国家标准检测（GB）'],
+      tech: ['服装CAD制版（富怡/ET）', '富怡绣花CAD V12.0', 'Style3D虚拟试衣', '工艺单制作', '面辅料性能评估', '国家标准检测（GB）'],
       software: ['Adobe Photoshop', 'Adobe Illustrator', 'Style3D', '服装CAD', 'Xmind'],
       coding: ['Node.js', 'HTML/CSS', 'AI API集成', 'Git', 'WPS Office']
     },
@@ -78,6 +78,15 @@ app.get('/api/projects', (req, res) => {
       year: 2026,
       description: '生产部/技术部/质量检测中心轮岗，功能性面料全流程实践',
       tags: ['轮岗实习', '面料检测', '研发辅助', '功能性纺织品'],
+      coverImage: null
+    },
+    {
+      id: 7,
+      title: '实习：天津上工富怡 · 数字化绣花',
+      category: '生产实习',
+      year: 2024,
+      description: '系统学习刺绣工艺数字化全流程，掌握富怡绣花CAD V12.0，原创民族风绣品上机绣制',
+      tags: ['绣花CAD', '数字化绣花', '民族刺绣', '富怡'],
       coverImage: null
     },
     {
