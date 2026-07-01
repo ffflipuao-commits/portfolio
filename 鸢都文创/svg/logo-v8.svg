@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440" width="440" height="440">
+  <title>鸢都文创 V8 Logo</title>
+  <desc>潍坊胖沙燕硬翅风筝标志 · 圆头腮喙 · 剪刀燕尾 · 五纹样体系</desc>
+  <g transform="translate(220,215)">
+    <circle cx="0" cy="0" r="175" fill="none" stroke="#1A3C6D" stroke-width="1" opacity="0.1"/>
+    <!-- L wing: hard wing -->
+    <path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34 C122,-22 128,-8 128,4 C126,12 118,20 106,28 C92,38 74,46 56,50 C38,54 22,52 10,44 C2,36 -2,24 -4,10 C-4,-20 -4,-55 -4,-92Z" fill="#C41E2B" opacity="0.9"/>
+    <path d="M-4,-78 C22,-68 56,-54 90,-38" stroke="#F5E6D3" stroke-width="1.2" fill="none" opacity="0.25"/>
+    <path d="M-4,-62 C18,-54 48,-42 80,-28" stroke="#F5E6D3" stroke-width="1" fill="none" opacity="0.22"/>
+    <!-- R wing -->
+    <path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34 C-122,-22 -128,-8 -128,4 C-126,12 -118,20 -106,28 C-92,38 -74,46 -56,50 C-38,54 -22,52 -10,44 C-2,36 2,24 4,10 C4,-20 4,-55 4,-92Z" fill="#C41E2B" opacity="0.86"/>
+    <path d="M4,-78 C-22,-68 -56,-54 -90,-38" stroke="#F5E6D3" stroke-width="1.2" fill="none" opacity="0.25"/>
+    <path d="M4,-62 C-18,-54 -48,-42 -80,-28" stroke="#F5E6D3" stroke-width="1" fill="none" opacity="0.22"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="-28" rx="18" ry="28" fill="#1A3C6D"/>
+    <line x1="0" y1="-55" x2="0" y2="2" stroke="#D4952B" stroke-width="0.9" opacity="0.45"/>
+    <path d="M-18,-25 C-12,-28 12,-28 18,-25" stroke="#D4952B" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <polygon points="0,-42 -5,-37 0,-32 5,-37" fill="#D4952B" opacity="0.7"/>
+    <polygon points="0,-30 -5,-25 0,-20 5,-25" fill="#D4952B" opacity="0.65"/>
+    <polygon points="0,-16 -5,-11 0,-6 5,-11" fill="#D4952B" opacity="0.6"/>
+    <!-- Neck -->
+    <path d="M-8,-52 C-6,-56 6,-56 8,-52" stroke="#1A3C6D" stroke-width="2" fill="none" opacity="0.5"/>
+    <!-- Head -->
+    <circle cx="0" cy="-72" r="16" fill="#1A3C6D"/>
+    <ellipse cx="-8" cy="-70" rx="8" ry="7" fill="#1A3C6D" stroke="#D4952B" stroke-width="0.4" opacity="0.85"/>
+    <ellipse cx="8" cy="-70" rx="8" ry="7" fill="#1A3C6D" stroke="#D4952B" stroke-width="0.4" opacity="0.85"/>
+    <polygon points="-4,-86 0,-94 4,-86" fill="#D4952B" opacity="0.8"/>
+    <!-- Eyes -->
+    <circle cx="-7" cy="-76" r="4.5" fill="none" stroke="#D4952B" stroke-width="0.6" opacity="0.5"/>
+    <path d="M-9,-78 C-10,-80 -7,-82 -4,-80 C-2,-78 -4,-76 -6,-76" fill="#D4952B"/>
+    <circle cx="-7" cy="-77" r="1.3" fill="#1A3C6D"/>
+    <circle cx="7" cy="-76" r="4.5" fill="none" stroke="#D4952B" stroke-width="0.6" opacity="0.5"/>
+    <path d="M9,-78 C10,-80 7,-82 4,-80 C2,-78 4,-76 6,-76" fill="#D4952B"/>
+    <circle cx="7" cy="-77" r="1.3" fill="#1A3C6D"/>
+    <!-- Crown -->
+    <g transform="translate(0,-93)"><path d="M-9,0 C-9,-6 -4,-8 0,-8 C4,-8 9,-6 9,0" fill="none" stroke="#D4952B" stroke-width="1.3"/><circle cx="-6" cy="-2" r="2.2" fill="#D4952B" opacity="0.85"/><circle cx="0" cy="-5.5" r="2.8" fill="#D4952B" opacity="0.95"/><circle cx="6" cy="-2" r="2.2" fill="#D4952B" opacity="0.85"/></g>
+    <!-- Tail base -->
+    <path d="M-14,0 C-14,8 -12,16 -8,22 L0,18 L8,22 C12,16 14,8 14,0Z" fill="#1A3C6D" opacity="0.7"/>
+    <!-- L tail panel -->
+    <path d="M-8,22 C-14,28 -22,38 -30,52 C-36,60 -44,72 -50,82 C-46,86 -38,90 -26,90 C-16,90 -8,86 -2,80 C1,76 2,70 2,64 C2,58 0,52 -3,46 C-6,40 -8,32 -8,22Z" fill="#1A3C6D" opacity="0.92"/>
+    <!-- R tail panel -->
+    <path d="M8,22 C14,28 22,38 30,52 C36,60 44,72 50,82 C46,86 38,90 26,90 C16,90 8,86 2,80 C-1,76 -2,70 -2,64 C-2,58 0,52 3,46 C6,40 8,32 8,22Z" fill="#1A3C6D" opacity="0.9"/>
+    <line x1="-3" y1="22" x2="-18" y2="85" stroke="#D4952B" stroke-width="0.6" fill="none" opacity="0.25"/>
+    <line x1="3" y1="22" x2="18" y2="85" stroke="#D4952B" stroke-width="0.6" fill="none" opacity="0.25"/>
+    <polygon points="-8,40 -12,46 -8,52 -4,46" fill="#D4952B" opacity="0.45"/>
+    <polygon points="8,40 12,46 8,52 4,46" fill="#D4952B" opacity="0.45"/>
+    <!-- Tassels -->
+    <g transform="translate(-26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#D4952B" opacity="0.65"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="0" y1="6" x2="0" y2="13" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="3" y1="6" x2="4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/></g>
+    <g transform="translate(26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#D4952B" opacity="0.65"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="0" y1="6" x2="0" y2="13" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="3" y1="6" x2="4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/></g>
+  </g>
+</svg>

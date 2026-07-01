@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 60" width="360" height="60">
+  <title>鸢都文创 标准色板</title>
+  <rect x="0" y="0" width="60" height="60" rx="4" fill="#C41E2B"/><text x="30" y="52" text-anchor="middle" fill="#fff" font-size="8">朱砂红</text>
+  <rect x="64" y="0" width="60" height="60" rx="4" fill="#1A3C6D"/><text x="94" y="52" text-anchor="middle" fill="#fff" font-size="8">藏蓝</text>
+  <rect x="128" y="0" width="60" height="60" rx="4" fill="#D4952B"/><text x="158" y="52" text-anchor="middle" fill="#fff" font-size="8">鎏金</text>
+  <rect x="192" y="0" width="60" height="60" rx="4" fill="#4B8B7F"/><text x="222" y="52" text-anchor="middle" fill="#fff" font-size="8">石绿</text>
+  <rect x="256" y="0" width="60" height="60" rx="4" fill="#E85D8B"/><text x="286" y="52" text-anchor="middle" fill="#fff" font-size="8">桃红</text>
+  <rect x="320" y="0" width="40" height="60" rx="4" fill="#F5E6D3" stroke="#ddd" stroke-width="0.5"/><text x="340" y="52" text-anchor="middle" fill="#666" font-size="7">宣纸白</text>
+</svg>

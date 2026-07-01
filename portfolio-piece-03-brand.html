@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>META · 品牌视觉实验</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d14;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'PingFang SC','Microsoft YaHei',sans-serif}
+
+.container{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:24px;max-width:1060px}
+
+.panel{width:440px;height:620px;border-radius:12px;overflow:hidden;position:relative}
+
+/* ===== PANEL 1: Brand Identity — META STUDIO ===== */
+.brand1{background:linear-gradient(160deg,#0a0a16 0%,#12102a 50%,#0d0d20 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 40px}
+.brand1 .logo-mark{position:relative;width:120px;height:120px;margin-bottom:48px}
+.brand1 .logo-mark .hex{position:absolute;inset:0;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.brand1 .logo-mark .hex-outer{background:linear-gradient(135deg,rgba(140,120,255,0.15),rgba(0,200,160,0.1));inset:0}
+.brand1 .logo-mark .hex-inner{background:linear-gradient(135deg,rgba(160,140,255,0.3),rgba(0,210,170,0.2));inset:12px}
+.brand1 .logo-mark .hex-core{background:linear-gradient(135deg,#a088ff,#00cca0);inset:32px}
+.brand1 .logo-mark .ring{position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(255,255,255,0.06)}
+.brand1 .logo-mark .ring2{position:absolute;inset:-35px;border-radius:50%;border:1px dashed rgba(255,255,255,0.03)}
+.brand1 .brand-name{font-family:'Georgia',serif;font-size:24px;font-weight:700;letter-spacing:10px;color:#e0d8ff;margin-bottom:6px}
+.brand1 .brand-tagline{font-size:10px;letter-spacing:6px;color:rgba(180,170,220,0.4);margin-bottom:40px}
+.brand1 .brand-colors{display:flex;gap:16px;margin-bottom:48px}
+.brand1 .brand-colors .swatch{text-align:center}
+.brand1 .brand-colors .swatch .circle{width:32px;height:32px;border-radius:50%;margin-bottom:8px;border:1px solid rgba(255,255,255,0.08)}
+.brand1 .brand-colors .swatch .hex-code{font-family:'Georgia',serif;font-size:9px;letter-spacing:1px;color:rgba(180,180,200,0.35)}
+.brand1 .brand-colors .c1 .circle{background:#a088ff}
+.brand1 .brand-colors .c2 .circle{background:#00cca0}
+.brand1 .brand-colors .c3 .circle{background:#ff5c8a}
+.brand1 .brand-colors .c4 .circle{background:#1a1a30;border-color:rgba(255,255,255,0.15)}
+.brand1 .brand-apps{display:flex;gap:12px}
+.brand1 .brand-apps .app-preview{width:60px;height:80px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden}
+.brand1 .brand-apps .ap1{background:linear-gradient(180deg,rgba(160,136,255,0.5) 0%,rgba(0,204,160,0.3) 100%)}
+.brand1 .brand-apps .ap2{background:linear-gradient(180deg,rgba(0,204,160,0.5) 0%,rgba(160,136,255,0.3) 100%)}
+.brand1 .brand-apps .ap3{background:linear-gradient(180deg,rgba(255,92,138,0.4) 0%,rgba(160,136,255,0.3) 100%)}
+.brand1 .brand-apps .ap-label{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-size:6px;color:rgba(255,255,255,0.6);letter-spacing:1px;white-space:nowrap}
+
+/* ===== PANEL 2: Product Visual — AI Device Concept ===== */
+.brand2{background:linear-gradient(200deg,#050510 0%,#0e1028 40%,#130f20 100%);display:flex;align-items:center;justify-content:center;flex-direction:column}
+.brand2 .device{position:relative;width:180px;height:260px;margin-bottom:40px}
+.brand2 .device .body{position:absolute;inset:0;border-radius:28px;background:linear-gradient(160deg,rgba(30,28,50,0.9),rgba(20,18,38,0.95));border:1px solid rgba(255,255,255,0.08);box-shadow:0 20px 60px rgba(100,80,200,0.15),inset 0 1px 0 rgba(255,255,255,0.03)}
+.brand2 .device .screen{position:absolute;top:16px;left:10px;right:10px;bottom:16px;border-radius:20px;background:linear-gradient(180deg,rgba(10,8,30,0.95),rgba(15,12,35,0.98));overflow:hidden;border:1px solid rgba(255,255,255,0.05)}
+.brand2 .device .screen .ui-element{position:absolute;border-radius:4px}
+.brand2 .device .screen .ui1{top:20px;left:15px;right:15px;height:3px;background:linear-gradient(90deg,rgba(160,136,255,0.5),rgba(0,204,160,0.3),transparent);border-radius:2px}
+.brand2 .device .screen .ui2{top:36px;left:15px;width:50px;height:30px;border-radius:8px;background:rgba(160,136,255,0.12);border:1px solid rgba(160,136,255,0.15)}
+.brand2 .device .screen .ui3{top:36px;right:15px;width:50px;height:30px;border-radius:8px;background:rgba(0,204,160,0.08);border:1px solid rgba(0,204,160,0.12)}
+.brand2 .device .screen .ui4{top:80px;left:15px;right:15px;height:50px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04)}
+.brand2 .device .screen .ui5{top:145px;left:15px;right:60px;height:6px;border-radius:3px;background:rgba(200,180,220,0.2)}
+.brand2 .device .screen .ui6{top:160px;left:15px;right:30px;height:6px;border-radius:3px;background:rgba(200,180,220,0.1)}
+.brand2 .device .screen .ui7{top:185px;left:15px;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,rgba(160,136,255,0.25),rgba(0,204,160,0.15));border:1px solid rgba(255,255,255,0.06);right:auto}
+.brand2 .device .glow{position:absolute;top:40px;left:-20px;right:-20px;height:80px;background:radial-gradient(ellipse at center,rgba(160,136,255,0.15),transparent 70%)}
+.brand2 .product-name{font-family:'Georgia',serif;font-size:14px;letter-spacing:8px;color:rgba(220,210,240,0.6);margin-bottom:8px}
+.brand2 .product-desc{font-size:10px;letter-spacing:4px;color:rgba(160,150,180,0.3)}
+
+/* ===== PANEL 3: Editorial Spread ===== */
+.brand3{background:#0c0c18;padding:50px 40px;display:flex;gap:30px}
+.brand3 .col-left{width:90px;display:flex;flex-direction:column;gap:20px}
+.brand3 .col-left .issue-tag{writing-mode:vertical-rl;font-family:'Georgia',serif;font-size:10px;letter-spacing:6px;color:rgba(180,160,220,0.4)}
+.brand3 .col-left .issue-num{font-family:'Georgia',serif;font-size:48px;font-weight:700;color:rgba(200,180,240,0.08);line-height:1}
+.brand3 .col-right{flex:1;display:flex;flex-direction:column;gap:20px}
+.brand3 .col-right .article-title{font-size:20px;font-weight:700;letter-spacing:4px;color:rgba(220,210,240,0.7);line-height:1.4}
+.brand3 .col-right .article-body{font-size:9px;letter-spacing:2px;color:rgba(160,150,190,0.3);line-height:2.2}
+.brand3 .col-right .image-block{flex:1;border-radius:8px;background:linear-gradient(135deg,rgba(100,80,200,0.12),rgba(0,200,160,0.08));border:1px solid rgba(255,255,255,0.04);position:relative;overflow:hidden;min-height:120px}
+.brand3 .col-right .image-block .gradient-overlay{position:absolute;inset:0;background:linear-gradient(45deg,rgba(160,136,255,0.1),transparent 60%,rgba(0,204,160,0.08))}
+.brand3 .col-right .image-block .geo-accent{position:absolute;top:20px;right:20px;width:60px;height:60px;border:1px solid rgba(180,160,220,0.15);border-radius:50%}
+.brand3 .col-right .image-block .geo-accent2{position:absolute;bottom:20px;left:20px;width:40px;height:40px;border:1px solid rgba(0,204,160,0.12);transform:rotate(45deg)}
+
+/* ===== PANEL 4: Motion Graphics Still ===== */
+.brand4{background:linear-gradient(180deg,#090910 0%,#0f0b1e 50%,#0a0a15 100%)}
+.brand4 .motion-frame{position:absolute;inset:40px;display:flex;align-items:center;justify-content:center}
+.brand4 .motion-frame .burst{position:absolute;width:200px;height:200px}
+.brand4 .motion-frame .burst .ray{position:absolute;top:50%;left:50%;width:1px;height:60px;background:linear-gradient(180deg,rgba(200,180,255,0.4),transparent);transform-origin:top center}
+.brand4 .motion-frame .burst .r1{transform:translate(-50%,0) rotate(0deg)}.brand4 .motion-frame .burst .r2{transform:translate(-50%,0) rotate(30deg)}
+.brand4 .motion-frame .burst .r3{transform:translate(-50%,0) rotate(60deg)}.brand4 .motion-frame .burst .r4{transform:translate(-50%,0) rotate(90deg)}
+.brand4 .motion-frame .burst .r5{transform:translate(-50%,0) rotate(120deg)}.brand4 .motion-frame .burst .r6{transform:translate(-50%,0) rotate(150deg)}
+.brand4 .motion-frame .burst .r7{transform:translate(-50%,0) rotate(180deg)}.brand4 .motion-frame .burst .r8{transform:translate(-50%,0) rotate(210deg)}
+.brand4 .motion-frame .burst .r9{transform:translate(-50%,0) rotate(240deg)}.brand4 .motion-frame .burst .r10{transform:translate(-50%,0) rotate(270deg)}
+.brand4 .motion-frame .burst .r11{transform:translate(-50%,0) rotate(300deg)}.brand4 .motion-frame .burst .r12{transform:translate(-50%,0) rotate(330deg)}
+.brand4 .motion-frame .center-dot{width:8px;height:8px;border-radius:50%;background:#c8b8ff;box-shadow:0 0 30px rgba(180,160,255,0.6);z-index:2}
+.brand4 .motion-frame .orbit{position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid rgba(255,255,255,0.05)}
+.brand4 .motion-frame .orbit2{width:180px;height:180px;border-radius:50%;border:1px dashed rgba(255,255,255,0.03)}
+.brand4 .caption-bar{position:absolute;bottom:50px;left:50px;right:50px}
+.brand4 .caption-bar .title{font-family:'Georgia',serif;font-size:13px;letter-spacing:6px;color:rgba(200,190,220,0.5);margin-bottom:8px}
+.brand4 .caption-bar .bar{height:1px;background:linear-gradient(90deg,rgba(160,140,220,0.3),transparent);margin-bottom:8px}
+.brand4 .caption-bar .meta{font-size:8px;letter-spacing:4px;color:rgba(140,130,160,0.25)}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Panel 1: Brand Identity -->
+  <div class="panel brand1">
+    <div class="logo-mark">
+      <div class="ring2"></div><div class="ring"></div>
+      <div class="hex hex-outer"></div><div class="hex hex-inner"></div><div class="hex hex-core"></div>
+    </div>
+    <div class="brand-name">META STUDIO</div>
+    <div class="brand-tagline">A I · D E S I G N · F U T U R E</div>
+    <div class="brand-colors">
+      <div class="swatch c1"><div class="circle"></div><div class="hex-code">#A088FF</div></div>
+      <div class="swatch c2"><div class="circle"></div><div class="hex-code">#00CCA0</div></div>
+      <div class="swatch c3"><div class="circle"></div><div class="hex-code">#FF5C8A</div></div>
+      <div class="swatch c4"><div class="circle"></div><div class="hex-code">#1A1A30</div></div>
+    </div>
+    <div class="brand-apps">
+      <div class="app-preview ap1"><span class="ap-label">APP</span></div>
+      <div class="app-preview ap2"><span class="ap-label">WEB</span></div>
+      <div class="app-preview ap3"><span class="ap-label">CARD</span></div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Product Visual -->
+  <div class="panel brand2">
+    <div class="device">
+      <div class="glow"></div>
+      <div class="body"></div>
+      <div class="screen">
+        <div class="ui-element ui1"></div><div class="ui-element ui2"></div><div class="ui-element ui3"></div>
+        <div class="ui-element ui4"></div><div class="ui-element ui5"></div><div class="ui-element ui6"></div>
+        <div class="ui-element ui7"></div>
+      </div>
+    </div>
+    <div class="product-name">AI NATIVE HUB</div>
+    <div class="product-desc">A I 原 生 设 计 工 具 · 概 念 视 觉</div>
+  </div>
+
+  <!-- Panel 3: Editorial Spread -->
+  <div class="panel brand3">
+    <div class="col-left">
+      <div class="issue-tag">DESIGN · VOL.01</div>
+      <div class="issue-num">01</div>
+    </div>
+    <div class="col-right">
+      <div class="article-title">当算法<br>开始创作：<br>AIGC与<br>视觉设计<br>的下一章</div>
+      <div class="article-body">The convergence of artificial intelligence and visual design is reshaping how we conceive, create, and deliver brand experiences. This is not a replacement — it's an amplification of human creativity.</div>
+      <div class="image-block">
+        <div class="gradient-overlay"></div>
+        <div class="geo-accent"></div>
+        <div class="geo-accent2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 4: Motion Graphics Still -->
+  <div class="panel brand4">
+    <div class="motion-frame">
+      <div class="burst">
+        <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div><div class="ray r4"></div>
+        <div class="ray r5"></div><div class="ray r6"></div><div class="ray r7"></div><div class="ray r8"></div>
+        <div class="ray r9"></div><div class="ray r10"></div><div class="ray r11"></div><div class="ray r12"></div>
+      </div>
+      <div class="orbit"></div><div class="orbit2"></div>
+      <div class="center-dot"></div>
+    </div>
+    <div class="caption-bar">
+      <div class="title">PULSE / 脉 冲</div>
+      <div class="bar"></div>
+      <div class="meta">MOTION GRAPHICS · STILL FRAME · 2026</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸢都文创 — 辅助图形</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #F5E6D3;
+  color: #1A3C6D;
+  font-family: 'KaiTi', 'STKaiti', 'SimKai', Georgia, serif;
+  line-height: 1.7;
+}
+.page-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 30px; }
+h1 {
+  font-size: 38px; text-align: center; color: #C41E2B;
+  letter-spacing: 6px; margin-bottom: 6px;
+}
+h1 small {
+  display: block; font-size: 16px; color: #1A3C6D;
+  font-family: Georgia, serif; letter-spacing: 3px;
+  font-weight: normal; margin-top: 4px;
+}
+h2 {
+  font-size: 26px; color: #1A3C6D; border-left: 5px solid #C41E2B;
+  padding-left: 16px; margin: 50px 0 24px; letter-spacing: 2px;
+}
+h2 small { font-size: 15px; color: #888; font-weight: normal; margin-left: 12px; }
+h3 { font-size: 20px; margin: 28px 0 14px; color: #1A3C6D; letter-spacing: 1px; }
+p { font-size: 15px; color: #555; margin-bottom: 12px; }
+
+/* —— Kite icon grid —— */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px; margin: 20px 0;
+}
+.icon-card {
+  background: #fff; border-radius: 12px; padding: 24px 16px 18px;
+  text-align: center; box-shadow: 0 2px 12px rgba(26,60,109,0.06);
+  transition: transform 0.2s;
+}
+.icon-card:hover { transform: translateY(-3px); box-shadow: 0 4px 18px rgba(26,60,109,0.12); }
+.icon-card svg { width: 70px; height: 70px; display: block; margin: 0 auto 12px; }
+.icon-card .label-cn { font-size: 17px; color: #1A3C6D; }
+.icon-card .label-py { font-size: 13px; color: #999; font-style: italic; margin-top: 2px; }
+
+/* —— Application methods —— */
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px; margin: 24px 0;
+}
+.method-card {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(26,60,109,0.06);
+}
+.method-card .preview {
+  height: 180px; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.method-card .info { padding: 16px 20px; }
+.method-card .info h4 { font-size: 17px; color: #C41E2B; margin-bottom: 4px; }
+.method-card .info h4 small { font-size: 13px; color: #888; font-weight: normal; margin-left: 8px; }
+.method-card .info p { font-size: 14px; color: #666; }
+
+/* Pattern fill method - repeating icons */
+.pattern-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100%; height: 100%;
+}
+.pattern-preview .cell {
+  display: flex; align-items: center; justify-content: center;
+}
+.pattern-preview .cell svg { width: 40px; height: 40px; opacity: 0.7; }
+
+/* Standalone */
+.standalone-preview { padding: 20px; }
+.standalone-preview svg { width: 80px; height: 80px; }
+
+/* Combination collage */
+.combo-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 6px; width: 100%; height: 100%; padding: 16px;
+  background: linear-gradient(135deg, #1A3C6D, #2a5a9e);
+}
+.combo-preview svg { width: 44px; height: 44px; opacity: 0.85; filter: brightness(10) invert(1); }
+
+/* Gold line art */
+.gold-preview {
+  background: #1A3C6D; padding: 20px; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+.gold-preview svg { width: 70px; height: 70px; }
+
+/* Gold filter style */
+.gold-svg { filter: brightness(0) saturate(100%) sepia(60%) hue-rotate(5deg) brightness(110%) saturate(120%); }
+.gold-svg path, .gold-svg circle, .gold-svg ellipse, .gold-svg polygon, .gold-svg rect { stroke: #D4952B !important; fill: #D4952B !important; }
+.gold-svg .no-fill { fill: none !important; }
+
+/* Misc */
+hr { border: none; border-top: 1px solid #e0d5c3; margin: 50px 0; }
+.note { font-size: 13px; color: #999; font-style: italic; }
+
+/* Color usage hint */
+.color-tag {
+  display: inline-block; font-size: 11px; padding: 2px 8px;
+  border-radius: 3px; margin: 4px 3px 0;
+}
+.tag-red { background: #C41E2B; color: #fff; }
+.tag-blue { background: #1A3C6D; color: #fff; }
+.tag-gold { background: #D4952B; color: #fff; }
+.tag-pink { background: #E85D8B; color: #fff; }
+.tag-green { background: #4B8B7F; color: #fff; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+<h1>鸢都文创<small>YUANDU WENCHUANG · Auxiliary Graphics</small></h1>
+
+<section>
+<h2>十大辅助图形 <small>10 Kite Motif Icons</small></h2>
+<p>以下十种潍坊传统风筝造型作为品牌辅助图形使用，可灵活应用于底纹、点缀、组合及线稿烫金等场景。</p>
+
+<div class="icon-grid">
+
+  <!-- 1. 沙燕 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="22" r="10" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <circle cx="33" cy="26" r="5" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1"/>
+      <circle cx="47" cy="26" r="5" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1"/>
+      <ellipse cx="36" cy="20" rx="3" ry="3.5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1"/>
+      <ellipse cx="44" cy="20" rx="3" ry="3.5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1"/>
+      <circle cx="36" cy="20" r="1.8" fill="#1A3C6D"/>
+      <circle cx="44" cy="20" r="1.8" fill="#1A3C6D"/>
+      <path d="M 37,32 L 40,35 L 43,32" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 40,34 C 42,38 46,42 46,46 C 46,50 42,53 40,54 C 38,53 34,50 34,46 C 34,42 38,38 40,34 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <path d="M 36,42 C 30,38 18,36 12,38 C 8,39 7,42 7,45 C 7,49 10,53 14,53 C 22,53 32,50 38,53" fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 44,42 C 50,38 62,36 68,38 C 72,39 73,42 73,45 C 73,49 70,53 66,53 C 58,53 48,50 42,53" fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 38,54 L 28,72 L 40,66 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 42,54 L 52,72 L 40,66 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 30,72 L 30,78" stroke="#C41E2B" stroke-width="1"/><circle cx="30" cy="79" r="1.5" fill="#C41E2B"/>
+      <path d="M 40,72 L 40,78" stroke="#D4952B" stroke-width="1"/><circle cx="40" cy="79" r="2" fill="#D4952B"/>
+      <path d="M 50,72 L 50,78" stroke="#C41E2B" stroke-width="1"/><circle cx="50" cy="79" r="1.5" fill="#C41E2B"/>
+    </svg>
+    <div class="label-cn">沙燕</div>
+    <div class="label-py">Shā Yàn — Swallow</div>
+    <div><span class="color-tag tag-red">红</span><span class="color-tag tag-blue">蓝</span></div>
+  </div>
+
+  <!-- 2. 龙头蜈蚣 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 14,32 C 18,26 28,22 36,24 L 38,28 C 32,26 24,28 20,34 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <circle cx="24" cy="30" r="8" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <circle cx="21" cy="28" r="2.5" fill="#F5E6D3"/>
+      <circle cx="27" cy="28" r="2.5" fill="#F5E6D3"/>
+      <circle cx="21" cy="28" r="1.2" fill="#1A3C6D"/>
+      <circle cx="27" cy="28" r="1.2" fill="#1A3C6D"/>
+      <path d="M 20,38 C 22,42 26,42 28,38" fill="none" stroke="#1A3C6D" stroke-width="1"/>
+      <!-- Antennae -->
+      <path d="M 18,24 C 16,18 12,16 10,14" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+      <path d="M 22,22 C 22,16 24,12 26,10" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+      <circle cx="10" cy="14" r="1.5" fill="#D4952B"/>
+      <circle cx="26" cy="10" r="1.5" fill="#D4952B"/>
+      <!-- Body segments -->
+      <path d="M 30,34 C 38,30 46,34 54,32 C 58,31 62,34 60,38 C 56,40 48,38 42,40 C 36,42 28,38 30,34 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 36,35 C 40,34 44,34 48,35" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <path d="M 52,33 C 56,32 60,34 58,36" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <!-- More body -->
+      <path d="M 58,36 L 62,40 L 66,36 L 64,42 L 68,46" fill="none" stroke="#C41E2B" stroke-width="1.5"/>
+      <circle cx="66" cy="42" r="3" fill="#D4952B"/>
+      <circle cx="72" cy="48" r="2.5" fill="#D4952B"/>
+      <!-- Legs -->
+      <line x1="32" y1="36" x2="30" y2="44" stroke="#1A3C6D" stroke-width="0.8"/>
+      <line x1="40" y1="38" x2="38" y2="46" stroke="#1A3C6D" stroke-width="0.8"/>
+      <line x1="48" y1="37" x2="46" y2="45" stroke="#1A3C6D" stroke-width="0.8"/>
+      <line x1="36" y1="36" x2="36" y2="44" stroke="#1A3C6D" stroke-width="0.8"/>
+      <line x1="44" y1="38" x2="44" y2="46" stroke="#1A3C6D" stroke-width="0.8"/>
+      <line x1="52" y1="36" x2="52" y2="44" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Tail -->
+      <path d="M 72,48 C 74,52 72,56 68,58" fill="none" stroke="#D4952B" stroke-width="1"/>
+      <circle cx="68" cy="58" r="1.5" fill="#C41E2B"/>
+    </svg>
+    <div class="label-cn">龙头蜈蚣</div>
+    <div class="label-py">Lóng Tóu Wúgōng — Dragon Centipede</div>
+    <div><span class="color-tag tag-red">红</span><span class="color-tag tag-gold">金</span></div>
+  </div>
+
+  <!-- 3. 蝴蝶 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="40" cy="40" rx="6" ry="10" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 38,34 C 28,26 14,26 12,36 C 10,46 22,44 38,38" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 42,34 C 52,26 66,26 68,36 C 70,46 58,44 42,38" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 38,46 C 30,54 16,54 14,44 C 12,34 24,38 38,42" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1" opacity="0.8"/>
+      <path d="M 42,46 C 50,54 64,54 66,44 C 68,34 56,38 42,42" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1" opacity="0.8"/>
+      <!-- Wing patterns -->
+      <circle cx="24" cy="34" r="5" fill="#F5E6D3" opacity="0.6"/>
+      <circle cx="56" cy="34" r="5" fill="#F5E6D3" opacity="0.6"/>
+      <circle cx="22" cy="40" r="3" fill="#1A3C6D" opacity="0.4"/>
+      <circle cx="58" cy="40" r="3" fill="#1A3C6D" opacity="0.4"/>
+      <!-- Antennae -->
+      <path d="M 36,32 C 30,24 26,16 22,12" fill="none" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 44,32 C 50,24 54,16 58,12" fill="none" stroke="#1A3C6D" stroke-width="1.2"/>
+      <circle cx="22" cy="12" r="1.5" fill="#E85D8B"/>
+      <circle cx="58" cy="12" r="1.5" fill="#E85D8B"/>
+    </svg>
+    <div class="label-cn">蝴蝶</div>
+    <div class="label-py">Hú Dié — Butterfly</div>
+    <div><span class="color-tag tag-pink">粉</span><span class="color-tag tag-blue">蓝</span></div>
+  </div>
+
+  <!-- 4. 老鹰 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 40,24 C 44,28 50,34 52,40 C 48,44 44,48 40,50 C 36,48 32,44 28,40 C 30,34 36,28 40,24 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <circle cx="37" cy="34" r="2.5" fill="#F5E6D3"/>
+      <circle cx="43" cy="34" r="2.5" fill="#F5E6D3"/>
+      <circle cx="37" cy="34" r="1.2" fill="#1A3C6D"/>
+      <circle cx="43" cy="34" r="1.2" fill="#1A3C6D"/>
+      <path d="M 40,38 C 39,40 41,40 40,38" stroke="#1A3C6D" stroke-width="1" fill="none"/>
+      <path d="M 38,42 L 40,44 L 42,42" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Wings spread -->
+      <path d="M 28,40 C 18,30 6,28 4,34 C 2,40 12,44 28,42" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 52,40 C 62,30 74,28 76,34 C 78,40 68,44 52,42" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Tail -->
+      <path d="M 36,50 L 34,62 L 40,58 L 46,62 L 44,50" fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Talons -->
+      <path d="M 38,48 L 36,56" stroke="#D4952B" stroke-width="1"/>
+      <path d="M 42,48 L 44,56" stroke="#D4952B" stroke-width="1"/>
+    </svg>
+    <div class="label-cn">老鹰</div>
+    <div class="label-py">Lǎo Yīng — Eagle</div>
+    <div><span class="color-tag tag-red">红</span></div>
+  </div>
+
+  <!-- 5. 金鱼 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="38" cy="40" rx="16" ry="10" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <!-- Head -->
+      <circle cx="24" cy="38" r="8" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.5"/>
+      <!-- Bubble eyes -->
+      <circle cx="20" cy="34" r="4" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <circle cx="20" cy="34" r="2" fill="#1A3C6D"/>
+      <circle cx="28" cy="34" r="3.5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <circle cx="28" cy="34" r="1.8" fill="#1A3C6D"/>
+      <!-- Tail (flowing) -->
+      <path d="M 54,40 C 64,30 74,28 76,34 C 78,40 74,46 68,48 C 62,50 56,46 54,44" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 54,40 C 62,50 70,54 74,48 C 76,44 72,40 68,42 C 62,44 58,42 54,40" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8" opacity="0.7"/>
+      <!-- Fins -->
+      <path d="M 36,30 C 38,24 42,22 44,26 C 42,28 40,30 36,30" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 40,50 C 42,54 46,56 46,52 C 44,50 42,50 40,50" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Scales suggestion -->
+      <path d="M 30,36 C 32,34 36,34 38,36 C 36,38 32,38 30,36" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <path d="M 34,40 C 36,38 40,38 42,40 C 40,42 36,42 34,40" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+    </svg>
+    <div class="label-cn">金鱼</div>
+    <div class="label-py">Jīn Yú — Goldfish</div>
+    <div><span class="color-tag tag-pink">粉</span><span class="color-tag tag-gold">金</span></div>
+  </div>
+
+  <!-- 6. 仙鹤 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="42" cy="40" rx="10" ry="14" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Neck -->
+      <path d="M 38,28 C 34,20 30,16 28,14" fill="none" stroke="#F5E6D3" stroke-width="5"/>
+      <path d="M 38,28 C 34,20 30,16 28,14" fill="none" stroke="#1A3C6D" stroke-width="1.5"/>
+      <!-- Head -->
+      <circle cx="28" cy="13" r="5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Red crown -->
+      <circle cx="26" cy="10" r="3" fill="#C41E2B"/>
+      <!-- Beak -->
+      <path d="M 24,14 L 18,16 L 24,16" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Eye -->
+      <circle cx="27" cy="12" r="1.2" fill="#1A3C6D"/>
+      <!-- Wing -->
+      <path d="M 44,32 C 54,30 62,36 60,44 C 58,48 50,48 44,48" fill="#4B8B7F" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 46,36 C 52,36 56,40 54,44" fill="none" stroke="#F5E6D3" stroke-width="0.8" stroke-dasharray="2,2"/>
+      <!-- Tail feathers -->
+      <path d="M 44,52 C 48,58 52,62 58,64" fill="none" stroke="#1A3C6D" stroke-width="1.5"/>
+      <path d="M 42,52 C 44,60 46,64 50,66" fill="none" stroke="#1A3C6D" stroke-width="1.5"/>
+      <!-- Legs -->
+      <line x1="40" y1="52" x2="38" y2="68" stroke="#1A3C6D" stroke-width="1.2"/>
+      <line x1="44" y1="52" x2="46" y2="68" stroke="#1A3C6D" stroke-width="1.2"/>
+    </svg>
+    <div class="label-cn">仙鹤</div>
+    <div class="label-py">Xiān Hè — Crane</div>
+    <div><span class="color-tag tag-blue">蓝</span><span class="color-tag tag-green">绿</span></div>
+  </div>
+
+  <!-- 7. 凤凰 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="38" cy="40" rx="8" ry="10" fill="#D4952B" stroke="#C41E2B" stroke-width="1.5"/>
+      <!-- Head -->
+      <circle cx="32" cy="28" r="6" fill="#D4952B" stroke="#C41E2B" stroke-width="1.2"/>
+      <!-- Crown -->
+      <path d="M 30,23 C 28,18 26,16 24,14" fill="none" stroke="#C41E2B" stroke-width="1.2"/>
+      <circle cx="24" cy="14" r="1.8" fill="#C41E2B"/>
+      <path d="M 32,22 C 32,16 34,14 36,12" fill="none" stroke="#C41E2B" stroke-width="1.2"/>
+      <circle cx="36" cy="12" r="1.8" fill="#C41E2B"/>
+      <!-- Beak -->
+      <path d="M 27,28 L 20,30 L 26,30" fill="#C41E2B" stroke="#C41E2B" stroke-width="0.8"/>
+      <!-- Eye -->
+      <circle cx="31" cy="27" r="1.5" fill="#1A3C6D"/>
+      <!-- Left wing -->
+      <path d="M 34,34 C 22,28 10,30 8,38 C 6,46 18,46 34,40" fill="#C41E2B" stroke="#C41E2B" stroke-width="1.2"/>
+      <path d="M 10,36 C 14,34 20,34 26,36" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <!-- Right wing -->
+      <path d="M 42,34 C 54,28 66,30 68,38 C 70,46 58,46 42,40" fill="#C41E2B" stroke="#C41E2B" stroke-width="1.2"/>
+      <path d="M 66,36 C 62,34 56,34 50,36" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <!-- Tail feathers -->
+      <path d="M 40,50 C 46,58 52,62 60,66" fill="none" stroke="#C41E2B" stroke-width="2"/>
+      <path d="M 38,50 C 40,60 46,66 52,70" fill="none" stroke="#D4952B" stroke-width="2"/>
+      <path d="M 36,50 C 32,60 30,66 28,72" fill="none" stroke="#C41E2B" stroke-width="1.5"/>
+      <!-- Feather tips -->
+      <circle cx="60" cy="66" r="2" fill="#D4952B"/>
+      <circle cx="52" cy="70" r="2" fill="#C41E2B"/>
+      <circle cx="28" cy="72" r="1.5" fill="#D4952B"/>
+    </svg>
+    <div class="label-cn">凤凰</div>
+    <div class="label-py">Fèng Huáng — Phoenix</div>
+    <div><span class="color-tag tag-gold">金</span><span class="color-tag tag-red">红</span></div>
+  </div>
+
+  <!-- 8. 花鸟牡丹 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Peony center -->
+      <circle cx="40" cy="42" r="8" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Peony petals -->
+      <path d="M 32,38 C 28,32 34,28 38,34 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 48,38 C 52,32 46,28 42,34 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 34,48 C 28,52 32,56 38,50 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 46,48 C 52,52 48,56 42,50 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 32,42 C 26,42 28,36 34,40 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 48,42 C 54,42 52,36 46,40 Z" fill="#E85D8B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Peony center dots -->
+      <circle cx="38" cy="40" r="1.5" fill="#D4952B"/>
+      <circle cx="42" cy="40" r="1.5" fill="#D4952B"/>
+      <circle cx="40" cy="44" r="1.5" fill="#D4952B"/>
+      <!-- Leaves -->
+      <path d="M 28,44 C 22,48 18,46 20,42 C 22,38 26,40 28,44 Z" fill="#4B8B7F" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 52,44 C 58,48 62,46 60,42 C 58,38 54,40 52,44 Z" fill="#4B8B7F" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 36,50 C 34,56 30,58 28,54 C 26,50 32,48 36,50 Z" fill="#4B8B7F" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 44,50 C 46,56 50,58 52,54 C 54,50 48,48 44,50 Z" fill="#4B8B7F" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Small bird -->
+      <ellipse cx="60" cy="26" rx="5" ry="3" fill="#1A3C6D"/>
+      <circle cx="56" cy="24" r="2.5" fill="#1A3C6D"/>
+      <circle cx="55" cy="23" r="0.8" fill="#F5E6D3"/>
+      <path d="M 54,25 L 50,26 L 54,27" fill="#D4952B"/>
+    </svg>
+    <div class="label-cn">花鸟牡丹</div>
+    <div class="label-py">Huā Niǎo Mǔ Dān — Flower & Peony</div>
+    <div><span class="color-tag tag-pink">粉</span><span class="color-tag tag-green">绿</span></div>
+  </div>
+
+  <!-- 9. 蝙蝠 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body -->
+      <ellipse cx="40" cy="42" rx="8" ry="10" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Head -->
+      <circle cx="40" cy="32" r="6" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Ears -->
+      <path d="M 36,28 L 32,22 L 36,26" fill="#C41E2B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 44,28 L 48,22 L 44,26" fill="#C41E2B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Eyes -->
+      <circle cx="37" cy="31" r="1.5" fill="#F5E6D3"/>
+      <circle cx="43" cy="31" r="1.5" fill="#F5E6D3"/>
+      <circle cx="37" cy="31" r="0.8" fill="#1A3C6D"/>
+      <circle cx="43" cy="31" r="0.8" fill="#1A3C6D"/>
+      <!-- Wings -->
+      <path d="M 34,38 C 20,28 8,30 6,36 C 4,42 14,48 32,42"
+            fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+      <path d="M 46,38 C 60,28 72,30 74,36 C 76,42 66,48 48,42"
+            fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Wing ribs -->
+      <path d="M 30,38 C 22,34 14,36 10,40" fill="none" stroke="#C41E2B" stroke-width="0.6"/>
+      <path d="M 50,38 C 58,34 66,36 70,40" fill="none" stroke="#C41E2B" stroke-width="0.6"/>
+      <!-- Feet -->
+      <path d="M 38,52 L 36,58" stroke="#1A3C6D" stroke-width="0.8"/>
+      <path d="M 42,52 L 44,58" stroke="#1A3C6D" stroke-width="0.8"/>
+    </svg>
+    <div class="label-cn">蝙蝠</div>
+    <div class="label-py">Biān Fú — Bat</div>
+    <div><span class="color-tag tag-red">红</span><span class="color-tag tag-blue">蓝</span></div>
+  </div>
+
+  <!-- 10. 宫灯板鹞 -->
+  <div class="icon-card">
+    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <!-- Frame -->
+      <rect x="18" y="14" width="44" height="48" rx="3" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+      <!-- Inner panels -->
+      <rect x="22" y="18" width="16" height="20" rx="2" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <rect x="42" y="18" width="16" height="20" rx="2" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <rect x="22" y="40" width="16" height="18" rx="2" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <rect x="42" y="40" width="16" height="18" rx="2" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="0.8"/>
+      <!-- Decorative dots in panels -->
+      <circle cx="30" cy="28" r="3" fill="#C41E2B"/>
+      <circle cx="50" cy="28" r="3" fill="#C41E2B"/>
+      <circle cx="30" cy="49" r="2.5" fill="#E85D8B"/>
+      <circle cx="50" cy="49" r="2.5" fill="#E85D8B"/>
+      <!-- Top ornament -->
+      <path d="M 36,14 L 40,6 L 44,14" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+      <circle cx="40" cy="5" r="2.5" fill="#C41E2B"/>
+      <!-- Bottom tassel -->
+      <path d="M 38,62 L 38,70" stroke="#D4952B" stroke-width="1"/>
+      <circle cx="38" cy="72" r="2.5" fill="#D4952B"/>
+      <path d="M 42,62 L 42,68" stroke="#D4952B" stroke-width="0.8"/>
+      <circle cx="42" cy="69" r="1.5" fill="#C41E2B"/>
+      <!-- Side decorations -->
+      <path d="M 18,30 L 12,32 L 18,34" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+      <path d="M 62,30 L 68,32 L 62,34" fill="none" stroke="#D4952B" stroke-width="0.8"/>
+    </svg>
+    <div class="label-cn">宫灯板鹞</div>
+    <div class="label-py">Gōng Dēng Bǎn Yào — Palace Lantern</div>
+    <div><span class="color-tag tag-red">红</span><span class="color-tag tag-blue">蓝</span><span class="color-tag tag-gold">金</span></div>
+  </div>
+
+</div>
+</section>
+
+<hr>
+
+<section>
+<h2>应用方法 <small>Application Methods</small></h2>
+<p>辅助图形可根据设计需求选择以下四种应用方式，灵活适配不同载体。</p>
+
+<div class="methods-grid">
+  <!-- 1. Pattern Fill -->
+  <div class="method-card">
+    <div class="preview" style="background:#F5E6D3;">
+      <div class="pattern-preview">
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><ellipse cx="18" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><ellipse cx="22" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><circle cx="18" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><circle cx="22" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/><path d="M 18,22 C 14,20 8,18 6,20 C 4,21 4,23 5,24 C 6,26 10,28 18,28" fill="#1A3C6D" opacity="0.6"/><path d="M 22,22 C 26,20 32,18 34,20 C 36,21 36,23 35,24 C 34,26 30,28 22,28" fill="#1A3C6D" opacity="0.6"/><path d="M 19,28 L 14,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/><path d="M 21,28 L 26,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><ellipse cx="18" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><ellipse cx="22" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><circle cx="18" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><circle cx="22" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/><path d="M 18,22 C 14,20 8,18 6,20 C 4,21 4,23 5,24 C 6,26 10,28 18,28" fill="#1A3C6D" opacity="0.6"/><path d="M 22,22 C 26,20 32,18 34,20 C 36,21 36,23 35,24 C 34,26 30,28 22,28" fill="#1A3C6D" opacity="0.6"/><path d="M 19,28 L 14,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/><path d="M 21,28 L 26,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><ellipse cx="18" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><ellipse cx="22" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><circle cx="18" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><circle cx="22" cy="9" r="1.2" fill="#1A3C6D" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/><path d="M 18,22 C 14,20 8,18 6,20 C 4,21 4,23 5,24 C 6,26 10,28 18,28" fill="#1A3C6D" opacity="0.6"/><path d="M 22,22 C 26,20 32,18 34,20 C 36,21 36,23 35,24 C 34,26 30,28 22,28" fill="#1A3C6D" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="20" rx="8" ry="5" fill="#E85D8B" opacity="0.6"/><circle cx="12" cy="19" r="4" fill="#E85D8B" opacity="0.6"/><circle cx="10" cy="17" r="2" fill="#F5E6D3" opacity="0.6"/><circle cx="14" cy="17" r="1.8" fill="#F5E6D3" opacity="0.6"/><circle cx="10" cy="17" r="1" fill="#1A3C6D" opacity="0.6"/><circle cx="14" cy="17" r="1" fill="#1A3C6D" opacity="0.6"/><path d="M 28,20 C 34,15 38,14 40,17 C 42,20 38,24 34,24 C 30,24 28,22 28,20" fill="#E85D8B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="20" r="5" fill="#E85D8B" opacity="0.6"/><path d="M 14,18 C 10,12 6,12 4,16 C 2,20 8,24 14,22" fill="#E85D8B" opacity="0.6"/><path d="M 26,18 C 30,12 34,12 36,16 C 38,20 32,24 26,22" fill="#E85D8B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/><path d="M 18,22 C 14,20 8,18 6,20 C 4,21 4,23 5,24 C 6,26 10,28 18,28" fill="#1A3C6D" opacity="0.6"/><path d="M 22,22 C 26,20 32,18 34,20 C 36,21 36,23 35,24 C 34,26 30,28 22,28" fill="#1A3C6D" opacity="0.6"/><path d="M 19,28 L 14,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/><path d="M 21,28 L 26,38 L 20,34 Z" fill="#C41E2B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="20" r="3" fill="#D4952B" opacity="0.6"/><path d="M 15,18 C 10,14 4,14 3,18 C 2,22 8,24 15,22" fill="#C41E2B" opacity="0.6"/><path d="M 25,18 C 30,14 36,14 37,18 C 38,22 32,24 25,22" fill="#C41E2B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><ellipse cx="18" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><ellipse cx="22" cy="9" rx="2" ry="2.5" fill="#F5E6D3" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="20" rx="8" ry="5" fill="#E85D8B" opacity="0.6"/><circle cx="12" cy="19" r="4" fill="#E85D8B" opacity="0.6"/><path d="M 28,20 C 34,15 38,14 40,17 C 42,20 38,24 34,24 C 30,24 28,22 28,20" fill="#E85D8B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/><path d="M 18,22 C 14,20 8,18 6,20 C 4,21 4,23 5,24 C 6,26 10,28 18,28" fill="#1A3C6D" opacity="0.6"/><path d="M 22,22 C 26,20 32,18 34,20 C 36,21 36,23 35,24 C 34,26 30,28 22,28" fill="#1A3C6D" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><ellipse cx="20" cy="20" rx="8" ry="5" fill="#E85D8B" opacity="0.6"/><circle cx="12" cy="19" r="4" fill="#E85D8B" opacity="0.6"/><path d="M 28,20 C 34,15 38,14 40,17 C 42,20 38,24 34,24 C 30,24 28,22 28,20" fill="#E85D8B" opacity="0.6"/></svg></div>
+        <div class="cell"><svg viewBox="0 0 40 40" width="32" height="32"><circle cx="20" cy="10" r="6" fill="#C41E2B" opacity="0.6"/><circle cx="14" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><circle cx="26" cy="13" r="3.5" fill="#E85D8B" opacity="0.6"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="#C41E2B" opacity="0.6"/></svg></div>
+      </div>
+    </div>
+    <div class="info">
+      <h4>底纹满铺 <small>Pattern Fill</small></h4>
+      <p>选取多种辅助图形以均匀密度排列，形成连续底纹。可用作包装纸、丝巾、礼品盒表面装饰。推荐透明度 30-60%。</p>
+    </div>
+  </div>
+
+  <!-- 2. Standalone -->
+  <div class="method-card">
+    <div class="preview" style="background: linear-gradient(135deg, #F5E6D3, #fff);">
+      <div class="standalone-preview">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="22" r="10" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+          <circle cx="33" cy="26" r="5" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1"/>
+          <circle cx="47" cy="26" r="5" fill="#E85D8B" stroke="#1A3C6D" stroke-width="1"/>
+          <ellipse cx="36" cy="20" rx="3" ry="3.5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1"/>
+          <ellipse cx="44" cy="20" rx="3" ry="3.5" fill="#F5E6D3" stroke="#1A3C6D" stroke-width="1"/>
+          <circle cx="36" cy="20" r="1.8" fill="#1A3C6D"/>
+          <circle cx="44" cy="20" r="1.8" fill="#1A3C6D"/>
+          <path d="M 37,32 L 40,35 L 43,32" fill="#D4952B" stroke="#1A3C6D" stroke-width="0.8"/>
+          <path d="M 40,34 C 42,38 46,42 46,46 C 46,50 42,53 40,54 C 38,53 34,50 34,46 C 34,42 38,38 40,34 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.5"/>
+          <path d="M 36,42 C 30,38 18,36 12,38 C 8,39 7,42 7,45 C 7,49 10,53 14,53 C 22,53 32,50 38,53" fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+          <path d="M 44,42 C 50,38 62,36 68,38 C 72,39 73,42 73,45 C 73,49 70,53 66,53 C 58,53 48,50 42,53" fill="#1A3C6D" stroke="#1A3C6D" stroke-width="1.2"/>
+          <path d="M 38,54 L 28,72 L 40,66 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+          <path d="M 42,54 L 52,72 L 40,66 Z" fill="#C41E2B" stroke="#1A3C6D" stroke-width="1.2"/>
+          <path d="M 30,72 L 30,78" stroke="#C41E2B" stroke-width="1"/><circle cx="30" cy="79" r="1.5" fill="#C41E2B"/>
+          <path d="M 40,72 L 40,78" stroke="#D4952B" stroke-width="1"/><circle cx="40" cy="79" r="2" fill="#D4952B"/>
+          <path d="M 50,72 L 50,78" stroke="#C41E2B" stroke-width="1"/><circle cx="50" cy="79" r="1.5" fill="#C41E2B"/>
+        </svg>
+      </div>
+    </div>
+    <div class="info">
+      <h4>独立点缀 <small>Standalone</small></h4>
+      <p>单个辅助图形作为独立装饰元素使用。适用于标签、卡片、手机壳等小面积产品。可根据底色调调整颜色或反白。</p>
+    </div>
+  </div>
+
+  <!-- 3. Combination -->
+  <div class="method-card">
+    <div class="preview" style="padding:0;">
+      <div class="combo-preview">
+        <svg viewBox="0 0 40 40"><circle cx="20" cy="10" r="6" fill="none" stroke="#fff" stroke-width="0.8" opacity="0.8"/><circle cx="14" cy="13" r="3.5" fill="none" stroke="#fff" stroke-width="0.6" opacity="0.8"/><circle cx="26" cy="13" r="3.5" fill="none" stroke="#fff" stroke-width="0.6" opacity="0.8"/><path d="M 20,16 C 21,18 24,22 24,25 C 24,28 21,30 20,31 C 19,30 16,28 16,25 C 16,22 19,18 20,16 Z" fill="none" stroke="#fff" stroke-width="0.8"/><path d="M 18,22 C 14,20 8,18 6,20" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 22,22 C 26,20 32,18 34,20" fill="none" stroke="#fff" stroke-width="0.6"/></svg>
+        <svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="8" ry="5" fill="none" stroke="#fff" stroke-width="0.8"/><circle cx="12" cy="19" r="4" fill="none" stroke="#fff" stroke-width="0.6"/><circle cx="10" cy="17" r="2" fill="none" stroke="#fff" stroke-width="0.6"/><circle cx="14" cy="17" r="1.8" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 28,20 C 34,15 38,14 40,17" fill="none" stroke="#fff" stroke-width="0.8"/></svg>
+        <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="5" fill="none" stroke="#fff" stroke-width="0.8"/><path d="M 14,18 C 10,12 6,12 4,16 C 2,20 8,24 14,22" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 26,18 C 30,12 34,12 36,16 C 38,20 32,24 26,22" fill="none" stroke="#fff" stroke-width="0.6"/></svg>
+        <svg viewBox="0 0 40 40"><path d="M 14,32 C 18,26 28,22 36,24" fill="none" stroke="#fff" stroke-width="0.8"/><circle cx="24" cy="30" r="8" fill="none" stroke="#fff" stroke-width="0.8"/><circle cx="21" cy="28" r="2.5" fill="none" stroke="#fff" stroke-width="0.6"/><circle cx="27" cy="28" r="2.5" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 30,34 C 38,30 46,34 54,32 C 58,31 62,34 60,38 C 56,40 48,38 42,40 C 36,42 28,38 30,34 Z" fill="none" stroke="#fff" stroke-width="0.8"/></svg>
+        <svg viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="4" ry="5" fill="none" stroke="#fff" stroke-width="0.8"/><path d="M 20,12 C 24,14 30,18 30,22 C 30,24 24,24 20,24" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 20,12 C 16,14 10,18 10,22 C 10,24 16,24 20,24" fill="none" stroke="#fff" stroke-width="0.6"/></svg>
+        <svg viewBox="0 0 40 40"><rect x="9" y="7" width="22" height="24" rx="1.5" fill="none" stroke="#fff" stroke-width="0.8"/><rect x="11" y="9" width="8" height="10" rx="1" fill="none" stroke="#fff" stroke-width="0.6"/><rect x="21" y="9" width="8" height="10" rx="1" fill="none" stroke="#fff" stroke-width="0.6"/><rect x="11" y="20" width="8" height="9" rx="1" fill="none" stroke="#fff" stroke-width="0.6"/><rect x="21" y="20" width="8" height="9" rx="1" fill="none" stroke="#fff" stroke-width="0.6"/><path d="M 18,7 L 20,3 L 22,7" fill="none" stroke="#fff" stroke-width="0.8"/><circle cx="20" cy="2.5" r="1.5" fill="none" stroke="#fff" stroke-width="0.6"/></svg>
+      </div>
+    </div>
+    <div class="info">
+      <h4>组合拼贴 <small>Combination Collage</small></h4>
+      <p>多种辅助图形组合排布，形成丰富的视觉效果。适用于海报背景、包装展开图、丝巾图案等大面积装饰。</p>
+    </div>
+  </div>
+
+  <!-- 4. Gold Line Art -->
+  <div class="method-card">
+    <div class="preview" style="background:#1A3C6D; padding:0;">
+      <div class="gold-preview">
+        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="filter: brightness(0) saturate(100%) sepia(60%) hue-rotate(5deg) brightness(110%) saturate(120%);">
+          <circle cx="40" cy="22" r="10" fill="none" stroke="#D4952B" stroke-width="1.8"/>
+          <circle cx="33" cy="26" r="5" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+          <circle cx="47" cy="26" r="5" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+          <ellipse cx="36" cy="20" rx="3" ry="3.5" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+          <ellipse cx="44" cy="20" rx="3" ry="3.5" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+          <circle cx="36" cy="20" r="1.8" fill="#D4952B"/>
+          <circle cx="44" cy="20" r="1.8" fill="#D4952B"/>
+          <path d="M 37,32 L 40,35 L 43,32" fill="none" stroke="#D4952B" stroke-width="1.2"/>
+          <path d="M 40,34 C 42,38 46,42 46,46 C 46,50 42,53 40,54 C 38,53 34,50 34,46 C 34,42 38,38 40,34 Z" fill="none" stroke="#D4952B" stroke-width="1.8"/>
+          <path d="M 36,42 C 30,38 18,36 12,38 C 8,39 7,42 7,45 C 7,49 10,53 14,53 C 22,53 32,50 38,53" fill="none" stroke="#D4952B" stroke-width="1.5"/>
+          <path d="M 44,42 C 50,38 62,36 68,38 C 72,39 73,42 73,45 C 73,49 70,53 66,53 C 58,53 48,50 42,53" fill="none" stroke="#D4952B" stroke-width="1.5"/>
+          <path d="M 38,54 L 28,72 L 40,66 Z" fill="none" stroke="#D4952B" stroke-width="1.5"/>
+          <path d="M 42,54 L 52,72 L 40,66 Z" fill="none" stroke="#D4952B" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
+    <div class="info">
+      <h4>线稿烫金 <small>Gold Line Art</small></h4>
+      <p>以鎏金线条勾勒辅助图形轮廓，适用于深色背景上的烫金/压印工艺。常用于高端礼盒、请柬、名片等。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr>
+<p style="text-align:center; color:#aaa; font-size:13px;">
+  鸢都文创 辅助图形系统 V1.0 · 十种传统风筝造型 × 四种应用方法
+</p>
+
+</div>
+</body>
+</html>

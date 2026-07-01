@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>徐佳乐 · AI方向通用简历</title>
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --bg: #ffffff; --text: #1a1a1a; --text-light: #555;
+    --accent: #6366f1; --accent2: #8b5cf6; --accent-light: #eef2ff;
+    --line: #e0e0e0; --border-strong: #333;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif;
+    font-size: 11.5px; line-height: 1.6; color: var(--text);
+    background: #e8e4e0; display: flex; justify-content: center; padding: 20px;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm; min-height: 297mm; background: var(--bg);
+    padding: 13mm 17mm 12mm 17mm; box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+    position: relative; overflow: hidden;
+  }
+
+  .page::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 40%, #ec4899 100%);
+  }
+
+  /* Photo */
+  .photo-container { text-align: center; margin-bottom: 4px; padding-top: 6px; }
+  .photo-container img { width: 95px; border-radius: 4px; }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 10px; }
+  .name { font-size: 25px; font-weight: 700; letter-spacing: 0.15em; color: #1a1a1a; margin-bottom: 1px; }
+  .subtitle { font-size: 10px; color: var(--text-light); letter-spacing: 0.06em; margin-bottom: 3px; }
+  .contact-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 2px 13px; font-size: 10px; color: #444; }
+
+  .target-tags { display: flex; justify-content: center; gap: 7px; margin-bottom: 10px; flex-wrap: wrap; }
+  .target-tag { font-size: 10px; padding: 2px 11px; border: 1.3px solid var(--accent); color: var(--accent); border-radius: 3px; letter-spacing: 0.04em; font-weight: 500; background: #fafafe; }
+
+  /* Sections */
+  .section { margin-bottom: 10px; }
+  .section-title { font-size: 12.5px; font-weight: 700; letter-spacing: 0.07em; color: #1a1a1a; padding-bottom: 3px; margin-bottom: 6px; border-bottom: 1.5px solid var(--border-strong); display: flex; align-items: center; gap: 6px; }
+  .section-title::before { content: ''; display: inline-block; width: 3px; height: 13px; background: linear-gradient(180deg, var(--accent), var(--accent2)); border-radius: 2px; }
+
+  /* Skills table */
+  .skills-table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+  .skills-table td { padding: 1.5px 6px 1.5px 0; vertical-align: top; line-height: 1.5; }
+  .skills-table .sk-label { font-weight: 700; color: #3a3a3a; white-space: nowrap; width: 78px; }
+  .skills-table .sk-content { color: #4a4a4a; }
+
+  .highlight { background: linear-gradient(180deg, transparent 60%, #eef2ff 60%); padding: 0 2px; }
+  .highlight2 { background: linear-gradient(180deg, transparent 60%, #fce7f3 60%); padding: 0 2px; }
+
+  /* Experience */
+  .exp-item { margin-bottom: 7px; }
+  .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+  .exp-company { font-weight: 700; font-size: 11.5px; color: #1a1a1a; }
+  .exp-date { font-size: 9.5px; color: var(--text-light); white-space: nowrap; }
+  .exp-role { font-weight: 600; font-size: 10.5px; color: var(--accent); margin-bottom: 1px; }
+  .exp-desc { color: #444; font-size: 10.5px; }
+  .exp-desc ul { list-style: none; padding-left: 0; }
+  .exp-desc ul li { position: relative; padding-left: 11px; margin-bottom: 1px; line-height: 1.5; }
+  .exp-desc ul li::before { content: '▸'; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 7px; line-height: 1.9; }
+
+  /* Two column */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  /* QR Code */
+  .qr-section { text-align: center; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e8e2d4; display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .qr-section img { width: 80px; height: 80px; }
+  .qr-section .qr-text { text-align: left; font-size: 9px; color: #888; letter-spacing: 0.03em; line-height: 1.5; }
+  .qr-section .qr-text strong { color: #555; }
+
+  .footer-note { text-align: center; font-size: 8px; color: #bbb; letter-spacing: 0.04em; margin-top: 4px; }
+
+  @media print {
+    body { background: white; padding: 0; margin: 0; }
+    .page { width: 210mm; min-height: 297mm; padding: 11mm 15mm 11mm 15mm; box-shadow: none; page-break-after: avoid; }
+    .page::before { height: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Photo -->
+  <div class="photo-container">
+    <img src="证件照2.jpg" alt="徐佳乐">
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="name">徐 佳 乐</div>
+    <div class="subtitle">服装设计与工程 · 本科 · 2026届 | AI-Native · 设计×技术跨界</div>
+    <div class="contact-row">
+      <span>📞 172-8034-3262</span>
+      <span>│</span>
+      <span>📧 860824847@qq.com</span>
+      <span>│</span>
+      <span>📍 杭州 · 可立即到岗</span>
+      <span>│</span>
+      <span>🏫 内蒙古工业大学</span>
+    </div>
+  </div>
+
+  <div class="target-tags">
+    <span class="target-tag">AIGC视觉设计</span>
+    <span class="target-tag">产品运营（AI方向）</span>
+    <span class="target-tag">内容运营</span>
+    <span class="target-tag">电商设计</span>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">教育背景</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap">
+      <span style="font-weight:700;font-size:11.5px">内蒙古工业大学 · 轻工与纺织学院 · 服装设计与工程 · 本科</span>
+      <span style="color:var(--text-light);font-size:10px;white-space:nowrap">2022.09 – 2026.06</span>
+    </div>
+    <div style="color:#4a4a4a;font-size:10px;margin-top:1px">
+      毕业设计：《蒙古族服饰配色特征的小学生校服系列设计》— 数据驱动 × K12人群产品设计 ｜ CET英语
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">专业技能</div>
+    <table class="skills-table">
+      <tr>
+        <td class="sk-label">AI工具</td>
+        <td class="sk-content">ChatGPT · Claude（日均50+轮）· Midjourney · Stable Diffusion · 即梦 · 可灵 — 覆盖文本/图像/视频全模态</td>
+      </tr>
+      <tr>
+        <td class="sk-label">设计软件</td>
+        <td class="sk-content">Photoshop（熟练）· Illustrator（熟练）· Style3D · 富怡服装CAD · SVG矢量</td>
+      </tr>
+      <tr>
+        <td class="sk-label">AIGC能力</td>
+        <td class="sk-content">提示词工程 · AI图像生成全流程 · AI辅助文案/创意 · 品牌全案 · 电商视觉 · UI概念</td>
+      </tr>
+      <tr>
+        <td class="sk-label">数据分析</td>
+        <td class="sk-content">Excel数据透视表 · 用户行为指标（DAU/留存/转化漏斗）· AI辅助数据洞察</td>
+      </tr>
+      <tr>
+        <td class="sk-label">用户运营</td>
+        <td class="sk-content">用户分层 · 反馈收集与分析 · 客户满意度管理 · 私域转化 · 培训SOP沉淀</td>
+      </tr>
+      <tr>
+        <td class="sk-label">技术基础</td>
+        <td class="sk-content">Node.js · AI API集成 · HTML/CSS · Git · 微信-AI桥接系统 · PptxGenJS</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- EXPERIENCE (two-col) -->
+  <div class="section">
+    <div class="section-title">相关经历</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">收钱吧 · 用户增长方向（兼职）</span>
+        <span class="exp-date">2024.06 – 2024.09</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>独立拓展商户<span class="highlight">60+</span>家，满意度95%，日均交易600+笔 — <span class="highlight">用户获取→激活→留存全链路实操</span></li>
+        <li>商户分层运营（高活/沉睡/流失）制定差异化策略，设备铺设成功率 100%</li>
+        <li>协助HRBP完成新人培训（覆盖300+人次），沉淀标准化SOP，锻炼了<span class="highlight2">用户同理心与沟通能力</span></li>
+      </ul></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">盛泓服装科技有限公司 · 设计助理（实习）</span>
+        <span class="exp-date">2025.07 – 2025.08</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>参与款式开发与面辅料选配，使用PS/AI完成款式图绘制，跟进制版与样衣工艺</li>
+        <li>积累了<span class="highlight">从设计稿到实物落地的完整视觉创作经验</span></li>
+      </ul></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">天津上工富怡 · 数字化绣花工艺（实习）</span>
+        <span class="exp-date">2024.06 – 2024.07</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>掌握富怡绣花CAD V12.0，原创作品《石榴同心》获优秀评价</li>
+        <li>针迹参数优化（0.3→0.5mm），色序优化使绣制时长<span class="highlight">缩短22%</span></li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- PROJECTS (two-col) -->
+  <div class="section">
+    <div class="section-title">项目作品</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">鸢都文创 · 品牌全案设计（个人项目）</span>
+        <span class="exp-date">2026.05 – 2026.06</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>独立完成<span class="highlight">35+交付文件</span>：Logo系统（V8沙燕标志+6色色板）+ 10辅助图形 + 3主题海报 + 5件套包装</li>
+        <li>全程AI辅助创意/文案/规范输出，效率提升约60%，结合非遗文化热点策划"古韵新飞"品牌故事线</li>
+      </ul></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">AI服装系列设计 + AIGC平面视觉</span>
+        <span class="exp-date">2026.06 – 2026.07</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>使用<span class="highlight">MJ+SD</span>完成系列服装概念设计，AIGC全流程：提示词工程→生图→筛选→精修</li>
+        <li>AI辅助平面设计8组22面板：海报/品牌VI/电商全案/UI界面/排版字体/插画/色彩实验</li>
+      </ul></div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">AI驱动工作流自动化 + 作品集网站</span>
+        <span class="exp-date">2025 – 2026</span>
+      </div>
+      <div class="exp-desc"><ul>
+        <li>搭建<span class="highlight">微信-AI桥接系统</span>（Node.js+AI API），探索AI Agent自动化（数据整理/文档生成/信息检索）</li>
+        <li>开发答辩PPT自动生成工具（PptxGenJS），从零搭建在线作品集网站并部署GitHub Pages</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <!-- CAMPUS + SELF-EVAL two-col -->
+  <div class="two-col">
+    <div class="section" style="margin-bottom:0">
+      <div class="section-title">在校经历</div>
+      <div style="font-size:10.5px;color:#444">
+        <ul style="list-style:none;padding-left:0">
+          <li style="position:relative;padding-left:11px;margin-bottom:2px">▸ 主持<span class="highlight">自治区级+校级大创项目</span>：温控鼠标垫工艺优化（专利受理）</li>
+          <li style="position:relative;padding-left:11px;margin-bottom:2px">▸ 毕业设计四大系列K12校服（工装/制式/运动/秋季）+ Style3D虚拟试衣</li>
+          <li style="position:relative;padding-left:11px;margin-bottom:2px">▸ 互联网+创新创业大赛 · 蒙古袍AI矢量图 · 主题海报设计</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section" style="margin-bottom:0">
+      <div class="section-title">自我评价</div>
+      <div style="font-size:10.5px;color:#444;line-height:1.6">
+        <p><strong>AI-Native思维：</strong>深度使用ChatGPT/Claude/MJ/SD，将AI融入数据分析、视觉创作、自动化工作流。相信AI让设计师和运营更高效。</p>
+        <p style="margin-top:3px"><strong>服装×AI跨界：</strong>专业训练赋予对色彩/廓形/材质的审美判断——这是AI时代不可替代的核心竞争力。</p>
+        <p style="margin-top:3px"><strong>自驱力强：</strong>非科班自学编程搭AI系统，独立完成品牌全案和8组AI设计。用产出说话。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Code -->
+  <div class="qr-section">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://ffflipuao-commits.github.io/portfolio/&bgcolor=ffffff&color=333333" alt="作品集二维码" onerror="this.onerror=null;this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22><rect width=%22120%22 height=%22120%22 fill=%22%23f0f0f0%22 rx=%228%22/><text x=%2260%22 y=%2255%22 text-anchor=%22middle%22 font-size=%2210%22 fill=%22%23999%22>作品集</text><text x=%2260%22 y=%2272%22 text-anchor=%22middle%22 font-size=%229%22 fill=%22%23bbb%22>扫码查看</text></svg>'">
+    <div class="qr-text">
+      <strong>📱 扫码查看完整作品集</strong><br>
+      在线作品集：ffflipuao-commits.github.io/portfolio<br>
+      含8组AI设计 · 22个独立面板 · 品牌全案<br>
+      AI服装 / 电商视觉 / UI / 插画 / 排版
+    </div>
+  </div>
+
+  <div class="footer-note">
+    更新于 2026.07 ｜ AI通用版简历 ｜ 作品集二维码长期有效
+  </div>
+
+</div>
+</body>
+</html>

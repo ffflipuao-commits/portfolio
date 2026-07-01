@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>活力色彩实验 · 地中海到东南亚</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#faf8f5;font-family:'PingFang SC','Microsoft YaHei',sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:30px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1050px}
+
+.card{height:520px;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 8px 40px rgba(0,0,0,0.06)}
+
+/* ═══ CARD 1: Mediterranean Blue & Terracotta ═══ */
+.m1{background:linear-gradient(180deg,#e8f0f8 0%,#dce6f0 50%,#d0dce8 100%);padding:45px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.m1 .top-tag{font-size:10px;letter-spacing:5px;color:#5b7fa5;text-transform:uppercase;font-weight:600}
+.m1 .visual-area{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+.m1 .visual-area .vase{position:relative;width:90px;height:140px;background:linear-gradient(180deg,#c4704a 0%,#b85d38 40%,#a04a2c 100%);border-radius:20px 20px 30px 30px;box-shadow:0 12px 40px rgba(180,93,56,0.3)}
+.m1 .visual-area .vase::before{content:'';position:absolute;top:-40px;left:5px;right:5px;height:60px;background:linear-gradient(180deg,#7cb342,#8bc34a,#689f38);border-radius:50%;opacity:0.85}
+.m1 .visual-area .vase::after{content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);width:60px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px}
+.m1 .visual-area .shadow{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:120px;height:12px;background:rgba(0,0,0,0.06);border-radius:50%}
+.m1 .visual-area .dot1{position:absolute;top:25%;right:20%}
+.m1 .visual-area .dot1 span{display:block;width:6px;height:6px;border-radius:50%;background:#e8c84a;margin:8px 0}
+.m1 .info-block h3{font-size:22px;font-weight:800;color:#2c3e50;letter-spacing:2px;margin-bottom:6px}
+.m1 .info-block .sub{font-size:12px;color:#7b9bb5;letter-spacing:3px;font-weight:500}
+.m1 .info-block .desc{font-size:11px;color:#93a8bc;line-height:1.8;letter-spacing:1px;margin-top:12px}
+.m1 .color-dots{display:flex;gap:10px;margin-top:16px}
+.m1 .color-dots span{width:20px;height:20px;border-radius:50%}
+.m1 .color-dots .cd1{background:#3a6b8c}.m1 .color-dots .cd2{background:#c4704a}.m1 .color-dots .cd3{background:#7cb342}.m1 .color-dots .cd4{background:#e8c84a}
+
+/* ═══ CARD 2: Tropical Green & Coral ═══ */
+.m2{background:linear-gradient(160deg,#f0f7ee 0%,#e6f2e2 40%,#dcecd6 100%);padding:45px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.m2 .top-tag{font-size:10px;letter-spacing:5px;color:#5d8a5e;text-transform:uppercase;font-weight:600}
+.m2 .plant-area{flex:1;display:flex;align-items:center;justify-content:center;position:relative;gap:10px}
+/* Monstera leaf */
+.m2 .monstera{position:relative;width:120px;height:130px}
+.m2 .monstera .leaf{position:absolute;width:80px;height:90px;background:linear-gradient(135deg,#4caf50,#388e3c);border-radius:50% 0 50% 0;transform:rotate(-20deg)}
+.m2 .monstera .leaf2{position:absolute;top:10px;left:30px;width:70px;height:80px;background:linear-gradient(135deg,#66bb6a,#43a047);border-radius:0 50% 0 50%;transform:rotate(30deg)}
+.m2 .monstera .leaf3{position:absolute;bottom:0;left:20px;width:90px;height:70px;background:linear-gradient(135deg,#81c784,#4caf50);border-radius:50% 50% 0 0;transform:rotate(-10deg)}
+.m2 .monstera .stem{position:absolute;bottom:-10px;left:55px;width:4px;height:40px;background:linear-gradient(180deg,#4caf50,#388e3c);border-radius:2px}
+/* Coral flower */
+.m2 .coral{position:relative;width:70px;height:100px}
+.m2 .coral .petal{position:absolute;width:35px;height:50px;background:linear-gradient(180deg,#ff7b7b,#ff5252);border-radius:50% 50% 0 0}
+.m2 .coral .p1{top:0;left:5px;transform:rotate(-15deg)}
+.m2 .coral .p2{top:0;right:5px;transform:rotate(15deg)}
+.m2 .coral .p3{top:10px;left:18px;transform:rotate(0deg);width:30px;height:45px}
+.m2 .coral .p-center{position:absolute;top:25px;left:18px;width:14px;height:14px;border-radius:50%;background:#ffd54f}
+.m2 .coral .stem2{position:absolute;bottom:0;left:30px;width:4px;height:35px;background:#81c784;border-radius:2px}
+.m2 .info-block h3{font-size:22px;font-weight:800;color:#2e4a2e;letter-spacing:2px;margin-bottom:6px}
+.m2 .info-block .sub{font-size:12px;color:#6b9e6b;letter-spacing:3px;font-weight:500}
+.m2 .info-block .desc{font-size:11px;color:#7d9e7d;line-height:1.8;letter-spacing:1px;margin-top:12px}
+.m2 .color-dots{display:flex;gap:10px;margin-top:16px}
+.m2 .color-dots .cd1{background:#4caf50}.m2 .color-dots .cd2{background:#ff5252}.m2 .color-dots .cd3{background:#ffd54f}.m2 .color-dots .cd4{background:#e6f2e2}
+
+/* ═══ CARD 3: Sunset Gradient — Bold & Warm ═══ */
+.m3{background:linear-gradient(160deg,#fff3e0 0%,#ffe0b2 30%,#ffcc80 100%);padding:0;display:flex;flex-direction:column}
+.m3 .banner-area{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:40px}
+.m3 .banner-area .sun-circle{width:160px;height:160px;border-radius:50%;background:linear-gradient(180deg,#ff9800 0%,#ff6d00 50%,#e65100 100%);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);opacity:0.2}
+.m3 .banner-area .headline{font-size:36px;font-weight:900;color:#e65100;letter-spacing:4px;margin-bottom:4px;text-align:center}
+.m3 .banner-area .tagline{font-size:14px;color:#bf360c;letter-spacing:6px;text-align:center;opacity:0.7}
+.m3 .banner-area .big-num{font-family:'Georgia',serif;font-size:120px;font-weight:900;color:rgba(230,81,0,0.08);position:absolute;top:20px;right:30px;line-height:1}
+.m3 .info-strip{background:rgba(255,255,255,0.6);padding:20px 30px;display:flex;gap:24px;backdrop-filter:blur(10px)}
+.m3 .info-strip .stat-item{text-align:center;flex:1}
+.m3 .info-strip .stat-item .val{font-size:18px;font-weight:800;color:#e65100}
+.m3 .info-strip .stat-item .lbl{font-size:9px;color:#bf6e3c;letter-spacing:2px}
+
+/* ═══ CARD 4: Lavender Dream — Soft & Feminine ═══ */
+.m4{background:linear-gradient(160deg,#f5f0ff 0%,#eee5ff 30%,#e8dcf8 100%);padding:45px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.m4 .top-tag{font-size:10px;letter-spacing:5px;color:#9b7ec4;text-transform:uppercase;font-weight:600}
+.m4 .cosmetic-area{flex:1;display:flex;align-items:center;justify-content:center;gap:30px;position:relative}
+/* Bottle 1 */
+.m4 .bottle{position:relative;width:55px;height:100px}
+.m4 .bottle .body{width:55px;height:75px;background:linear-gradient(180deg,#f8f5ff,#e8dcf8);border-radius:10px 10px 20px 20px;border:1.5px solid rgba(155,126,196,0.2)}
+.m4 .bottle .cap{width:30px;height:20px;background:linear-gradient(180deg,#7c5cbf,#6d4daf);border-radius:6px 6px 0 0;margin:0 auto}
+.m4 .bottle .liquid{position:absolute;bottom:8px;left:6px;right:6px;height:40px;background:linear-gradient(180deg,rgba(200,160,240,0.5),rgba(180,140,220,0.7));border-radius:0 0 16px 16px}
+.m4 .bottle2{margin-top:20px}
+.m4 .bottle2 .body{background:linear-gradient(180deg,#fff0f5,#fce4ec);border-color:rgba(236,72,153,0.2)}
+.m4 .bottle2 .cap{background:linear-gradient(180deg,#ec4899,#db2777)}
+.m4 .bottle2 .liquid{background:linear-gradient(180deg,rgba(252,165,200,0.5),rgba(248,140,180,0.7))}
+.m4 .bottle3 .body{background:linear-gradient(180deg,#f0fdf4,#dcfce7);border-color:rgba(34,197,94,0.2)}
+.m4 .bottle3 .cap{background:linear-gradient(180deg,#22c55e,#16a34a)}
+.m4 .bottle3 .liquid{background:linear-gradient(180deg,rgba(134,239,172,0.5),rgba(100,220,150,0.7))}
+.m4 .flower-deco{position:absolute;top:20px;right:20%}
+.m4 .flower-deco .petal-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:2px}
+.m4 .flower-deco .p1{background:#c4b5fd}.m4 .flower-deco .p2{background:#f9a8d4}.m4 .flower-deco .p3{background:#86efac}
+.m4 .info-block h3{font-size:22px;font-weight:800;color:#4a3170;letter-spacing:2px;margin-bottom:6px}
+.m4 .info-block .sub{font-size:12px;color:#9b7ec4;letter-spacing:3px;font-weight:500}
+.m4 .info-block .desc{font-size:11px;color:#b09ad0;line-height:1.8;letter-spacing:1px;margin-top:12px}
+.m4 .color-dots{display:flex;gap:10px;margin-top:16px}
+.m4 .color-dots .cd1{background:#7c5cbf}.m4 .color-dots .cd2{background:#ec4899}.m4 .color-dots .cd3{background:#22c55e}.m4 .color-dots .cd4{background:#f5f0ff}
+</style>
+</head>
+<body>
+<div class="grid">
+
+  <!-- CARD 1: Mediterranean -->
+  <div class="card m1">
+    <div class="top-tag">Mediterranean · 地中海风情</div>
+    <div class="visual-area">
+      <div class="shadow"></div>
+      <div class="vase"></div>
+      <div class="dot1"><span></span><span></span><span></span></div>
+    </div>
+    <div class="info-block">
+      <h3>陶 瓷 与 橄 榄</h3>
+      <div class="sub">MEDITERRANEAN BREEZE · 自然材质美学</div>
+      <div class="desc">提取地中海沿岸的赤陶土色、深海蓝、橄榄绿与阳光黄，构建温暖而沉静的视觉体系。适合家居、手工艺、慢生活品牌。</div>
+      <div class="color-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span><span class="cd4"></span></div>
+    </div>
+  </div>
+
+  <!-- CARD 2: Tropical -->
+  <div class="card m2">
+    <div class="top-tag">Tropical · 热带雨林</div>
+    <div class="plant-area">
+      <div class="monstera"><div class="leaf"></div><div class="leaf2"></div><div class="leaf3"></div><div class="stem"></div></div>
+      <div class="coral"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="p-center"></div><div class="stem2"></div></div>
+    </div>
+    <div class="info-block">
+      <h3>龟 背 竹 与 珊 瑚</h3>
+      <div class="sub">TROPICAL GARDEN · 生命力色彩</div>
+      <div class="desc">大胆碰撞热带绿植的青翠与珊瑚花的暖粉，用高饱和自然色营造充满生命力的视觉体验。适合运动、户外、健康生活方式品牌。</div>
+      <div class="color-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span><span class="cd4"></span></div>
+    </div>
+  </div>
+
+  <!-- CARD 3: Sunset -->
+  <div class="card m3">
+    <div class="banner-area">
+      <div class="sun-circle"></div>
+      <div class="big-num">03</div>
+      <div class="headline">落日余晖</div>
+      <div class="tagline">S U N S E T · G R A D I E N T</div>
+    </div>
+    <div class="info-strip">
+      <div class="stat-item"><div class="val">#FF9800</div><div class="lbl">主色调</div></div>
+      <div class="stat-item"><div class="val">暖色系</div><div class="lbl">色彩家族</div></div>
+      <div class="stat-item"><div class="val">渐变</div><div class="lbl">应用手法</div></div>
+    </div>
+  </div>
+
+  <!-- CARD 4: Lavender Dream -->
+  <div class="card m4">
+    <div class="top-tag">Lavender · 薰衣草梦境</div>
+    <div class="cosmetic-area">
+      <div class="bottle"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div>
+      <div class="bottle bottle2"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div>
+      <div class="bottle bottle3"><div class="cap"></div><div class="body"><div class="liquid"></div></div></div>
+      <div class="flower-deco"><span class="petal-dot p1"></span><span class="petal-dot p2"></span><span class="petal-dot p3"></span></div>
+    </div>
+    <div class="info-block">
+      <h3>薰 衣 草 美 学</h3>
+      <div class="sub">LAVENDER DREAM · 柔和女性化色彩</div>
+      <div class="desc">紫色系的柔和渐变搭配粉红与薄荷绿，呈现精致、女性化的视觉语言。适合美妆护肤、香氛、轻奢生活方式品牌。</div>
+      <div class="color-dots"><span class="cd1"></span><span class="cd2"></span><span class="cd3"></span><span class="cd4"></span></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>插画设计 · AI辅助商业插画</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#fefefe;font-family:'PingFang SC','Microsoft YaHei',sans-serif;display:flex;justify-content:center;padding:30px}
+
+.wrap{max-width:1100px;display:flex;flex-direction:column;gap:24px}
+
+.sec-label{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.sec-label .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff)}
+.sec-label .text{font-size:11px;letter-spacing:5px;color:#999;text-transform:uppercase;font-weight:600}
+
+/* ═══ ROW 1: Hero + Feature ═══ */
+.row-hero{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+.panel{border-radius:20px;overflow:hidden;position:relative;box-shadow:0 4px 24px rgba(0,0,0,0.04)}
+
+/* ═══ 1. HERO ILLUSTRATION — Playful botanical ═══ */
+.hero-illu{height:440px;background:linear-gradient(160deg,#fffbeb 0%,#fef3c7 30%,#fde68a 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-illu .sun-big{position:absolute;top:-80px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,#fbbf24 0%,#f59e0b 40%,transparent 70%);opacity:0.5}
+.hero-illu .bg-dots{position:absolute;inset:0}
+.hero-illu .bg-dots span{position:absolute;border-radius:50%;opacity:0.25}
+.hero-illu .bg-dots .d1{width:20px;height:20px;background:#f97316;top:15%;left:10%}
+.hero-illu .bg-dots .d2{width:14px;height:14px;background:#ef4444;top:25%;right:20%}
+.hero-illu .bg-dots .d3{width:18px;height:18px;background:#f59e0b;bottom:30%;left:18%}
+.hero-illu .bg-dots .d4{width:12px;height:12px;background:#f97316;bottom:20%;right:15%}
+.hero-illu .bg-dots .d5{width:16px;height:16px;background:#ef4444;top:60%;left:8%}
+/* Plant illustration */
+.hero-illu .plant-group{position:relative;z-index:2;display:flex;align-items:flex-end;gap:20px}
+/* Big tropical leaf */
+.hero-illu .big-leaf{position:relative;width:180px;height:200px}
+.hero-illu .big-leaf .leaf-body{position:absolute;bottom:0;left:20px;width:140px;height:180px;background:linear-gradient(180deg,#4ade80 0%,#22c55e 30%,#16a34a 100%);border-radius:0 80% 10% 50%;transform:rotate(-5deg)}
+.hero-illu .big-leaf .leaf-body::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent 60%)}
+.hero-illu .big-leaf .vein{position:absolute;top:30px;left:90px;width:2px;height:120px;background:rgba(255,255,255,0.25);border-radius:1px;transform:rotate(-5deg)}
+.hero-illu .big-leaf .vein2{position:absolute;top:60px;left:70px;width:40px;height:1.5px;background:rgba(255,255,255,0.2);transform:rotate(-25deg)}
+.hero-illu .big-leaf .vein3{position:absolute;top:85px;left:65px;width:35px;height:1.5px;background:rgba(255,255,255,0.2);transform:rotate(10deg)}
+/* Colorful flowers */
+.hero-illu .flower-cluster{display:flex;flex-direction:column;gap:30px;position:relative;bottom:30px}
+.hero-illu .flower{position:relative;width:60px;height:60px}
+.hero-illu .flower .petal{position:absolute;width:24px;height:30px;border-radius:50% 50% 0 0}
+.hero-illu .flower.f1 .petal{background:#ff6b6b}
+.hero-illu .flower.f1 .p1{top:0;left:18px;transform:rotate(0deg)}.flower.f1 .p2{top:0;left:18px;transform:rotate(72deg)}.flower.f1 .p3{top:0;left:18px;transform:rotate(144deg)}.flower.f1 .p4{top:0;left:18px;transform:rotate(216deg)}.flower.f1 .p5{top:0;left:18px;transform:rotate(288deg)}
+.hero-illu .flower .center-dot{position:absolute;top:22px;left:22px;width:16px;height:16px;border-radius:50%;background:#ffe066;z-index:2}
+.hero-illu .flower.f2{width:50px;height:50px}
+.hero-illu .flower.f2 .petal{background:#f97316;width:20px;height:26px}
+.hero-illu .flower.f2 .p1{top:0;left:15px;transform:rotate(0deg)}.flower.f2 .p2{top:0;left:15px;transform:rotate(72deg)}.flower.f2 .p3{top:0;left:15px;transform:rotate(144deg)}.flower.f2 .p4{top:0;left:15px;transform:rotate(216deg)}.flower.f2 .p5{top:0;left:15px;transform:rotate(288deg)}
+.hero-illu .flower.f2 .center-dot{top:18px;left:18px;width:14px;height:14px}
+/* Small plant */
+.hero-illu .small-plant{position:relative;width:80px;height:130px;align-self:flex-end;margin-bottom:20px}
+.hero-illu .small-plant .stem{position:absolute;bottom:0;left:38px;width:4px;height:100px;background:linear-gradient(180deg,#4ade80,#22c55e);border-radius:2px}
+.hero-illu .small-plant .sleaf{position:absolute;width:35px;height:50px;background:linear-gradient(180deg,#86efac,#4ade80);border-radius:50% 50% 10% 50%}
+.hero-illu .small-plant .sl1{top:5px;left:20px;transform:rotate(-20deg)}
+.hero-illu .small-plant .sl2{top:15px;right:5px;transform:rotate(35deg);border-radius:50% 50% 50% 10%}
+.hero-illu .small-plant .sl3{top:30px;left:15px;transform:rotate(-35deg)}
+/* Hero text */
+.hero-illu .hero-text{position:absolute;top:30px;left:35px;z-index:3}
+.hero-illu .hero-text .tag{display:inline-block;padding:5px 14px;border-radius:15px;background:#fff;color:#f97316;font-size:10px;font-weight:700;letter-spacing:2px;margin-bottom:12px;box-shadow:0 2px 12px rgba(249,115,22,0.1)}
+.hero-illu .hero-text h2{font-size:28px;font-weight:900;color:#92400e;letter-spacing:2px;line-height:1.2}
+
+/* ═══ 2. CHARACTER ILLUSTRATION ═══ */
+.char-panel{height:440px;background:linear-gradient(160deg,#eff6ff 0%,#dbeafe 30%,#bfdbfe 100%);padding:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.char-panel .clouds{position:absolute;inset:0}
+.char-panel .clouds .cloud{position:absolute;background:#fff;border-radius:50%;opacity:0.7}
+.char-panel .clouds .c1{width:100px;height:40px;top:15%;left:10%;border-radius:40px}
+.char-panel .clouds .c2{width:80px;height:35px;top:20%;right:15%;border-radius:35px}
+.char-panel .char-group{position:relative;z-index:2;text-align:center}
+/* Cute character face */
+.char-panel .char-face{position:relative;width:120px;height:120px;border-radius:50%;background:linear-gradient(180deg,#fef3c7,#fde68a);margin:0 auto 20px;box-shadow:0 8px 30px rgba(251,191,36,0.2)}
+.char-panel .char-face .eye{position:absolute;width:14px;height:18px;border-radius:50%;background:#1e293b;top:40px}
+.char-panel .char-face .eye.left{left:32px}.char-face .eye.right{right:32px}
+.char-panel .char-face .eye::after{content:'';position:absolute;width:5px;height:5px;border-radius:50%;background:#fff;top:3px;left:3px}
+.char-panel .char-face .mouth{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:20px;height:10px;border-bottom:3px solid #f97316;border-radius:0 0 10px 10px}
+.char-panel .char-face .blush{position:absolute;width:16px;height:10px;border-radius:50%;background:rgba(251,146,60,0.3);top:50px}
+.char-panel .char-face .blush.l{left:18px}.char-face .blush.r{right:18px}
+.char-panel .char-body{width:80px;height:100px;background:linear-gradient(180deg,#6366f1,#4f46e5);border-radius:20px 20px 30px 30px;margin:0 auto 0}
+.char-panel .char-body .stripe{width:100%;height:4px;background:rgba(255,255,255,0.2);margin-bottom:8px;border-radius:2px}
+.char-panel .label-tag{padding:6px 16px;border-radius:12px;background:#fff;font-size:10px;font-weight:600;color:#6366f1;letter-spacing:1px;box-shadow:0 2px 8px rgba(99,102,241,0.1)}
+.char-panel p{font-size:11px;color:#64748b;letter-spacing:1px;margin-top:8px}
+
+/* ═══ 3. FOOD ILLUSTRATION ROW ═══ */
+.food-card{height:300px;border-radius:20px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.fc1{background:linear-gradient(160deg,#fff1f2 0%,#ffe4e6 30%,#fecdd3 100%)}
+.fc2{background:linear-gradient(160deg,#f0fdf4 0%,#dcfce7 30%,#bbf7d0 100%)}
+.fc3{background:linear-gradient(160deg,#fffbeb 0%,#fef3c7 30%,#fde68a 100%)}
+
+/* Burger */
+.fc1 .burger{position:relative;width:120px;height:90px;margin:20px auto}
+.fc1 .burger .bun-top{width:120px;height:40px;background:linear-gradient(180deg,#fbbf24,#d97706);border-radius:60px 60px 8px 8px;position:relative;z-index:3}
+.fc1 .burger .bun-top::before{content:'';position:absolute;top:6px;left:15px;right:15px;height:6px;background:rgba(255,255,255,0.3);border-radius:3px}
+.fc1 .burger .lettuce{width:130px;height:12px;background:#4ade80;border-radius:3px;margin:-2px -5px;position:relative;z-index:2;transform:rotate(-1deg)}
+.fc1 .burger .patty{width:110px;height:16px;background:linear-gradient(180deg,#92400e,#78350f);border-radius:4px;margin:0 5px;position:relative;z-index:1}
+.fc1 .burger .cheese{width:115px;height:6px;background:#fbbf24;margin:-2px 2px;position:relative;z-index:1;transform:rotate(1deg)}
+.fc1 .burger .bun-bottom{width:120px;height:28px;background:linear-gradient(180deg,#d97706,#92400e);border-radius:8px 8px 60px 60px;position:relative;z-index:0}
+.fc1 .burger .seeds{position:absolute;top:8px;left:25px;z-index:4;display:flex;gap:12px}
+.fc1 .burger .seeds span{width:4px;height:6px;background:#fef3c7;border-radius:50%;opacity:0.6}
+
+/* Ice cream */
+.fc2 .icecream{position:relative;width:80px;height:130px;margin:20px auto}
+.fc2 .icecream .scoop{width:80px;height:65px;background:linear-gradient(180deg,#f9a8d4,#ec4899);border-radius:50% 50% 20% 20%;position:relative;z-index:2}
+.fc2 .icecream .scoop::before{content:'';position:absolute;top:10px;left:15px;width:18px;height:14px;background:rgba(255,255,255,0.3);border-radius:50%}
+.fc2 .icecream .scoop2{width:70px;height:45px;background:linear-gradient(180deg,#a5f3fc,#22d3ee);border-radius:50% 50% 20% 20%;margin:-25px auto 0;position:relative;z-index:1}
+.fc2 .icecream .cone{width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-top:60px solid #d4a574;margin:-5px auto 0;position:relative;z-index:0}
+.fc2 .icecream .cone::after{content:'';position:absolute;top:-60px;left:-26px;width:52px;height:60px;background:repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(139,90,43,0.2) 4px,rgba(139,90,43,0.2) 6px)}
+
+/* Boba tea */
+.fc3 .boba{position:relative;width:70px;height:120px;margin:20px auto}
+.fc3 .boba .cup{width:70px;height:100px;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(253,224,138,0.4));border:3px solid #fbbf24;border-radius:10px 10px 30px 30px;position:relative;overflow:hidden}
+.fc3 .boba .cup .liquid{position:absolute;bottom:0;left:0;right:0;height:75%;background:linear-gradient(180deg,rgba(217,119,6,0.3),rgba(180,83,9,0.5));border-radius:0 0 27px 27px}
+.fc3 .boba .bubbles{position:absolute;bottom:12px;left:10px;z-index:2;display:flex;gap:8px;flex-wrap:wrap;width:50px}
+.fc3 .boba .bubbles span{width:8px;height:8px;border-radius:50%;background:#1e293b}
+.fc3 .boba .straw{position:absolute;top:-30px;left:25px;width:6px;height:60px;background:#f97316;border-radius:3px;transform:rotate(-10deg)}
+.fc3 .boba .lid{position:absolute;top:0;left:-3px;right:-3px;height:16px;background:rgba(255,255,255,0.4);border-radius:10px 10px 0 0;z-index:3;border:3px solid #fbbf24;border-bottom:none}
+
+.food-card .ftitle{font-size:14px;font-weight:800;letter-spacing:1px}
+.fc1 .ftitle{color:#be123c}.fc2 .ftitle{color:#166534}.fc3 .ftitle{color:#92400e}
+.food-card .fsub{font-size:10px;color:rgba(0,0,0,0.35);letter-spacing:1px}
+
+/* ═══ 4. ABSTRACT WAVE ILLUSTRATIONS ═══ */
+.wave-card{height:280px;border-radius:20px;padding:24px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:flex-end}
+.wc1{background:linear-gradient(160deg,#fef2f2 0%,#fee2e2 100%)}
+.wc2{background:linear-gradient(160deg,#ede9fe 0%,#ddd6fe 100%)}
+.wc3{background:linear-gradient(160deg,#ecfdf5 0%,#d1fae5 100%)}
+
+.wc1 .wave{position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(180deg,#ff6b6b 0%,#ef4444 40%,#dc2626 100%);border-radius:60% 70% 0 0}
+.wc1 .wave2{position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(180deg,#f97316,#ea580c);border-radius:70% 60% 0 0;opacity:0.7}
+.wc1 .wave3{position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(180deg,#fbbf24,#f59e0b);border-radius:80% 50% 0 0;opacity:0.6}
+
+.wc2 .wave{position:absolute;bottom:0;left:0;right:0;height:130px;background:linear-gradient(180deg,#a78bfa,#8b5cf6);border-radius:50% 80% 0 0}
+.wc2 .wave2{position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(180deg,#6366f1,#4f46e5);border-radius:80% 50% 0 0;opacity:0.7}
+
+.wc3 .wave{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(180deg,#34d399,#10b981);border-radius:70% 70% 0 0}
+.wc3 .wave2{position:absolute;bottom:0;left:0;right:0;height:70px;background:linear-gradient(180deg,#06b6d4,#0891b2);border-radius:60% 80% 0 0;opacity:0.6}
+
+.wave-card .wtitle{font-size:14px;font-weight:800;letter-spacing:2px;position:relative;z-index:2}
+.wc1 .wtitle{color:#dc2626}.wc2 .wtitle{color:#6d28d9}.wc3 .wtitle{color:#059669}
+.wave-card .wsub{font-size:10px;color:rgba(0,0,0,0.35);letter-spacing:1px;position:relative;z-index:2}
+
+/* ═══ 5. PATTERN TILES ═══ */
+.pattern-card{height:240px;border-radius:20px;overflow:hidden;position:relative}
+.pc1{background:#fff5f5}
+.pc1 .pattern{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:8px;padding:24px}
+.pc1 .pattern span{border-radius:8px}
+.pc1 .pattern .a{background:#ff6b6b}.pc1 .pattern .b{background:#ffd93d}.pc1 .pattern .c{background:#6bcb77}.pc1 .pattern .d{background:#4d96ff}.pc1 .pattern .e{background:#ff922b}
+
+.pc2{background:#f8f5ff}
+.pc2 .pattern{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:20px}
+.pc2 .pattern span{aspect-ratio:1;border-radius:50%}
+.pc2 .pattern .a{background:#a78bfa}.pc2 .pattern .b{background:#f472b6}.pc2 .pattern .c{background:#fbbf24}.pc2 .pattern .d{background:#34d399}.pc2 .pattern .e{background:#60a5fa}
+
+.pc3{background:#fff9f0}
+.pc3 .pattern{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);gap:4px;padding:16px}
+.pc3 .pattern span{border-radius:3px}
+.pc3 .pattern .a{background:#ff6b6b}.pc3 .pattern .b{background:#fbbf24}.pc3 .pattern .c{background:#4ade80}.pc3 .pattern .d{background:#60a5fa}.pc3 .pattern .e{background:#f472b6}.pc3 .pattern .f{background:#a78bfa}
+
+.ptag{position:absolute;bottom:16px;left:16px;font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(0,0,0,0.3);z-index:2;background:rgba(255,255,255,0.7);padding:4px 10px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="sec-label"><span class="dot"></span><span class="text">Illustration · AI-Assisted · Commercial Illustration</span></div>
+
+  <!-- ROW 1: Hero Botanical + Character -->
+  <div class="row-hero">
+    <div class="panel hero-illu">
+      <div class="sun-big"></div>
+      <div class="bg-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span><span class="d4"></span><span class="d5"></span></div>
+      <div class="hero-text"><div class="tag">🌿 植物插画</div><h2>热 带 花 园</h2></div>
+      <div class="plant-group">
+        <div class="flower-cluster">
+          <div class="flower f1">
+            <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div>
+            <div class="center-dot"></div>
+          </div>
+          <div class="flower f2">
+            <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div>
+            <div class="center-dot"></div>
+          </div>
+        </div>
+        <div class="big-leaf">
+          <div class="leaf-body"></div>
+          <div class="vein"></div><div class="vein2"></div><div class="vein3"></div>
+        </div>
+        <div class="small-plant">
+          <div class="stem"></div>
+          <div class="sleaf sl1"></div><div class="sleaf sl2"></div><div class="sleaf sl3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel char-panel">
+      <div class="clouds"><div class="cloud c1"></div><div class="cloud c2"></div></div>
+      <div class="char-group">
+        <div class="char-face">
+          <div class="eye left"></div><div class="eye right"></div>
+          <div class="blush l"></div><div class="blush r"></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="char-body">
+          <div class="stripe" style="width:60%;margin:16px auto 8px"></div>
+          <div class="stripe" style="width:40%;margin:0 auto 8px"></div>
+        </div>
+      </div>
+      <div class="label-tag">✦ 角色设计</div>
+      <p>AI辅助IP形象 · 品牌吉祥物</p>
+    </div>
+  </div>
+
+  <!-- ROW 2: Food Illustrations -->
+  <div class="row3">
+    <div class="food-card fc1">
+      <div class="burger">
+        <div class="seeds"><span></span><span></span><span></span><span></span></div>
+        <div class="bun-top"></div><div class="lettuce"></div><div class="cheese"></div><div class="patty"></div><div class="bun-bottom"></div>
+      </div>
+      <div><div class="ftitle">🍔 美食插画</div><div class="fsub">FOOD ILLUSTRATION · 汉堡</div></div>
+    </div>
+    <div class="food-card fc2">
+      <div class="icecream">
+        <div class="scoop"></div><div class="scoop2"></div><div class="cone"></div>
+      </div>
+      <div><div class="ftitle">🍦 甜品插画</div><div class="fsub">DESSERT · 双球冰淇淋</div></div>
+    </div>
+    <div class="food-card fc3">
+      <div class="boba">
+        <div class="straw"></div><div class="lid"></div>
+        <div class="cup"><div class="liquid"></div><div class="bubbles"><span></span><span></span><span></span><span></span></div></div>
+      </div>
+      <div><div class="ftitle">🧋 饮品插画</div><div class="fsub">DRINK · 珍珠奶茶</div></div>
+    </div>
+  </div>
+
+  <!-- ROW 3: Abstract Wave Backgrounds -->
+  <div class="row3">
+    <div class="wave-card wc1">
+      <div class="wave"></div><div class="wave2"></div><div class="wave3"></div>
+      <div class="wtitle">日落海岸</div><div class="wsub">SUNSET COAST · 暖色渐变波浪</div>
+    </div>
+    <div class="wave-card wc2">
+      <div class="wave"></div><div class="wave2"></div>
+      <div class="wtitle">紫夜山脉</div><div class="wsub">PURPLE MOUNTAIN · 冷色层叠</div>
+    </div>
+    <div class="wave-card wc3">
+      <div class="wave"></div><div class="wave2"></div>
+      <div class="wtitle">翡翠湖光</div><div class="wsub">EMERALD LAKE · 青绿渐变</div>
+    </div>
+  </div>
+
+  <!-- ROW 4: Pattern Tiles -->
+  <div class="row3">
+    <div class="pattern-card pc1">
+      <div class="pattern">
+        <span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span>
+        <span class="c"></span><span class="d"></span><span class="a"></span><span class="e"></span>
+        <span class="b"></span><span class="a"></span><span class="e"></span><span class="c"></span>
+      </div>
+      <div class="ptag">几何色块 · BENTO GRID</div>
+    </div>
+    <div class="pattern-card pc2">
+      <div class="pattern">
+        <span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span><span class="e"></span><span class="a"></span>
+        <span class="c"></span><span class="e"></span><span class="b"></span><span class="d"></span><span class="a"></span><span class="c"></span>
+        <span class="d"></span><span class="a"></span><span class="e"></span><span class="c"></span><span class="b"></span><span class="d"></span>
+      </div>
+      <div class="ptag">圆点矩阵 · DOT MATRIX</div>
+    </div>
+    <div class="pattern-card pc3">
+      <div class="pattern">
+        <span class="a"></span><span class="b"></span><span class="a"></span><span class="c"></span><span class="b"></span><span class="d"></span><span class="a"></span><span class="c"></span>
+        <span class="c"></span><span class="d"></span><span class="e"></span><span class="a"></span><span class="f"></span><span class="c"></span><span class="b"></span><span class="a"></span>
+        <span class="b"></span><span class="a"></span><span class="f"></span><span class="c"></span><span class="a"></span><span class="e"></span><span class="d"></span><span class="b"></span>
+      </div>
+      <div class="ptag">条纹编织 · STRIPE WEAVE</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

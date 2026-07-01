@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI界面设计 · AI设计工具概念</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d0d16;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'PingFang SC','Microsoft YaHei',sans-serif;padding:24px}
+
+.wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px}
+
+.phone{width:100%;aspect-ratio:9/19;border-radius:28px;background:#111118;border:1px solid rgba(255,255,255,0.06);overflow:hidden;position:relative;box-shadow:0 16px 48px rgba(0,0,0,0.4)}
+.phone .status-bar{height:28px;display:flex;justify-content:space-between;align-items:center;padding:0 16px;font-size:8px;color:rgba(255,255,255,0.4)}
+.phone .nav{height:44px;display:flex;align-items:center;padding:0 14px;justify-content:space-between}
+.phone .nav .back{font-size:12px;color:rgba(255,255,255,0.5)}
+.phone .nav .title{font-size:12px;font-weight:600;color:#d0c8e8;letter-spacing:1px}
+.phone .nav .action{font-size:12px;color:rgba(255,255,255,0.5)}
+
+/* ── Screen 1: AI Design Tool Home ── */
+.s1{background:linear-gradient(180deg,#0d0d1a 0%,#130f28 40%,#1a1035 100%)}
+.s1 .hero-area{text-align:center;padding:24px 20px 16px}
+.s1 .hero-area .ai-badge{display:inline-block;padding:4px 12px;border-radius:12px;background:rgba(167,139,250,0.12);color:#a78bfa;font-size:9px;letter-spacing:2px;margin-bottom:12px}
+.s1 .hero-area h2{font-size:18px;font-weight:700;color:#e8e0ff;letter-spacing:2px;margin-bottom:6px}
+.s1 .hero-area .desc{font-size:9px;color:rgba(180,170,200,0.4);letter-spacing:1px}
+.s1 .prompt-bar{margin:0 16px 20px;background:rgba(255,255,255,0.04);border-radius:16px;padding:12px 16px;border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:8px}
+.s1 .prompt-bar .icon{font-size:16px}
+.s1 .prompt-bar .placeholder{flex:1;font-size:10px;color:rgba(255,255,255,0.2);letter-spacing:1px}
+.s1 .prompt-bar .send{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#6366f1);display:flex;align-items:center;justify-content:center}
+.s1 .style-row{padding:0 16px;margin-bottom:16px}
+.s1 .style-row .label{font-size:9px;color:rgba(180,170,200,0.4);letter-spacing:2px;margin-bottom:10px}
+.s1 .style-row .chips{display:flex;gap:8px;flex-wrap:wrap}
+.s1 .style-row .chip{padding:6px 14px;border-radius:20px;font-size:9px;letter-spacing:1px;border:1px solid rgba(255,255,255,0.06);color:rgba(200,190,220,0.5);white-space:nowrap}
+.s1 .style-row .chip.active{background:rgba(167,139,250,0.15);border-color:rgba(167,139,250,0.3);color:#a78bfa}
+.s1 .gallery{padding:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.s1 .gallery .thumb{border-radius:12px;aspect-ratio:1;position:relative;overflow:hidden}
+.s1 .gallery .thumb.t1{background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(99,102,241,0.1))}
+.s1 .gallery .thumb.t2{background:linear-gradient(135deg,rgba(236,72,153,0.12),rgba(167,139,250,0.08))}
+.s1 .gallery .thumb.t3{background:linear-gradient(135deg,rgba(34,211,238,0.1),rgba(99,102,241,0.08))}
+.s1 .gallery .thumb.t4{background:linear-gradient(135deg,rgba(251,191,36,0.1),rgba(236,72,153,0.08))}
+.s1 .gallery .thumb .tl{position:absolute;bottom:8px;left:10px;font-size:8px;color:rgba(255,255,255,0.5);letter-spacing:1px}
+
+/* ── Screen 2: Design Editor ── */
+.s2{background:#0f0f1a}
+.s2 .canvas-area{margin:10px 16px;aspect-ratio:4/3;background:linear-gradient(135deg,rgba(30,25,50,0.8),rgba(20,18,38,0.9));border-radius:16px;border:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden}
+.s2 .canvas-area .grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:20px 20px}
+.s2 .canvas-area .element{position:absolute;border:1px dashed rgba(255,255,255,0.1);border-radius:4px}
+.s2 .canvas-area .e1{top:20px;left:20px;width:60px;height:40px;background:rgba(167,139,250,0.1)}
+.s2 .canvas-area .e2{top:20px;right:20px;width:80px;height:12px;background:rgba(255,255,255,0.04);border-radius:2px}
+.s2 .canvas-area .e3{bottom:30px;left:20px;right:20px;height:30px;background:rgba(236,72,153,0.08);border-radius:6px}
+.s2 .canvas-area .cursor{position:absolute;width:16px;height:16px;border-radius:50%;border:2px solid #a78bfa;top:50%;left:50%;transform:translate(-50%,-50%)}
+.s2 .tools-row{display:flex;gap:8px;padding:8px 16px;overflow-x:auto}
+.s2 .tools-row .tool{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.s2 .tools-row .tool.sel{background:rgba(167,139,250,0.2);border:1px solid rgba(167,139,250,0.3)}
+.s2 .props-row{padding:8px 16px;display:flex;gap:16px}
+.s2 .props-row .prop{display:flex;flex-direction:column;gap:4px}
+.s2 .props-row .prop .pl{font-size:8px;color:rgba(255,255,255,0.25);letter-spacing:1px}
+.s2 .props-row .prop .pv{font-size:11px;color:rgba(220,210,240,0.6)}
+
+/* ── Screen 3: Generate Results ── */
+.s3{background:linear-gradient(180deg,#0d0a18 0%,#150f28 100%)}
+.s3 .result-header{padding:16px;text-align:center}
+.s3 .result-header .count{font-size:9px;color:rgba(180,170,200,0.4);letter-spacing:2px}
+.s3 .result-grid{padding:0 12px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.s3 .result-grid .res{border-radius:12px;aspect-ratio:1;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.04)}
+.s3 .result-grid .res.r1{background:linear-gradient(160deg,rgba(253,224,71,0.1),rgba(236,72,153,0.08));border-color:rgba(167,139,250,0.3)}
+.s3 .result-grid .res.r2{background:linear-gradient(160deg,rgba(167,139,250,0.1),rgba(99,102,241,0.08))}
+.s3 .result-grid .res.r3{background:linear-gradient(160deg,rgba(34,211,238,0.08),rgba(167,139,250,0.1))}
+.s3 .result-grid .res.r4{background:linear-gradient(160deg,rgba(236,72,153,0.1),rgba(251,191,36,0.06))}
+.s3 .result-grid .res .check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:8px}
+.s3 .result-grid .res.r1 .check{background:#a78bfa;border-color:#a78bfa;color:#fff}
+.s3 .bottom-bar{margin:12px 16px;padding:14px;border-radius:14px;background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:space-between}
+.s3 .bottom-bar .text{font-size:10px;color:#c4b5fd;letter-spacing:1px}
+.s3 .bottom-bar .btn{padding:8px 20px;border-radius:20px;background:linear-gradient(135deg,#a78bfa,#6366f1);color:#fff;font-size:10px;font-weight:600;letter-spacing:1px}
+
+/* ── Screen 4: Library / History ── */
+.s4{background:#0f0f1a}
+.s4 .lib-header{padding:20px 16px 12px}
+.s4 .lib-header h3{font-size:15px;font-weight:700;color:#e0d8f0;letter-spacing:1px;margin-bottom:4px}
+.s4 .lib-header .sub{font-size:9px;color:rgba(180,170,200,0.35);letter-spacing:1px}
+.s4 .lib-list{padding:0 16px;display:flex;flex-direction:column;gap:8px}
+.s4 .lib-list .item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+.s4 .lib-list .item .thumb{width:40px;height:40px;border-radius:8px;flex-shrink:0}
+.s4 .lib-list .item .thumb.b1{background:linear-gradient(135deg,rgba(167,139,250,0.2),rgba(99,102,241,0.1))}
+.s4 .lib-list .item .thumb.b2{background:linear-gradient(135deg,rgba(236,72,153,0.15),rgba(167,139,250,0.08))}
+.s4 .lib-list .item .thumb.b3{background:linear-gradient(135deg,rgba(34,211,238,0.12),rgba(99,102,241,0.06))}
+.s4 .lib-list .item .thumb.b4{background:linear-gradient(135deg,rgba(251,191,36,0.12),rgba(236,72,153,0.06))}
+.s4 .lib-list .item .meta{flex:1}
+.s4 .lib-list .item .meta .name{font-size:11px;color:#d0c8e0;margin-bottom:2px}
+.s4 .lib-list .item .meta .date{font-size:8px;color:rgba(180,170,200,0.3);letter-spacing:1px}
+.s4 .lib-list .item .arrow{color:rgba(255,255,255,0.2);font-size:12px}
+
+@media(max-width:900px){.wrap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Screen 1: AI Design Home -->
+  <div class="phone s1">
+    <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+    <div class="nav"><span class="back">←</span><span class="title">AI 设计助手</span><span class="action">⚙</span></div>
+    <div class="hero-area">
+      <div class="ai-badge">✦ AI POWERED</div>
+      <h2>描述你的创意</h2>
+      <div class="desc">AI将为你生成商业级视觉设计</div>
+    </div>
+    <div class="prompt-bar">
+      <span class="icon">✨</span>
+      <span class="placeholder">描述你想要的画面、风格、用途...</span>
+      <div class="send">↑</div>
+    </div>
+    <div class="style-row">
+      <div class="label">推荐风格</div>
+      <div class="chips">
+        <span class="chip active">全部</span><span class="chip">电商Banner</span><span class="chip">品牌VI</span><span class="chip">海报</span><span class="chip">社交媒体</span><span class="chip">3D渲染</span><span class="chip">国潮</span>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="thumb t1"><span class="tl">灵感 · 品牌视觉</span></div>
+      <div class="thumb t2"><span class="tl">趋势 · 618大促</span></div>
+      <div class="thumb t3"><span class="tl">模板 · 产品详情</span></div>
+      <div class="thumb t4"><span class="tl">案例 · 社交媒体</span></div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Design Editor -->
+  <div class="phone s2">
+    <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+    <div class="nav"><span class="back">←</span><span class="title">编辑设计</span><span class="action">💾</span></div>
+    <div class="canvas-area">
+      <div class="grid-overlay"></div>
+      <div class="element e1"></div><div class="element e2"></div><div class="element e3"></div>
+      <div class="cursor"></div>
+    </div>
+    <div class="tools-row">
+      <div class="tool sel">↕</div><div class="tool">T</div><div class="tool">□</div><div class="tool">○</div><div class="tool">🖼</div><div class="tool">🎨</div><div class="tool">⟐</div><div class="tool">✂</div><div class="tool">AI</div>
+    </div>
+    <div class="props-row">
+      <div class="prop"><span class="pl">宽</span><span class="pv">1080px</span></div>
+      <div class="prop"><span class="pl">高</span><span class="pv">1920px</span></div>
+      <div class="prop"><span class="pl">格式</span><span class="pv">PNG</span></div>
+      <div class="prop"><span class="pl">图层</span><span class="pv">3</span></div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Generate Results -->
+  <div class="phone s3">
+    <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+    <div class="nav"><span class="back">←</span><span class="title">生成结果</span><span class="action">↗</span></div>
+    <div class="result-header"><div class="count">AI 为你生成了 4 个方案</div></div>
+    <div class="result-grid">
+      <div class="res r1"><div class="check">✓</div></div>
+      <div class="res r2"><div class="check"></div></div>
+      <div class="res r3"><div class="check"></div></div>
+      <div class="res r4"><div class="check"></div></div>
+    </div>
+    <div class="bottom-bar">
+      <span class="text">已选 1 个方案</span>
+      <span class="btn">导出高清图 →</span>
+    </div>
+  </div>
+
+  <!-- Screen 4: Project Library -->
+  <div class="phone s4">
+    <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+    <div class="nav"><span class="back">←</span><span class="title">项目库</span><span class="action">+</span></div>
+    <div class="lib-header">
+      <h3>我的设计</h3>
+      <div class="sub">共 23 个项目 · AI辅助完成</div>
+    </div>
+    <div class="lib-list">
+      <div class="item"><div class="thumb b1"></div><div class="meta"><div class="name">618大促 · 主视觉Banner</div><div class="date">2026-07-01 · AI生成</div></div><div class="arrow">›</div></div>
+      <div class="item"><div class="thumb b2"></div><div class="meta"><div class="name">AURA品牌 · VI系统</div><div class="date">2026-06-28 · AI辅助</div></div><div class="arrow">›</div></div>
+      <div class="item"><div class="thumb b3"></div><div class="meta"><div class="name">社交媒体 · 模板套件</div><div class="date">2026-06-25 · AI生成</div></div><div class="arrow">›</div></div>
+      <div class="item"><div class="thumb b4"></div><div class="meta"><div class="name">产品详情页 · 长图</div><div class="date">2026-06-22 · AI辅助</div></div><div class="arrow">›</div></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

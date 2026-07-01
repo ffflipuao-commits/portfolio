@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>徐佳乐 · AI设计作品集</title>
+<style>
+:root {
+  --bg: #0d0d0d;
+  --surface: #1a1a1a;
+  --surface2: #222;
+  --text: #e8e8e8;
+  --text2: #a0a0a0;
+  --accent: #a78bfa;
+  --accent2: #60a5fa;
+  --accent3: #f472b6;
+  --green: #4ade80;
+  --line: #2a2a2a;
+  --gold: #d4952b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at center, rgba(167,139,250,0.06) 0%, transparent 70%),
+              radial-gradient(ellipse at 30% 60%, rgba(96,165,250,0.04) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 40%, rgba(244,114,182,0.04) 0%, transparent 60%);
+  animation: bgShift 20s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(1%, -1%); }
+  66% { transform: translate(-1%, 1%); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero .tag {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  border: 1px solid rgba(167,139,250,0.3);
+  padding: 4px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #e8e8e8 0%, #a78bfa 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .subtitle {
+  font-size: 15px;
+  color: var(--text2);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.hero .desc {
+  font-size: 13px;
+  color: #666;
+  max-width: 500px;
+  margin: 16px auto 0;
+  line-height: 1.8;
+}
+
+/* ── Stats row ── */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-label { font-size: 11px; color: var(--text2); letter-spacing: 0.06em; margin-top: 2px; }
+
+/* ── Container ── */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── Section title ── */
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title .num {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ── Project cards ── */
+.project {
+  margin-bottom: 64px;
+}
+
+.project-header {
+  margin-bottom: 24px;
+}
+
+.project-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.project-header .meta {
+  font-size: 12px;
+  color: var(--text2);
+  letter-spacing: 0.06em;
+}
+
+.project-header .meta span {
+  color: var(--accent);
+}
+
+/* ── Image showcase ── */
+.image-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.image-showcase.single { grid-template-columns: 1fr; }
+
+.image-card {
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all 0.3s;
+}
+
+.image-card:hover {
+  border-color: rgba(167,139,250,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(167,139,250,0.08);
+}
+
+.image-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-card .caption {
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--text2);
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--line);
+}
+
+/* ── Tech tags ── */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.tech-tag.ai { background: rgba(167,139,250,0.15); color: var(--accent); }
+.tech-tag.design { background: rgba(96,165,250,0.15); color: var(--accent2); }
+.tech-tag.tool { background: rgba(244,114,182,0.15); color: var(--accent3); }
+.tech-tag.other { background: rgba(74,222,128,0.12); color: var(--green); }
+
+/* ── Process flow ── */
+.process-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.process-step {
+  background: var(--surface2);
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--text2);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.process-arrow {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+/* ── Description ── */
+.desc-block {
+  color: var(--text2);
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+.desc-block strong { color: #ccc; }
+
+/* ── Highlight list ── */
+.highlight-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text2);
+  padding: 10px 14px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.highlight-item .icon { font-size: 16px; flex-shrink: 0; }
+
+/* ── 鸢都文创 embedded showcase ── */
+.embed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.embed-card {
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all 0.25s;
+}
+
+.embed-card:hover {
+  border-color: rgba(212,149,43,0.3);
+  transform: translateY(-2px);
+}
+
+.embed-card .preview {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.embed-card .preview.logo-bg { background: linear-gradient(135deg, #1A3C6D, #0d1f3c); }
+.embed-card .preview.poster-bg { background: linear-gradient(135deg, #C41E2B, #6b1017); }
+.embed-card .preview.package-bg { background: linear-gradient(135deg, #4B8B7F, #2d5a51); }
+.embed-card .preview.sachet-bg { background: linear-gradient(135deg, #E85D8B, #a33d5f); }
+.embed-card .preview.graphics-bg { background: linear-gradient(135deg, #D4952B, #8b6914); }
+.embed-card .preview.vi-bg { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+
+.embed-card .info {
+  padding: 10px 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.embed-card .info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  letter-spacing: 0.03em;
+}
+
+.embed-card .info p {
+  font-size: 11px;
+  color: #777;
+  letter-spacing: 0.03em;
+}
+
+/* ── Design showcase cards ── */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.design-card {
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+}
+
+.design-card:hover {
+  border-color: rgba(167,139,250,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(167,139,250,0.08);
+}
+
+.design-card .thumb {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.design-card .thumb iframe {
+  width: 800px;
+  height: 500px;
+  border: none;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.design-card .info {
+  padding: 14px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.design-card .info h4 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 0.03em;
+}
+
+.design-card .info p {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.03em;
+}
+
+.design-card .tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.design-card .tags span {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(167,139,250,0.1);
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+/* ── Link button ── */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.link-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(167,139,250,0.06);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+
+.footer p {
+  font-size: 12px;
+  color: #555;
+  margin: 4px 0;
+}
+
+.footer .contact {
+  color: var(--text2);
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 28px; }
+  .image-showcase { grid-template-columns: 1fr; }
+  .highlight-list { grid-template-columns: 1fr; }
+  .embed-grid { grid-template-columns: 1fr 1fr; }
+  .stats { gap: 24px; }
+}
+
+@media (max-width: 480px) {
+  .embed-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 16px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">AI × Design Portfolio</div>
+    <h1>徐佳乐 · AI设计作品集</h1>
+    <div class="subtitle">AI视觉创作 · 品牌全案设计 · AIGC探索</div>
+    <p class="desc">
+      服装设计专业背景 × AI工具深度使用<br>
+      从概念到落地的完整视觉创作能力<br>
+      探索AI在服装设计、品牌视觉、内容创作中的新可能
+    </p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">AI服装系列</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">35+</div>
+        <div class="stat-label">品牌交付件</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8组</div>
+        <div class="stat-label">视觉设计</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">22</div>
+        <div class="stat-label">独立面板</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+<!-- ═══════════ PROJECT 1: AI FASHION ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">01</span> AI服装系列设计
+  </div>
+
+  <div class="project-header">
+    <h3>AI-Generated Fashion Collection</h3>
+    <div class="meta">工具：<span>Midjourney</span> · <span>Stable Diffusion</span> · Photoshop | 2026.06</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">Midjourney</span>
+    <span class="tech-tag ai">Stable Diffusion</span>
+    <span class="tech-tag ai">Prompt Engineering</span>
+    <span class="tech-tag design">服装设计</span>
+    <span class="tech-tag design">概念设计</span>
+    <span class="tech-tag tool">Photoshop</span>
+  </div>
+
+  <div class="process-flow">
+    <span class="process-step">🎯 创意构思</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">✍️ 提示词工程</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">🖼 AI生图</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">🔍 筛选优化</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">✨ 后期精修</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">📦 系列整合</span>
+  </div>
+
+  <p class="desc-block">
+    使用 <strong>Midjourney + Stable Diffusion</strong> 完成系列服装概念设计，探索AI在服装视觉创作中的商业应用潜力。
+    结合服装设计专业知识（廓形、面料、色彩、工艺），通过精准的<strong>提示词工程</strong>引导AI生成具有商业价值的视觉内容。
+    涵盖<strong>国风、现代、解构</strong>等不同风格方向，体现对服装美学的专业把控与AI工具的深度结合。
+  </p>
+
+  <div class="image-showcase">
+    <div class="image-card">
+      <img src="images/ai-fashion-01.png" alt="AI服装设计系列一" loading="lazy">
+      <div class="caption">AI服装设计系列一 — 探索传统元素与现代廓形的融合</div>
+    </div>
+    <div class="image-card">
+      <img src="images/ai-fashion-02.png" alt="AI服装设计系列二" loading="lazy">
+      <div class="caption">AI服装设计系列二 — 面料质感与色彩情绪的实验性表达</div>
+    </div>
+  </div>
+
+  <div class="highlight-list">
+    <div class="highlight-item">
+      <span class="icon">🎨</span>
+      <span>服装设计专业审美 × AI工具高效生成，产出商业级视觉内容</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🔧</span>
+      <span>精准提示词工程 — 从模糊创意到精确视觉的翻译能力</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">📐</span>
+      <span>多风格覆盖 — 国风/现代/解构/极简，展现风格广度</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🔄</span>
+      <span>完整AIGC流程 — 概念→生成→筛选→精修→落地</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 2: 鸢都文创 ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">02</span> 鸢都文创 · 品牌全案设计
+  </div>
+
+  <div class="project-header">
+    <h3>鸢都文创 YUANDU WENCHUANG</h3>
+    <div class="meta">潍坊纸鸢文创品牌 | 从<span>0到1</span>全案策划与设计 | 2026.05 - 2026.06</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag design">品牌VI</span>
+    <span class="tech-tag design">Logo设计</span>
+    <span class="tech-tag design">包装设计</span>
+    <span class="tech-tag design">海报设计</span>
+    <span class="tech-tag ai">AI辅助创意</span>
+    <span class="tech-tag ai">AI文案</span>
+    <span class="tech-tag tool">Illustrator</span>
+    <span class="tech-tag tool">SVG矢量</span>
+  </div>
+
+  <p class="desc-block">
+    独立完成的潍坊纸鸢文创品牌全案设计。"<strong>古韵新飞</strong>"— 传统风筝骨架为筋骨，现代设计语言为羽翼。
+    涵盖Logo系统、VI规范、辅助图形库、主题海报、包装系统、文创产品等全套品牌视觉资产。
+    全程使用 <strong>AI工具（Claude/ChatGPT）辅助创意发散、文案撰写、设计规范输出</strong>，效率提升约60%。
+  </p>
+
+  <div class="embed-grid">
+    <div class="embed-card">
+      <div class="preview logo-bg">
+        <svg width="60" height="60" viewBox="0 0 440 440"><g transform="translate(220,215) scale(0.3)"><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34 C122,-22 128,-8 128,4 C126,12 118,20 106,28 C92,38 74,46 56,50 C38,54 22,52 10,44 C2,36 -2,24 -4,10 C-4,-20 -4,-55 -4,-92Z" fill="#C41E2B" opacity="0.9"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34 C-122,-22 -128,-8 -128,4 C-126,12 -118,20 -106,28 C-92,38 -74,46 -56,50 C-38,54 -22,52 -10,44 C-2,36 2,24 4,10 C4,-20 4,-55 4,-92Z" fill="#C41E2B" opacity="0.86"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#1A3C6D"/><path d="M-8,22 C-14,28 -22,38 -30,52 C-36,60 -44,72 -50,82 C-46,86 -38,90 -26,90 C-16,90 -8,86 -2,80 C1,76 2,70 2,64 C2,58 0,52 -3,46 C-6,40 -8,32 -8,22Z" fill="#1A3C6D" opacity="0.92"/><path d="M8,22 C14,28 22,38 30,52 C36,60 44,72 50,82 C46,86 38,90 26,90 C16,90 8,86 2,80 C-1,76 -2,70 -2,64 C-2,58 0,52 3,46 C6,40 8,32 8,22Z" fill="#1A3C6D" opacity="0.9"/></g></svg>
+      </div>
+      <div class="info">
+        <h4>🪁 Logo 系统</h4>
+        <p>V8沙燕纸鸢抽象标志 + 标准字 + 6色色板 + 3种组合规范</p>
+      </div>
+    </div>
+    <div class="embed-card">
+      <div class="preview graphics-bg" style="font-size:24px;color:var(--gold);">
+        沙燕 · 龙头蜈蚣 · 蝴蝶<br>老鹰 · 金鱼 · 仙鹤<br>凤凰 · 牡丹 · 蝙蝠 · 宫灯
+      </div>
+      <div class="info">
+        <h4>🎨 辅助图形系统</h4>
+        <p>10个纸鸢主题矢量图形 + 4种应用方式（底纹/点缀/拼贴/烫金）</p>
+      </div>
+    </div>
+    <div class="embed-card">
+      <div class="preview poster-bg" style="color:#fff;font-size:14px;text-align:center;padding:20px;">
+        <div style="font-size:20px;margin-bottom:6px;">🏮</div>
+        品牌形象 · 鸢都文创<br>
+        端午主题 · 鸢飞端阳<br>
+        非遗传承 · 千年纸鸢
+      </div>
+      <div class="info">
+        <h4>🖼 主题海报 ×3</h4>
+        <p>品牌调性/节日氛围/文化厚度 — 不同场景不同风格</p>
+      </div>
+    </div>
+    <div class="embed-card">
+      <div class="preview package-bg" style="color:#fff;font-size:14px;text-align:center;padding:20px;">
+        <div style="font-size:20px;margin-bottom:6px;">📦</div>
+        精装礼盒 · 手提袋<br>
+        小产品盒 · 包装纸<br>
+        标签 · 吊牌 · 贴纸
+      </div>
+      <div class="info">
+        <h4>📦 包装系统 ×5</h4>
+        <p>天地盖礼盒 + 手提袋 + 产品盒 + 丝巾 + 吊牌标签</p>
+      </div>
+    </div>
+    <div class="embed-card">
+      <div class="preview sachet-bg" style="color:#fff;font-size:14px;text-align:center;padding:20px;">
+        <div style="font-size:20px;margin-bottom:6px;">🏮</div>
+        纸鸢燕尾造型<br>
+        丝绸 + 艾草填充<br>
+        朱砂红 · 藏蓝 · 石绿
+      </div>
+      <div class="info">
+        <h4>🏮 端午香囊「鸢香」</h4>
+        <p>纸鸢造型文创产品 — 三色版本 + 完整工艺材质方案</p>
+      </div>
+    </div>
+    <div class="embed-card">
+      <div class="preview vi-bg" style="color:#fff;font-size:14px;text-align:center;padding:20px;">
+        <div style="font-size:20px;margin-bottom:6px;">📖</div>
+        品牌VI手册<br>
+        设计规范书<br>
+        SVG源文件 + PNG预览
+      </div>
+      <div class="info">
+        <h4>📋 交付文档</h4>
+        <p>VI手册 + 设计规范 + 12个SVG矢量 + 12个PNG预览</p>
+      </div>
+    </div>
+  </div>
+
+  <a class="link-btn" href="鸢都文创/index.html" target="_blank">
+    📂 查看鸢都文创完整设计交付页 →
+  </a>
+</section>
+
+<!-- ═══════════ PROJECT 3: AI平面视觉设计 ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">03</span> AI平面视觉设计
+  </div>
+
+  <div class="project-header">
+    <h3>AI-Generated Visual Communication</h3>
+    <div class="meta">工具：<span>AI辅助创意</span> · <span>CSS/SVG生成艺术</span> · <span>视觉传达实验</span> | 2026.06 – 2026.07</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">AI辅助设计</span>
+    <span class="tech-tag design">海报设计</span>
+    <span class="tech-tag design">品牌视觉</span>
+    <span class="tech-tag design">抽象构成</span>
+    <span class="tech-tag ai">生成艺术</span>
+    <span class="tech-tag tool">视觉传达</span>
+  </div>
+
+  <p class="desc-block">
+    探索 <strong>AI辅助平面设计</strong>的新范式——用AI进行创意概念发散、色彩方案生成、构图实验。
+    不同于传统设计流程，AI时代的设计师可以在<strong>概念→迭代→定稿</strong>的每个环节借助AI提升创意效率。
+    以下作品展示了从<strong>海报设计、几何抽象、品牌视觉实验到编辑排版</strong>的多维度AI设计能力。
+  </p>
+
+  <div class="design-grid">
+    <a class="design-card" href="portfolio-piece-01-poster.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#050510 0%,#0d1025 30%,#1a1040 60%,#0a0a18 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(120,100,255,0.4),transparent 70%);border:1px solid rgba(180,160,255,0.2);position:relative">
+          <div style="position:absolute;inset:15px;border-radius:50%;border:1px solid rgba(180,160,255,0.1)"></div>
+        </div>
+        <div style="font-size:16px;font-weight:900;letter-spacing:8px;color:#e8e0ff">共 生</div>
+        <div style="font-size:8px;letter-spacing:4px;color:rgba(180,160,240,0.5)">SYMBIOSIS</div>
+      </div>
+      <div class="info">
+        <h4>🎬 共生 · AIGC主题海报</h4>
+        <p>人机协作的未来设计宣言 — 神经网络视觉 + 极简中文排版</p>
+        <div class="tags"><span>海报设计</span><span>AIGC</span><span>科技感</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-02-geometric.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(135deg,#0c0c18 0%,#1a1028 50%,#0d1220 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px">
+        <div style="position:relative;width:80px;height:80px">
+          <div style="position:absolute;inset:0;border:1px solid rgba(255,255,255,0.06);border-radius:2px"></div>
+          <div style="position:absolute;inset:12px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="position:absolute;inset:24px;background:rgba(180,160,255,0.04);border:1px solid rgba(200,180,255,0.12)"></div>
+          <div style="position:absolute;top:50%;left:50%;width:4px;height:4px;border-radius:50%;background:#a088ff;transform:translate(-50%,-50%)"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🔷 维度 · 几何抽象系列</h4>
+        <p>四组几何构成实验：色彩建筑 · 流动边界 · 数据雕塑 · 虚空结构</p>
+        <div class="tags"><span>抽象构成</span><span>几何</span><span>实验视觉</span><span>系列</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-03-brand.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#0a0a16 0%,#12102a 50%,#0d0d20 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="width:40px;height:40px;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);background:linear-gradient(135deg,#a088ff,#00cca0)"></div>
+        <div style="font-family:Georgia,serif;font-size:10px;letter-spacing:4px;color:rgba(220,210,240,0.6)">META STUDIO</div>
+        <div style="display:flex;gap:6px">
+          <div style="width:12px;height:12px;border-radius:50%;background:#a088ff"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:#00cca0"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:#ff5c8a"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🎯 META · 品牌视觉实验</h4>
+        <p>AI设计工作室概念品牌：Logo · 产品视觉 · 编辑排版 · 动态图形</p>
+        <div class="tags"><span>品牌VI</span><span>产品设计</span><span>编辑</span><span>动态</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 4: 电商与数字化设计 ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">04</span> 电商与数字化设计
+  </div>
+
+  <div class="project-header">
+    <h3>E-Commerce & Digital Product Design</h3>
+    <div class="meta">工具：<span>AI辅助设计</span> · <span>电商视觉</span> · <span>UI/UX</span> · <span>排版字体</span> | 2026.07</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">AI生成素材</span>
+    <span class="tech-tag design">电商Banner</span>
+    <span class="tech-tag design">产品详情</span>
+    <span class="tech-tag design">UI界面</span>
+    <span class="tech-tag design">排版设计</span>
+    <span class="tech-tag tool">字体实验</span>
+  </div>
+
+  <p class="desc-block">
+    聚焦<strong>电商场景与数字产品界面</strong>，展示AI辅助在商业设计中的全链路应用。
+    从<strong>618促销大促Banner、产品卡片、详情页到社交媒体内容</strong>，构建完整的电商视觉体系。
+    同时探索<strong>AI设计工具的产品界面</strong>——AI如何赋能设计师的日常工作流，
+    以及<strong>东方文字排版</strong>在宋式美学、先锋国潮、瑞士风格等多维度的实验表达。
+  </p>
+
+  <div class="design-grid">
+    <a class="design-card" href="portfolio-piece-04-ecommerce.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#0d0015 0%,#1a0030 50%,#0d0030 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px">
+        <div style="font-size:28px;font-weight:900;background:linear-gradient(135deg,#ff6b9d,#c44dff,#6dd5ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent">焕新</div>
+        <div style="font-size:8px;letter-spacing:4px;color:rgba(255,255,255,0.3)">SUMMER REFRESH</div>
+        <div style="display:flex;gap:16px;margin-top:6px">
+          <div style="width:36px;height:48px;border-radius:8px;background:rgba(255,107,157,0.15)"></div>
+          <div style="width:36px;height:48px;border-radius:8px;background:rgba(196,77,255,0.12)"></div>
+          <div style="width:36px;height:48px;border-radius:8px;background:rgba(0,224,192,0.1)"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🛒 电商视觉设计全案</h4>
+        <p>618大促Banner + 产品卡片 + 详情页 + 社交媒体内容矩阵</p>
+        <div class="tags"><span>电商设计</span><span>Banner</span><span>详情页</span><span>社交媒体</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-05-ui.html" target="_blank">
+      <div class="thumb" style="background:#0f0f1a;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="width:28px;height:48px;border-radius:8px;background:linear-gradient(180deg,#130f28 0%,#1a1035 100%);border:1px solid rgba(167,139,250,0.15)"></div>
+          <div style="width:28px;height:48px;border-radius:8px;background:linear-gradient(180deg,#0d0a18 0%,#150f28 100%);border:1px solid rgba(255,255,255,0.06)"></div>
+        </div>
+        <div style="font-size:9px;letter-spacing:2px;color:#a78bfa">AI 设计助手</div>
+      </div>
+      <div class="info">
+        <h4>📱 AI设计工具 · UI界面概念</h4>
+        <p>AI驱动的设计工具APP — 首页/编辑器/生成结果/项目库 四屏联动</p>
+        <div class="tags"><span>UI设计</span><span>APP界面</span><span>AI工具</span><span>产品概念</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-06-typography.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(180deg,#f5efe0 0%,#ede0c8 50%,#0a0a0a 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px">
+        <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:#3d3020;letter-spacing:8px">花弄影</div>
+        <div style="font-size:9px;font-weight:900;color:#c41e2b;letter-spacing:4px">潮</div>
+        <div style="font-family:'Helvetica Neue',sans-serif;font-size:10px;font-weight:900;color:#1a1a1a;letter-spacing:-1px;background:#f8f8f6;padding:2px 6px;border-radius:2px">TYPO</div>
+      </div>
+      <div class="info">
+        <h4>🔤 东方文字 · 排版实验</h4>
+        <p>宋式美学诗词 / 先锋国潮大字报 / 瑞士极简 / 数字排版 — 四重风格探索</p>
+        <div class="tags"><span>排版设计</span><span>字体</span><span>宋式美学</span><span>国潮</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 5: 色彩与材质实验 ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">05</span> 色彩与材质实验
+  </div>
+
+  <div class="project-header">
+    <h3>Color & Material Exploration</h3>
+    <div class="meta">工具：<span>AI辅助配色</span> · <span>材质视觉</span> · <span>多风格探索</span> | 2026.07</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">AI配色方案</span>
+    <span class="tech-tag design">色彩体系</span>
+    <span class="tech-tag design">材质表现</span>
+    <span class="tech-tag design">地中海风</span>
+    <span class="tech-tag design">热带撞色</span>
+    <span class="tech-tag tool">柔和色系</span>
+  </div>
+
+  <p class="desc-block">
+    打破暗色调局限，探索<strong>暖色系、自然色系、高明度色彩</strong>的视觉可能性。
+    从<strong>地中海陶土蓝白、热带植物撞色、落日橙黄渐变到薰衣草柔和紫调</strong>，
+    展示在不同色彩体系下的设计能力——AI可以辅助快速尝试配色方案，但审美判断始终来自设计师。
+  </p>
+
+  <div class="design-grid">
+    <a class="design-card" href="portfolio-piece-07-vibrant.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#e8f0f8 0%,#dce6f0 50%,#fff3e0 100%);display:flex;align-items:center;justify-content:center;gap:16px">
+        <div style="width:30px;height:60px;background:linear-gradient(180deg,#c4704a,#a04a2c);border-radius:10px 10px 16px 16px;position:relative">
+          <div style="position:absolute;top:-18px;left:-3px;right:-3px;height:28px;background:#7cb342;border-radius:50%;opacity:0.85"></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="width:12px;height:12px;border-radius:50%;background:#3a6b8c"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:#c4704a"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:#7cb342"></div>
+          <div style="width:12px;height:12px;border-radius:50%;background:#e8c84a"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🎨 活力色彩 · 四大主题实验</h4>
+        <p>地中海陶土 · 热带撞色 · 落日暖橙 · 薰衣草紫调 — 彻底打破暗色单调</p>
+        <div class="tags"><span>色彩设计</span><span>地中海</span><span>热带</span><span>暖色系</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-04-ecommerce.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(135deg,#fff7ed 0%,#fff1e0 40%,#ffe8d0 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="font-size:32px;font-weight:900;color:#ff6b3d">焕新</div>
+        <div style="display:flex;gap:10px">
+          <div style="width:36px;height:60px;background:linear-gradient(180deg,#fff5e8,#ffc890 50%,#ffb870);border-radius:8px 8px 2px 2px"></div>
+          <div style="width:40px;height:32px;background:linear-gradient(180deg,#d4956b,#b0683c);border-radius:6px 6px 10px 10px"></div>
+          <div style="width:18px;height:44px;background:linear-gradient(180deg,#f472b6,#db2777);border-radius:3px 3px 10px 10px"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🛒 电商视觉设计全案（已更新）</h4>
+        <p>暖色调夏日焕新季 · 连衣裙/托特包/跑鞋/香水 · 具体产品展示</p>
+        <div class="tags"><span>电商设计</span><span>产品卡片</span><span>详情页</span><span>Banner</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-05-ui.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(180deg,#1a1035 30%,#0f0f1a 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+          <div style="width:28px;height:48px;border-radius:8px;background:linear-gradient(180deg,#130f28,#1a1035);border:1px solid rgba(167,139,250,0.15)"></div>
+          <div style="width:28px;height:48px;border-radius:8px;background:linear-gradient(180deg,#0d0a18,#150f28);border:1px solid rgba(255,255,255,0.06)"></div>
+        </div>
+        <div style="font-size:9px;letter-spacing:2px;color:#a78bfa">AI DESIGN TOOL</div>
+      </div>
+      <div class="info">
+        <h4>📱 AI设计工具 · UI界面概念</h4>
+        <p>4屏AI设计助手APP — 首页/编辑器/生成结果/项目库</p>
+        <div class="tags"><span>UI设计</span><span>APP</span><span>AI工具</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 6: 商业插画设计 ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">06</span> 商业插画设计
+  </div>
+
+  <div class="project-header">
+    <h3>Commercial Illustration · AI辅助插画</h3>
+    <div class="meta">工具：<span>AI辅助生成</span> · <span>CSS矢量插画</span> · <span>商业应用</span> | 2026.07</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">AI构思草图</span>
+    <span class="tech-tag design">植物插画</span>
+    <span class="tech-tag design">角色设计</span>
+    <span class="tech-tag design">美食插画</span>
+    <span class="tech-tag design">抽象风景</span>
+    <span class="tech-tag tool">图案纹理</span>
+  </div>
+
+  <p class="desc-block">
+    探索AI辅助在<strong>商业插画</strong>领域的应用——从植物花卉、IP角色、美食饮品到抽象风景和装饰图案。
+    用<strong>高饱和暖色系</strong>打破暗色印象，展示插画在品牌包装、社交媒体、产品周边等场景的商业价值。
+    AI可以快速生成构图草稿和配色方案，设计师在此基础上进行精细化和风格统一。
+  </p>
+
+  <div class="design-grid">
+    <a class="design-card" href="portfolio-piece-08-illustration.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#fffbeb 0%,#fef3c7 40%,#fde68a 100%);display:flex;align-items:center;justify-content:center;gap:12px">
+        <div style="width:24px;height:36px;border-radius:50% 50% 0 0;background:#ff6b6b"></div>
+        <div style="width:80px;height:100px;background:linear-gradient(180deg,#4ade80,#16a34a);border-radius:0 80% 10% 50%"></div>
+        <div style="width:18px;height:28px;border-radius:50% 50% 0 0;background:#f97316"></div>
+      </div>
+      <div class="info">
+        <h4>🌿 热带花园 · 植物插画</h4>
+        <p>大叶植物+花卉集群+热带色彩 — 商业插画在品牌与包装中的应用</p>
+        <div class="tags"><span>植物插画</span><span>热带风</span><span>品牌应用</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-08-illustration.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#eff6ff 0%,#dbeafe 50%,#bfdbfe 100%);display:flex;align-items:center;justify-content:center">
+        <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(180deg,#fef3c7,#fde68a);position:relative">
+          <div style="position:absolute;width:7px;height:9px;border-radius:50%;background:#1e293b;top:20px;left:16px"></div>
+          <div style="position:absolute;width:7px;height:9px;border-radius:50%;background:#1e293b;top:20px;right:16px"></div>
+          <div style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);width:10px;height:5px;border-bottom:2px solid #f97316;border-radius:0 0 5px 5px"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🧸 IP角色设计</h4>
+        <p>品牌吉祥物/表情包/IP形象 — AI辅助角色概念设计</p>
+        <div class="tags"><span>角色设计</span><span>IP形象</span><span>吉祥物</span></div>
+      </div>
+    </a>
+
+    <a class="design-card" href="portfolio-piece-08-illustration.html" target="_blank">
+      <div class="thumb" style="background:linear-gradient(160deg,#fff1f2 0%,#ffe4e6 40%,#f0fdf4 60%,#dcfce7 80%,#fffbeb 100%);display:flex;align-items:center;justify-content:center;gap:8px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+          <div style="width:36px;height:22px;background:linear-gradient(180deg,#fbbf24,#d97706);border-radius:18px 18px 4px 4px"></div>
+          <div style="width:40px;height:8px;background:#4ade80;border-radius:2px"></div>
+          <div style="width:34px;height:10px;background:#92400e;border-radius:3px"></div>
+          <div style="width:36px;height:12px;background:linear-gradient(180deg,#d97706,#92400e);border-radius:4px 4px 18px 18px"></div>
+        </div>
+        <div style="width:24px;height:80px;background:linear-gradient(180deg,#f9a8d4,#ec4899);border-radius:12px 12px 6px 6px;position:relative">
+          <div style="position:absolute;top:6px;left:5px;width:6px;height:5px;background:rgba(255,255,255,0.3);border-radius:50%"></div>
+        </div>
+        <div style="width:22px;height:66px;background:rgba(255,255,255,0.5);border:2px solid #fbbf24;border-radius:6px 6px 18px 18px;position:relative">
+          <div style="position:absolute;bottom:6px;left:4px;right:4px;height:20px;background:rgba(180,83,9,0.3);border-radius:0 0 14px 14px"></div>
+        </div>
+      </div>
+      <div class="info">
+        <h4>🍔 美食饮品插画</h4>
+        <p>汉堡/冰淇淋/珍珠奶茶 — 餐饮品牌商业插画应用</p>
+        <div class="tags"><span>美食插画</span><span>餐饮</span><span>商业应用</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 7: GRADUATION ═══════════ -->
+<section class="project">
+  <div class="section-title">
+    <span class="num">07</span> 其他设计作品
+  </div>
+
+  <div class="project-header">
+    <h3>毕业设计 & 在校作品</h3>
+    <div class="meta">2022 - 2026 | 内蒙古工业大学</div>
+  </div>
+
+  <div class="highlight-list">
+    <div class="highlight-item">
+      <span class="icon">🎓</span>
+      <span><strong>毕业设计</strong>：蒙古族配色 × K12校服四大系列（工装/制式/运动/秋季），含全套设计稿+Style3D虚拟试衣+实物样衣</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🪡</span>
+      <span><strong>刺绣作品《石榴同心》</strong>：融合蒙古族盘纹与石榴籽意象，分层绣法（凸绣+珠绣）实现浮雕质感</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🖌</span>
+      <span><strong>蒙古袍效果图</strong>：Adobe Illustrator矢量绘制，传统服饰的数字化再现</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🎯</span>
+      <span><strong>清正廉洁主题海报</strong>：平面设计作品，体现视觉传达基础能力</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🔬</span>
+      <span><strong>大创项目</strong>：温控鼠标垫工艺参数优化（自治区级+校级立项，专利受理）</span>
+    </div>
+    <div class="highlight-item">
+      <span class="icon">🖥</span>
+      <span><strong>个人作品集网站</strong>：从零搭建，HTML/CSS响应式布局，GitHub Pages部署</span>
+    </div>
+  </div>
+
+  <a class="link-btn" href="https://ffflipuao-commits.github.io/portfolio/" target="_blank">
+    🌐 访问在线作品集网站 →
+  </a>
+</section>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <p>徐佳乐 · AI设计作品集</p>
+  <p class="contact">📞 17280343262 · 📧 860824847@qq.com · 📍 杭州</p>
+  <p style="margin-top:12px;color:#444;">
+    在线作品集：ffflipuao-commits.github.io/portfolio ｜ 鸢都文创完整版：见附件 ｜ 更新于 2026.07
+  </p>
+</footer>
+
+</body>
+</html>

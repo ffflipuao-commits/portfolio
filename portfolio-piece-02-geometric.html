@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>维度 · 几何抽象系列</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'PingFang SC','Microsoft YaHei',sans-serif}
+
+.series{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px;max-width:1000px}
+
+.card{width:420px;height:560px;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 16px 48px rgba(0,0,0,0.5)}
+
+/* ===== CARD 1: Chromatic Architecture ===== */
+.c1{background:linear-gradient(135deg,#0c0c18 0%,#1a1028 50%,#0d1220 100%)}
+.c1 .layer{position:absolute;border-radius:2px}
+.c1 .l1{top:8%;left:8%;width:84%;height:84%;background:linear-gradient(160deg,rgba(100,80,220,0.08) 0%,rgba(200,60,140,0.04) 100%);border:1px solid rgba(255,255,255,0.06)}
+.c1 .l2{top:16%;left:16%;width:68%;height:68%;border:1px solid rgba(255,255,255,0.08)}
+.c1 .l3{top:24%;left:24%;width:52%;height:52%;background:linear-gradient(45deg,rgba(60,200,180,0.06),rgba(140,100,255,0.08));border:1px solid rgba(255,255,255,0.05)}
+.c1 .l4{top:32%;left:32%;width:36%;height:36%;background:rgba(180,160,255,0.06);border:1px solid rgba(200,180,255,0.15)}
+.c1 .accent-bar{position:absolute;border-radius:1px}
+.c1 .ab1{top:30%;left:10%;width:60px;height:3px;background:linear-gradient(90deg,#6d5cff,#00d4aa)}
+.c1 .ab2{bottom:28%;right:12%;width:80px;height:2px;background:linear-gradient(90deg,#ff4d8f,#6d5cff)}
+.c1 .ab3{top:50%;left:42%;width:1px;height:80px;background:linear-gradient(180deg,transparent,rgba(200,180,255,0.5),transparent)}
+.c1 .dot-grid{position:absolute;top:20%;right:18%;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;opacity:0.4}
+.c1 .dot-grid span{width:3px;height:3px;border-radius:50%;background:#a088ff}
+.c1 .dot-grid span:nth-child(odd){background:#00d4aa}
+.c1 .label{position:absolute;bottom:14%;left:50%;transform:translateX(-50%);text-align:center}
+.c1 .label .num{font-family:'Georgia',serif;font-size:48px;font-weight:700;letter-spacing:4px;background:linear-gradient(135deg,rgba(200,180,240,0.2),rgba(100,200,180,0.15));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.c1 .label .title{font-size:10px;letter-spacing:6px;color:rgba(180,160,220,0.4);margin-top:8px}
+
+/* ===== CARD 2: Liquid Gradient ===== */
+.c2{background:#080812}
+.c2 .blob{position:absolute;border-radius:50%;filter:blur(50px)}
+.c2 .blob1{width:220px;height:220px;background:radial-gradient(circle,#6d4cff 0%,transparent 70%);top:15%;left:10%;opacity:0.6;animation:blobMove 12s ease-in-out infinite}
+.c2 .blob2{width:200px;height:200px;background:radial-gradient(circle,#ff4088 0%,transparent 70%);bottom:20%;right:5%;opacity:0.5;animation:blobMove 15s ease-in-out 3s infinite}
+.c2 .blob3{width:160px;height:160px;background:radial-gradient(circle,#00cca0 0%,transparent 70%);top:45%;left:40%;opacity:0.4;animation:blobMove 10s ease-in-out 6s infinite}
+@keyframes blobMove{0%,100%{transform:translate(0,0)scale(1)}25%{transform:translate(20px,-15px)scale(1.1)}50%{transform:translate(-10px,20px)scale(0.95)}75%{transform:translate(-18px,-8px)scale(1.05)}}
+.c2 .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(8,8,18,0.8) 100%)}
+.c2 .geo{position:absolute}
+.c2 .geo svg{width:100%;height:100%}
+.c2 .typography{position:absolute;bottom:60px;left:50px;right:50px}
+.c2 .typography .big{font-size:16px;font-weight:700;letter-spacing:12px;color:rgba(255,255,255,0.75);margin-bottom:12px}
+.c2 .typography .line{width:30px;height:2px;background:linear-gradient(90deg,rgba(200,170,255,0.6),transparent);margin-bottom:16px}
+.c2 .typography .text{font-size:10px;letter-spacing:4px;color:rgba(200,200,220,0.4);line-height:2}
+
+/* ===== CARD 3: Data Sculpture ===== */
+.c3{background:#060610}
+.c3 canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+.c3 .info-panel{position:absolute;top:40px;left:40px}
+.c3 .info-panel .dot{width:6px;height:6px;border-radius:50%;background:#00d4aa;margin-bottom:12px;box-shadow:0 0 10px rgba(0,212,170,0.5)}
+.c3 .info-panel .row{font-size:8px;letter-spacing:3px;color:rgba(200,200,220,0.35);margin-bottom:6px;font-family:'Georgia',serif}
+.c3 .stat{position:absolute;bottom:50px;right:50px;text-align:right}
+.c3 .stat .value{font-family:'Georgia',serif;font-size:36px;color:rgba(200,180,255,0.2);letter-spacing:2px}
+.c3 .stat .unit{font-size:9px;letter-spacing:5px;color:rgba(200,180,220,0.3);margin-top:4px}
+
+/* ===== CARD 4: Void & Structure ===== */
+.c4{background:linear-gradient(180deg,#0f0f1a 0%,#08080f 100%)}
+.c4 .circle-group{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.c4 .ring{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid;transform:translate(-50%,-50%)}
+.c4 .r1{width:280px;height:280px;border-color:rgba(255,255,255,0.04)}
+.c4 .r2{width:200px;height:200px;border-color:rgba(180,160,255,0.08)}
+.c4 .r3{width:140px;height:140px;border-color:rgba(0,212,170,0.1)}
+.c4 .r4{width:90px;height:90px;border-color:rgba(255,77,143,0.12)}
+.c4 .r5{width:50px;height:50px;background:rgba(180,160,255,0.04);border-color:rgba(200,180,255,0.15)}
+.c4 .cross-h{position:absolute;top:50%;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
+.c4 .cross-v{position:absolute;left:50%;top:10%;width:1px;height:80%;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.06),transparent)}
+.c4 .corner-tl,.c4 .corner-br{position:absolute;width:30px;height:30px;border-color:rgba(180,160,255,0.2)}
+.c4 .corner-tl{top:12%;left:12%;border-top:1px solid;border-left:1px solid}
+.c4 .corner-br{bottom:12%;right:12%;border-bottom:1px solid;border-right:1px solid}
+.c4 .minimal-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.c4 .minimal-text .symbol{font-size:14px;color:rgba(200,180,255,0.5);letter-spacing:8px;margin-bottom:6px}
+.c4 .minimal-text .desc{font-size:9px;letter-spacing:4px;color:rgba(180,180,200,0.25)}
+</style>
+</head>
+<body>
+<div class="series">
+  <!-- Card 1: Chromatic Architecture -->
+  <div class="card c1">
+    <div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div><div class="layer l4"></div>
+    <div class="accent-bar ab1"></div><div class="accent-bar ab2"></div><div class="accent-bar ab3"></div>
+    <div class="dot-grid"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="label"><div class="num">03</div><div class="title">色 彩 建 筑</div></div>
+  </div>
+
+  <!-- Card 2: Liquid Gradient -->
+  <div class="card c2">
+    <div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div>
+    <div class="overlay"></div>
+    <svg class="geo" viewBox="0 0 420 560" style="position:absolute;inset:0">
+      <g opacity="0.12" stroke="white" stroke-width="0.5" fill="none">
+        <polygon points="210,80 290,180 250,280 170,280 130,180"/>
+        <polygon points="210,160 260,240 210,320 160,240"/>
+        <line x1="210" y1="80" x2="210" y2="320"/>
+        <line x1="130" y1="180" x2="290" y2="180"/>
+      </g>
+    </svg>
+    <div class="typography">
+      <div class="big">流 動 邊 界</div>
+      <div class="line"></div>
+      <div class="text">LIQUID GRADIENT<br>EXPERIMENTAL VISUAL<br>SERIES No.02</div>
+    </div>
+  </div>
+
+  <!-- Card 3: Data Sculpture -->
+  <div class="card c3">
+    <svg viewBox="0 0 420 560" style="position:absolute;inset:0">
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6d5cff" stop-opacity="0.3"/><stop offset="100%" stop-color="#00d4aa" stop-opacity="0.1"/></linearGradient></defs>
+      <!-- Data bars -->
+      <g opacity="0.5">
+        <rect x="80" y="300" width="8" height="120" rx="4" fill="url(#g1)"/><rect x="96" y="280" width="8" height="140" rx="4" fill="url(#g1)" opacity="0.8"/>
+        <rect x="112" y="260" width="8" height="160" rx="4" fill="url(#g1)" opacity="0.9"/><rect x="128" y="220" width="8" height="200" rx="4" fill="url(#g1)"/>
+        <rect x="144" y="180" width="8" height="240" rx="4" fill="url(#g1)" opacity="0.95"/><rect x="160" y="200" width="8" height="220" rx="4" fill="url(#g1)" opacity="0.9"/>
+        <rect x="176" y="240" width="8" height="180" rx="4" fill="url(#g1)" opacity="0.8"/><rect x="192" y="270" width="8" height="150" rx="4" fill="url(#g1)" opacity="0.7"/>
+        <rect x="208" y="290" width="8" height="130" rx="4" fill="url(#g1)" opacity="0.6"/><rect x="224" y="310" width="8" height="110" rx="4" fill="url(#g1)" opacity="0.5"/>
+        <rect x="240" y="250" width="8" height="170" rx="4" fill="url(#g1)" opacity="0.85"/><rect x="256" y="230" width="8" height="190" rx="4" fill="url(#g1)" opacity="0.9"/>
+        <rect x="272" y="200" width="8" height="220" rx="4" fill="url(#g1)" opacity="0.95"/><rect x="288" y="160" width="8" height="260" rx="4" fill="url(#g1)"/>
+        <rect x="304" y="210" width="8" height="210" rx="4" fill="url(#g1)" opacity="0.88"/><rect x="320" y="260" width="8" height="160" rx="4" fill="url(#g1)" opacity="0.75"/>
+      </g>
+      <!-- Wave line -->
+      <path d="M60,350 Q130,280 200,320 Q270,360 340,290" stroke="rgba(180,160,255,0.4)" stroke-width="1" fill="none"/>
+      <path d="M60,355 Q130,285 200,325 Q270,365 340,295" stroke="rgba(0,212,170,0.25)" stroke-width="0.5" fill="none"/>
+    </svg>
+    <div class="info-panel">
+      <div class="dot"></div>
+      <div class="row">DATA</div><div class="row">SCULPTURE</div><div class="row">2026</div>
+    </div>
+    <div class="stat"><div class="value">∞</div><div class="unit">DIMENSIONS</div></div>
+  </div>
+
+  <!-- Card 4: Void & Structure -->
+  <div class="card c4">
+    <div class="cross-h"></div><div class="cross-v"></div>
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="circle-group">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div><div class="ring r5"></div>
+    </div>
+    <div class="minimal-text">
+      <div class="symbol">●</div>
+      <div class="desc">VOID &<br>STRUCTURE</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

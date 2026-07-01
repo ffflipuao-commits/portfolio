@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <title>蝙蝠 Bat</title>
+  <g transform="translate(40,40)"><path d="M-16,-3 C-18,-9 -12,-12 -7,-10 C-5,-14 0,-16 3,-12 C5,-16 11,-14 12,-10 C16,-12 20,-9 16,-3 C18,-2 16,2 12,3 C9,5 5,5 3,3 C2,5 0,5 -2,3 C-3,5 -9,5 -12,3 C-16,2 -18,-2 -16,-3Z" fill="#C41E2B" opacity="0.6"/><circle cx="0" cy="-7" r="2.5" fill="#1A3C6D"/><circle cx="-1" cy="-8" r="0.8" fill="#D4952B"/><circle cx="1" cy="-8" r="0.8" fill="#D4952B"/></g>
+</svg>

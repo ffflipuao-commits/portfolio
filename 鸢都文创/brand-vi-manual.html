@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鸢都文创 · 品牌视觉识别手册</title>
+<style>
+  :root {
+    --red: #C41E2B; --blue: #1A3C6D; --gold: #D4952B;
+    --green: #4B8B7F; --pink: #E85D8B; --paper: #F5E6D3;
+    --text: #1A1A2E; --sub: #666; --bg: #FAF7F2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  .page { max-width: 900px; margin: 0 auto; padding: 24px; }
+  .cover { background: linear-gradient(135deg, var(--blue), #2A5080, var(--green)); color: var(--paper); text-align: center; padding: 80px 40px; border-radius: 12px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(212,149,43,0.15) 0%, transparent 60%); }
+  .cover h1 { font-family: KaiTi, STKaiti, serif; font-size: 48px; letter-spacing: 16px; position: relative; }
+  .cover .sub { font-size: 14px; letter-spacing: 6px; opacity: 0.7; margin-top: 12px; position: relative; }
+  .section { background: #fff; border-radius: 10px; padding: 32px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .section h2 { font-family: KaiTi, STKaiti, serif; font-size: 24px; color: var(--blue); border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 20px; letter-spacing: 4px; }
+  .section h3 { font-size: 16px; color: var(--blue); margin: 16px 0 8px; }
+  .color-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+  .color-card { flex: 1; min-width: 100px; text-align: center; }
+  .color-chip { height: 64px; border-radius: 8px; margin-bottom: 6px; }
+  .color-card p { font-size: 11px; color: var(--sub); margin: 2px 0; }
+  .logo-stage { background: var(--paper); border-radius: 10px; padding: 40px; text-align: center; margin: 12px 0; }
+  .logo-stage.dark { background: var(--blue); }
+  .graphic-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; margin: 12px 0; }
+  .graphic-cell { text-align: center; padding: 12px 8px; background: var(--paper); border-radius: 8px; }
+  .graphic-cell h4 { font-size: 11px; margin: 6px 0 2px; }
+  .graphic-cell p { font-size: 9px; color: var(--sub); }
+  .poster-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 12px 0; }
+  .poster-box { border-radius: 8px; min-height: 280px; display: flex; align-items: center; justify-content: center; padding: 20px; text-align: center; position: relative; overflow: hidden; }
+  .pkg-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 12px 0; }
+  .pkg-box { background: var(--paper); border-radius: 8px; padding: 20px; text-align: center; }
+  .tag-strip { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+  .tag { padding: 4px 14px; border-radius: 14px; font-size: 11px; background: var(--paper); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+  td, th { padding: 8px 12px; border-bottom: 1px solid #eee; text-align: left; }
+  th { color: var(--sub); font-weight: normal; font-size: 11px; }
+  .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .toc a { padding: 6px 16px; background: var(--paper); border-radius: 16px; font-size: 12px; color: var(--blue); text-decoration: none; }
+  .footer { text-align: center; padding: 40px; color: var(--sub); font-size: 12px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 10px; }
+  .badge-red { background: var(--red); color: #fff; }
+  .badge-blue { background: var(--blue); color: #fff; }
+  .badge-gold { background: var(--gold); color: #fff; }
+  @media (max-width: 700px) {
+    .poster-row, .pkg-row { grid-template-columns: 1fr; }
+    .graphic-grid { grid-template-columns: repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="page">
+<div class="cover">
+  <div style="position:relative;z-index:1;">
+    <svg width="160" height="160" viewBox="0 0 440 440" style="margin-bottom:16px;">
+      <g transform="translate(220,215) scale(0.8)">
+        <circle cx="0" cy="0" r="175" fill="none" stroke="#F5E6D3" stroke-width="1" opacity="0.15"/>
+        <path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34 C122,-22 128,-8 128,4 C126,12 118,20 106,28 C92,38 74,46 56,50 C38,54 22,52 10,44 C2,36 -2,24 -4,10 C-4,-20 -4,-55 -4,-92Z" fill="#F5E6D3" opacity="0.9"/>
+        <path d="M-4,-78 C22,-68 56,-54 90,-38" stroke="#4B8B7F" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34 C-122,-22 -128,-8 -128,4 C-126,12 -118,20 -106,28 C-92,38 -74,46 -56,50 C-38,54 -22,52 -10,44 C-2,36 2,24 4,10 C4,-20 4,-55 4,-92Z" fill="#F5E6D3" opacity="0.86"/>
+        <path d="M4,-78 C-22,-68 -56,-54 -90,-38" stroke="#4B8B7F" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <ellipse cx="0" cy="-28" rx="18" ry="28" fill="#D4952B"/>
+        <line x1="0" y1="-55" x2="0" y2="2" stroke="#F5E6D3" stroke-width="0.9" opacity="0.4"/>
+        <path d="M-18,-25 C-12,-28 12,-28 18,-25" stroke="#F5E6D3" stroke-width="1.5" fill="none" opacity="0.35"/>
+        <polygon points="0,-42 -5,-37 0,-32 5,-37" fill="#F5E6D3" opacity="0.5"/>
+        <polygon points="0,-30 -5,-25 0,-20 5,-25" fill="#F5E6D3" opacity="0.5"/>
+        <polygon points="0,-16 -5,-11 0,-6 5,-11" fill="#F5E6D3" opacity="0.45"/>
+        <path d="M-8,-52 C-6,-56 6,-56 8,-52" stroke="#D4952B" stroke-width="2" fill="none" opacity="0.5"/>
+        <circle cx="0" cy="-72" r="16" fill="#D4952B"/>
+        <ellipse cx="-8" cy="-70" rx="8" ry="7" fill="#D4952B" stroke="#F5E6D3" stroke-width="0.4" opacity="0.85"/>
+        <ellipse cx="8" cy="-70" rx="8" ry="7" fill="#D4952B" stroke="#F5E6D3" stroke-width="0.4" opacity="0.85"/>
+        <polygon points="-4,-86 0,-94 4,-86" fill="#F5E6D3" opacity="0.8"/>
+        <circle cx="-7" cy="-76" r="4.5" fill="none" stroke="#F5E6D3" stroke-width="0.6" opacity="0.5"/>
+        <path d="M-9,-78 C-10,-80 -7,-82 -4,-80 C-2,-78 -4,-76 -6,-76" fill="#F5E6D3"/>
+        <circle cx="7" cy="-76" r="4.5" fill="none" stroke="#F5E6D3" stroke-width="0.6" opacity="0.5"/>
+        <path d="M9,-78 C10,-80 7,-82 4,-80 C2,-78 4,-76 6,-76" fill="#F5E6D3"/>
+        <g transform="translate(0,-93)"><path d="M-9,0 C-9,-6 -4,-8 0,-8 C4,-8 9,-6 9,0" fill="none" stroke="#F5E6D3" stroke-width="1.3"/><circle cx="-6" cy="-2" r="2.2" fill="#F5E6D3" opacity="0.85"/><circle cx="0" cy="-5.5" r="2.8" fill="#F5E6D3" opacity="0.95"/><circle cx="6" cy="-2" r="2.2" fill="#F5E6D3" opacity="0.85"/></g>
+        <path d="M-14,0 C-14,8 -12,16 -8,22 L0,18 L8,22 C12,16 14,8 14,0Z" fill="#D4952B" opacity="0.6"/>
+        <path d="M-8,22 C-14,28 -22,38 -30,52 C-36,60 -44,72 -50,82 C-46,86 -38,90 -26,90 C-16,90 -8,86 -2,80 C1,76 2,70 2,64 C2,58 0,52 -3,46 C-6,40 -8,32 -8,22Z" fill="#F5E6D3" opacity="0.9"/>
+        <path d="M8,22 C14,28 22,38 30,52 C36,60 44,72 50,82 C46,86 38,90 26,90 C16,90 8,86 2,80 C-1,76 -2,70 -2,64 C-2,58 0,52 3,46 C6,40 8,32 8,22Z" fill="#F5E6D3" opacity="0.86"/>
+        <polygon points="-8,40 -12,46 -8,52 -4,46" fill="#F5E6D3" opacity="0.35"/>
+        <polygon points="8,40 12,46 8,52 4,46" fill="#F5E6D3" opacity="0.35"/>
+        <g transform="translate(-26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#F5E6D3" opacity="0.5"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/><line x1="0" y1="6" x2="0" y2="13" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/><line x1="3" y1="6" x2="4" y2="12" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/></g>
+        <g transform="translate(26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#F5E6D3" opacity="0.5"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/><line x1="0" y1="6" x2="0" y2="13" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/><line x1="3" y1="6" x2="4" y2="12" stroke="#F5E6D3" stroke-width="0.7" opacity="0.3"/></g>
+      </g>
+    </svg>
+    <h1>鸢都文创</h1>
+    <p class="sub">品牌视觉识别手册 · BRAND VI MANUAL</p>
+    <p style="font-size:10px;opacity:0.5;margin-top:8px;">YUANDU WENCHUANG · 潍坊纸鸢文创</p>
+  </div>
+</div>
+
+<div class="toc">
+  <a href="#logo">01 · Logo系统</a>
+  <a href="#colors">02 · 标准色</a>
+  <a href="#graphics">03 · 辅助图形</a>
+  <a href="#posters">04 · 主题海报</a>
+  <a href="#packaging">05 · 包装系统</a>
+  <a href="#sachet">06 · 端午香囊</a>
+  <a href="#usage">07 · 应用规范</a>
+</div>
+
+<!-- ===== 01 · LOGO ===== -->
+<div class="section" id="logo">
+  <h2>01 · Logo 系统</h2>
+
+  <h3>标志图形（V8定稿版）</h3>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:8px;">潍坊胖沙燕硬翅风筝 · 圆头腮喙 · 短圆橄榄身 · 剪刀燕尾分叉 · 五纹样体系</p>
+  <div class="logo-stage">
+    <svg width="280" height="280" viewBox="0 0 440 440">
+      <g transform="translate(220,215) scale(0.72)">
+        <circle cx="0" cy="0" r="175" fill="none" stroke="#1A3C6D" stroke-width="1" opacity="0.1"/>
+        <path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34 C122,-22 128,-8 128,4 C126,12 118,20 106,28 C92,38 74,46 56,50 C38,54 22,52 10,44 C2,36 -2,24 -4,10 C-4,-20 -4,-55 -4,-92Z" fill="#C41E2B" opacity="0.9"/>
+        <path d="M-4,-78 C22,-68 56,-54 90,-38" stroke="#F5E6D3" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <path d="M-4,-62 C18,-54 48,-42 80,-28" stroke="#F5E6D3" stroke-width="1" fill="none" opacity="0.22"/>
+        <path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34 C-122,-22 -128,-8 -128,4 C-126,12 -118,20 -106,28 C-92,38 -74,46 -56,50 C-38,54 -22,52 -10,44 C-2,36 2,24 4,10 C4,-20 4,-55 4,-92Z" fill="#C41E2B" opacity="0.86"/>
+        <path d="M4,-78 C-22,-68 -56,-54 -90,-38" stroke="#F5E6D3" stroke-width="1.2" fill="none" opacity="0.25"/>
+        <path d="M4,-62 C-18,-54 -48,-42 -80,-28" stroke="#F5E6D3" stroke-width="1" fill="none" opacity="0.22"/>
+        <ellipse cx="0" cy="-28" rx="18" ry="28" fill="#1A3C6D"/>
+        <line x1="0" y1="-55" x2="0" y2="2" stroke="#D4952B" stroke-width="0.9" opacity="0.45"/>
+        <path d="M-18,-25 C-12,-28 12,-28 18,-25" stroke="#D4952B" stroke-width="1.5" fill="none" opacity="0.4"/>
+        <polygon points="0,-42 -5,-37 0,-32 5,-37" fill="#D4952B" opacity="0.7"/>
+        <polygon points="0,-30 -5,-25 0,-20 5,-25" fill="#D4952B" opacity="0.65"/>
+        <polygon points="0,-16 -5,-11 0,-6 5,-11" fill="#D4952B" opacity="0.6"/>
+        <path d="M-8,-52 C-6,-56 6,-56 8,-52" stroke="#1A3C6D" stroke-width="2" fill="none" opacity="0.5"/>
+        <circle cx="0" cy="-72" r="16" fill="#1A3C6D"/>
+        <ellipse cx="-8" cy="-70" rx="8" ry="7" fill="#1A3C6D" stroke="#D4952B" stroke-width="0.4" opacity="0.85"/>
+        <ellipse cx="8" cy="-70" rx="8" ry="7" fill="#1A3C6D" stroke="#D4952B" stroke-width="0.4" opacity="0.85"/>
+        <polygon points="-4,-86 0,-94 4,-86" fill="#D4952B" opacity="0.8"/>
+        <circle cx="-7" cy="-76" r="4.5" fill="none" stroke="#D4952B" stroke-width="0.6" opacity="0.5"/>
+        <path d="M-9,-78 C-10,-80 -7,-82 -4,-80 C-2,-78 -4,-76 -6,-76" fill="#D4952B"/>
+        <circle cx="-7" cy="-77" r="1.3" fill="#1A3C6D"/>
+        <circle cx="7" cy="-76" r="4.5" fill="none" stroke="#D4952B" stroke-width="0.6" opacity="0.5"/>
+        <path d="M9,-78 C10,-80 7,-82 4,-80 C2,-78 4,-76 6,-76" fill="#D4952B"/>
+        <circle cx="7" cy="-77" r="1.3" fill="#1A3C6D"/>
+        <g transform="translate(0,-93)"><path d="M-9,0 C-9,-6 -4,-8 0,-8 C4,-8 9,-6 9,0" fill="none" stroke="#D4952B" stroke-width="1.3"/><circle cx="-6" cy="-2" r="2.2" fill="#D4952B" opacity="0.85"/><circle cx="0" cy="-5.5" r="2.8" fill="#D4952B" opacity="0.95"/><circle cx="6" cy="-2" r="2.2" fill="#D4952B" opacity="0.85"/></g>
+        <path d="M-14,0 C-14,8 -12,16 -8,22 L0,18 L8,22 C12,16 14,8 14,0Z" fill="#1A3C6D" opacity="0.7"/>
+        <path d="M-8,22 C-14,28 -22,38 -30,52 C-36,60 -44,72 -50,82 C-46,86 -38,90 -26,90 C-16,90 -8,86 -2,80 C1,76 2,70 2,64 C2,58 0,52 -3,46 C-6,40 -8,32 -8,22Z" fill="#1A3C6D" opacity="0.92"/>
+        <path d="M8,22 C14,28 22,38 30,52 C36,60 44,72 50,82 C46,86 38,90 26,90 C16,90 8,86 2,80 C-1,76 -2,70 -2,64 C-2,58 0,52 3,46 C6,40 8,32 8,22Z" fill="#1A3C6D" opacity="0.9"/>
+        <line x1="-3" y1="22" x2="-18" y2="85" stroke="#D4952B" stroke-width="0.6" fill="none" opacity="0.25"/>
+        <line x1="3" y1="22" x2="18" y2="85" stroke="#D4952B" stroke-width="0.6" fill="none" opacity="0.25"/>
+        <path d="M-6,32 L-14,50" stroke="#D4952B" stroke-width="0.7" fill="none" opacity="0.3"/>
+        <path d="M6,32 L14,50" stroke="#D4952B" stroke-width="0.7" fill="none" opacity="0.3"/>
+        <polygon points="-8,40 -12,46 -8,52 -4,46" fill="#D4952B" opacity="0.45"/>
+        <polygon points="8,40 12,46 8,52 4,46" fill="#D4952B" opacity="0.45"/>
+        <g transform="translate(-26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#D4952B" opacity="0.65"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="0" y1="6" x2="0" y2="13" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="3" y1="6" x2="4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/></g>
+        <g transform="translate(26,90)"><rect x="-4" y="0" width="8" height="6" rx="2" fill="#D4952B" opacity="0.65"/><line x1="-3" y1="6" x2="-4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="0" y1="6" x2="0" y2="13" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/><line x1="3" y1="6" x2="4" y2="12" stroke="#C41E2B" stroke-width="0.7" opacity="0.35"/></g>
+      </g>
+    </svg>
+  </div>
+
+  <h3>标准字</h3>
+  <div class="logo-stage">
+    <div style="font-family:KaiTi,serif;font-size:36px;color:var(--blue);letter-spacing:10px;">鸢都文创</div>
+    <div style="font-family:Georgia,serif;font-size:14px;color:var(--green);letter-spacing:4px;margin-top:4px;">YUANDU WENCHUANG</div>
+  </div>
+
+  <h3>标准组合</h3>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+    <div class="logo-stage"><p style="font-size:10px;color:var(--sub);margin-bottom:8px;">横式（主用）</p>
+      <svg width="220" height="60" viewBox="0 0 380 72"><g transform="translate(36,36) scale(0.55)"><circle cx="0" cy="0" r="175" fill="none" stroke="#1A3C6D" stroke-width="1.5" opacity="0.08"/><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34" fill="#C41E2B" opacity="0.88"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34" fill="#C41E2B" opacity="0.85"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#1A3C6D"/><circle cx="0" cy="-72" r="16" fill="#1A3C6D"/><path d="M-8,22 C-14,28 -30,52 -50,82" stroke="#1A3C6D" stroke-width="3" fill="none"/><path d="M8,22 C14,28 30,52 50,82" stroke="#1A3C6D" stroke-width="3" fill="none"/></g><text x="105" y="44" font-family="KaiTi,serif" font-size="18" fill="#1A3C6D" letter-spacing="6">鸢都文创</text></svg>
+    </div>
+    <div class="logo-stage"><p style="font-size:10px;color:var(--sub);margin-bottom:8px;">竖式</p>
+      <div style="font-family:KaiTi,serif;font-size:18px;color:var(--blue);writing-mode:vertical-rl;letter-spacing:6px;">鸢都文创</div>
+    </div>
+    <div class="logo-stage dark"><p style="font-size:10px;color:var(--gold);margin-bottom:8px;">反白（深色底）</p>
+      <svg width="200" height="60" viewBox="0 0 380 72"><g transform="translate(36,36) scale(0.5)"><circle cx="0" cy="0" r="175" fill="none" stroke="#F5E6D3" stroke-width="1.5" opacity="0.1"/><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34" fill="#F5E6D3" opacity="0.88"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34" fill="#F5E6D3" opacity="0.85"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#D4952B"/><circle cx="0" cy="-72" r="16" fill="#D4952B"/><path d="M-8,22 C-14,28 -30,52 -50,82" stroke="#F5E6D3" stroke-width="3" fill="none"/><path d="M8,22 C14,28 30,52 50,82" stroke="#F5E6D3" stroke-width="3" fill="none"/></g><text x="100" y="44" font-family="KaiTi,serif" font-size="18" fill="#F5E6D3" letter-spacing="6">鸢都文创</text></svg>
+    </div>
+  </div>
+
+  <h3>安全空间与最小尺寸</h3>
+  <table>
+    <tr><th>安全空间</th><td>标志四周保留 1/2 标志高度</td></tr>
+    <tr><th>横式最小</th><td>30mm（印刷）/ 120px（屏幕）</td></tr>
+    <tr><th>竖式最小</th><td>25mm（印刷）/ 100px（屏幕）</td></tr>
+    <tr><th>反白使用</th><td>仅限藏蓝底色或深色背景</td></tr>
+  </table>
+</div>
+
+<!-- ===== 02 · COLORS ===== -->
+<div class="section" id="colors">
+  <h2>02 · 标准色系统</h2>
+  <div class="color-row">
+    <div class="color-card"><div class="color-chip" style="background:#C41E2B;"></div><strong>朱砂红</strong><p>#C41E2B<br>C0 M85 Y78 K23<br>主色 · Logo翼面</p></div>
+    <div class="color-card"><div class="color-chip" style="background:#1A3C6D;"></div><strong>藏蓝</strong><p>#1A3C6D<br>C76 M45 Y0 K57<br>主色 · Logo身体</p></div>
+    <div class="color-card"><div class="color-chip" style="background:#D4952B;"></div><strong>鎏金</strong><p>#D4952B<br>C0 M30 Y80 K17<br>辅色 · 纹样点睛</p></div>
+    <div class="color-card"><div class="color-chip" style="background:#4B8B7F;"></div><strong>石绿</strong><p>#4B8B7F<br>C65 M0 Y40 K45<br>辅色 · 自然清新</p></div>
+    <div class="color-card"><div class="color-chip" style="background:#E85D8B;"></div><strong>桃红</strong><p>#E85D8B<br>C0 M60 Y25 K9<br>民俗色 · 活泼</p></div>
+    <div class="color-card"><div class="color-chip" style="background:#F5E6D3;border:1px solid #ddd;"></div><strong>宣纸白</strong><p>#F5E6D3<br>C0 M6 Y14 K4<br>底色 · 留白</p></div>
+  </div>
+</div>
+
+<!-- ===== 03 · GRAPHICS ===== -->
+<div class="section" id="graphics">
+  <h2>03 · 辅助图形系统</h2>
+  <p style="font-size:13px;color:var(--sub);margin-bottom:12px;">十种潍坊纸鸢造型的简化图形，用于底纹/点缀/组合/烫金</p>
+  <div class="graphic-grid">
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M0,-26 C9,-24 20,-16 26,-2 C28,2 25,6 20,8 C15,10 8,8 5,6 C2,4 2,-6 0,-26Z" fill="#C41E2B" opacity="0.85"/><path d="M0,-26 C-9,-24 -20,-16 -26,-2 C-28,2 -25,6 -20,8 C-15,10 -8,8 -5,6 C-2,4 -2,-6 0,-26Z" fill="#C41E2B" opacity="0.8"/><ellipse cx="0" cy="-7" rx="4" ry="10" fill="#1A3C6D"/><circle cx="0" cy="-21" r="5" fill="#1A3C6D"/><path d="M-3,3 C-5,10 -7,20 -10,28" stroke="#1A3C6D" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M3,3 C5,10 7,20 10,28" stroke="#1A3C6D" stroke-width="1.5" fill="none" stroke-linecap="round"/></g></svg><h4>沙燕</h4><p>Logo简化版</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M0,-20 C7,-26 16,-24 20,-16 C22,-12 18,-7 12,-5 C16,-7 21,-3 23,4 C23,9 18,12 12,14 C7,16 2,18 0,16" fill="none" stroke="#C41E2B" stroke-width="2.2" stroke-linecap="round"/><circle cx="0" cy="-18" r="7" fill="#1A3C6D"/><rect x="16" y="2" width="7" height="4" rx="2" fill="#D4952B" opacity="0.7"/><rect x="16" y="9" width="7" height="4" rx="2" fill="#D4952B" opacity="0.5"/><rect x="16" y="16" width="7" height="4" rx="2" fill="#D4952B" opacity="0.3"/></g></svg><h4>龙头蜈蚣</h4><p>非遗代表</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M0,-5 C13,-26 30,-24 26,-5 C30,-2 26,9 17,16 C13,21 4,19 2,16 C-2,12 0,7 0,5Z" fill="#E85D8B" opacity="0.7"/><path d="M0,-5 C-13,-26 -30,-24 -26,-5 C-30,-2 -26,9 -17,16 C-13,21 -4,19 -2,16 C2,12 0,7 0,5Z" fill="#E85D8B" opacity="0.65"/><ellipse cx="0" cy="-2" rx="2.5" ry="8" fill="#1A3C6D"/></g></svg><h4>蝴蝶</h4><p>对称美学</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M0,-25 L20,-13 L25,-4 L16,7 L7,11 L0,14 L-7,11 L-16,7 L-25,-4 L-20,-13Z" fill="#C41E2B" opacity="0.8"/><path d="M0,-25 L3,-13 L0,-7 L-3,-13Z" fill="#1A3C6D"/><circle cx="0" cy="-12" r="3.5" fill="#1A3C6D"/><circle cx="-1.5" cy="-13" r="1" fill="#D4952B"/><circle cx="1.5" cy="-13" r="1" fill="#D4952B"/></g></svg><h4>老鹰</h4><p>展翅猛禽</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><ellipse cx="0" cy="-3" rx="16" ry="10" fill="#E85D8B" opacity="0.7"/><path d="M-7,-3 C-18,-1 -25,4 -27,9 C-22,7 -16,5 -7,3Z" fill="#E85D8B" opacity="0.5"/><circle cx="-9" cy="-7" r="2.5" fill="#1A3C6D"/><circle cx="-10" cy="-7" r="1" fill="#D4952B"/></g></svg><h4>金鱼</h4><p>年年有余</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M-9,-27 C-4,-29 4,-29 9,-27 C11,-21 7,-9 3,0 C2,-5 0,-11 0,-16" fill="none" stroke="#1A3C6D" stroke-width="2.2" stroke-linecap="round"/><path d="M-7,-25 C-4,-23 4,-23 7,-25" stroke="#C41E2B" stroke-width="1.3" fill="none"/><path d="M3,-27 L9,-30 L7,-25" fill="#C41E2B" opacity="0.8"/><circle cx="-2" cy="-25" r="1.3" fill="#D4952B"/></g></svg><h4>仙鹤</h4><p>高端礼品</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M-4,-27 C0,-30 5,-30 9,-27 C11,-23 9,-25 7,-27 C5,-27 3,-25 2,-23 C0,-20 -2,-16 0,-12 C2,-9 5,-7 9,-5 C13,-3 16,0 14,4 C12,7 7,9 2,7 C-3,5 -7,2 -9,-4 C-9,-11 -7,-20 -4,-27Z" fill="#D4952B" opacity="0.6"/><path d="M-5,-12 C-9,-9 -7,-3 -3,0 C0,4 5,5 9,5" fill="none" stroke="#C41E2B" stroke-width="1"/></g></svg><h4>凤凰</h4><p>百鸟之王</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><circle cx="0" cy="-7" r="9" fill="#E85D8B" opacity="0.5"/><circle cx="6" cy="-4" r="6" fill="#E85D8B" opacity="0.4"/><circle cx="-6" cy="-4" r="6" fill="#E85D8B" opacity="0.4"/><circle cx="0" cy="-2" r="7" fill="#E85D8B" opacity="0.35"/><circle cx="0" cy="-4" r="2.5" fill="#D4952B" opacity="0.7"/><path d="M0,-16 C-2,-20 2,-20 0,-16" fill="#4B8B7F" opacity="0.6"/></g></svg><h4>花鸟牡丹</h4><p>富贵吉祥</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><path d="M-16,-3 C-18,-9 -12,-12 -7,-10 C-5,-14 0,-16 3,-12 C5,-16 11,-14 12,-10 C16,-12 20,-9 16,-3 C18,-2 16,2 12,3 C9,5 5,5 3,3 C2,5 0,5 -2,3 C-3,5 -9,5 -12,3 C-16,2 -18,-2 -16,-3Z" fill="#C41E2B" opacity="0.6"/><circle cx="0" cy="-7" r="2.5" fill="#1A3C6D"/></g></svg><h4>蝙蝠</h4><p>五福临门</p></div>
+    <div class="graphic-cell"><svg width="60" height="60" viewBox="0 0 80 80"><g transform="translate(40,40)"><rect x="-9" y="-20" width="18" height="27" rx="3" fill="#C41E2B" opacity="0.7"/><rect x="-12" y="-22" width="24" height="3.5" rx="1" fill="#1A3C6D" opacity="0.6"/><rect x="-12" y="7" width="24" height="3.5" rx="1" fill="#1A3C6D" opacity="0.6"/><line x1="0" y1="-25" x2="0" y2="-30" stroke="#D4952B" stroke-width="1"/><circle cx="0" cy="-31" r="1.3" fill="#D4952B"/></g></svg><h4>宫灯板鹞</h4><p>几何民俗</p></div>
+  </div>
+</div>
+
+<!-- ===== 04 · POSTERS ===== -->
+<div class="section" id="posters">
+  <h2>04 · 主题海报</h2>
+  <div class="poster-row">
+    <div class="poster-box" style="background:linear-gradient(135deg,#1A3C6D,#2A5080,#4B8B7F);">
+      <div>
+        <svg width="100" height="100" viewBox="0 0 440 440"><g transform="translate(220,215) scale(0.42)"><circle cx="0" cy="0" r="175" fill="none" stroke="#F5E6D3" stroke-width="1.5" opacity="0.12"/><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34" fill="#F5E6D3" opacity="0.9"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34" fill="#F5E6D3" opacity="0.86"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#D4952B"/><circle cx="0" cy="-72" r="16" fill="#D4952B"/><path d="M-8,22 C-14,28 -30,52 -50,82" stroke="#F5E6D3" stroke-width="3" fill="none"/><path d="M8,22 C14,28 30,52 50,82" stroke="#F5E6D3" stroke-width="3" fill="none"/></g></svg>
+        <h3 style="color:#F5E6D3;font-family:KaiTi,serif;font-size:16px;letter-spacing:4px;margin:8px 0;">鸢都文创</h3>
+        <p style="color:#D4952B;font-size:8px;letter-spacing:2px;">YUANDU WENCHUANG</p>
+        <div style="width:40px;height:1px;background:#D4952B;margin:8px auto;opacity:0.5;"></div>
+        <p style="color:#F5E6D3;font-size:10px;opacity:0.7;">古韵新飞 · 匠心文创</p>
+      </div>
+    </div>
+    <div class="poster-box" style="background:linear-gradient(160deg,#F5E6D3,#F9EDDA,#E8F0E4,#D5E8D0);">
+      <div>
+        <p style="color:#4B8B7F;font-size:8px;letter-spacing:4px;">DUANWU·端午</p>
+        <h3 style="color:#1A3C6D;font-family:KaiTi,serif;font-size:18px;letter-spacing:4px;margin:4px 0;">鸢飞端阳</h3>
+        <h3 style="color:#C41E2B;font-family:KaiTi,serif;font-size:15px;letter-spacing:3px;">粽香千里</h3>
+        <p style="color:#1A3C6D;font-size:9px;opacity:0.6;line-height:1.6;margin:6px 0;">纸鸢乘风起<br>艾蒲满城香</p>
+        <span class="badge badge-red">端午限定</span>
+        <span class="badge" style="background:var(--green);color:#fff;font-size:10px;">香囊礼盒</span>
+      </div>
+    </div>
+    <div class="poster-box" style="background:linear-gradient(180deg,#1A1A2E,#1A3C6D,#2A3050,#3A2040);">
+      <div>
+        <h3 style="color:#D4952B;font-family:KaiTi,serif;font-size:18px;letter-spacing:6px;margin:4px 0;">千年纸鸢</h3>
+        <p style="color:#F5E6D3;font-size:11px;opacity:0.7;letter-spacing:4px;">潍坊非遗 · 匠心传承</p>
+        <div style="width:50px;height:1px;background:linear-gradient(90deg,transparent,#D4952B,transparent);margin:8px auto;"></div>
+        <p style="color:#F5E6D3;font-size:9px;opacity:0.5;">始于春秋 · 兴于明清 · 传于当代</p>
+        <span class="badge" style="border:1px solid #D4952B;color:#D4952B;background:transparent;font-size:9px;">非遗传承</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 05 · PACKAGING ===== -->
+<div class="section" id="packaging">
+  <h2>05 · 主题系列包装</h2>
+  <div class="pkg-row">
+    <div class="pkg-box">
+      <h4>🎁 精装礼盒（天地盖）</h4>
+      <div style="background:var(--blue);border-radius:8px;padding:20px;margin:8px 0;display:flex;align-items:center;justify-content:center;gap:12px;">
+        <div style="text-align:center;">
+          <svg width="50" height="50" viewBox="0 0 440 440"><g transform="translate(220,215) scale(0.2)"><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34" fill="#F5E6D3" opacity="0.9"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34" fill="#F5E6D3" opacity="0.86"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#D4952B"/><circle cx="0" cy="-72" r="16" fill="#D4952B"/></g></svg>
+          <p style="color:#F5E6D3;font-size:8px;font-family:KaiTi;">鸢都文创</p>
+        </div>
+        <div style="color:#D4952B;font-size:9px;text-align:left;">
+          <p>端午鸢飞礼盒</p><p style="opacity:0.5;">香囊×2 · 书签×1</p>
+        </div>
+      </div>
+      <p style="font-size:10px;color:var(--sub);">藏蓝底+反白Logo · 盒身菱形纹环</p>
+    </div>
+    <div class="pkg-box">
+      <h4>🛍️ 手提袋</h4>
+      <div style="display:flex;gap:8px;justify-content:center;margin:8px 0;">
+        <div style="background:var(--paper);width:70px;height:100px;border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid #e0d5c0;">
+          <svg width="36" height="36" viewBox="0 0 440 440"><g transform="translate(220,215) scale(0.15)"><path d="M-4,-92 C10,-88 30,-82 55,-72" fill="#C41E2B" opacity="0.9"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72" fill="#C41E2B" opacity="0.86"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#1A3C6D"/><circle cx="0" cy="-72" r="16" fill="#1A3C6D"/></g></svg>
+          <p style="font-size:7px;font-family:KaiTi;color:var(--blue);">鸢都文创</p>
+        </div>
+        <div style="background:var(--blue);width:28px;height:100px;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+          <div style="writing-mode:vertical-rl;color:var(--paper);font-size:7px;font-family:KaiTi;">鸢都文创</div>
+        </div>
+      </div>
+      <p style="font-size:10px;color:var(--sub);">双面设计 · 侧面Logo带</p>
+    </div>
+    <div class="pkg-box">
+      <h4>📦 小产品盒</h4>
+      <div style="display:flex;gap:8px;justify-content:center;margin:8px 0;">
+        <div style="background:var(--pink);width:50px;height:35px;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:14px;">🪁</span>
+        </div>
+        <div style="background:var(--green);width:60px;height:40px;border-radius:3px;display:flex;align-items:center;justify-content:center;">
+          <span style="color:var(--paper);font-size:9px;font-family:KaiTi;">鸢都文创</span>
+        </div>
+      </div>
+      <p style="font-size:10px;color:var(--sub);">桃红香囊盒 · 石绿明信片套</p>
+    </div>
+    <div class="pkg-box">
+      <h4>📜 包装纸 / 丝巾</h4>
+      <div style="background:var(--paper);border:1px solid #e0d5c0;border-radius:4px;padding:12px;margin:8px 0;display:flex;flex-wrap:wrap;gap:2px;justify-content:center;position:relative;">
+        <span style="font-size:14px;opacity:0.2;">🪁</span><span style="font-size:14px;opacity:0.15;">🦋</span><span style="font-size:14px;opacity:0.2;">🌸</span><span style="font-size:14px;opacity:0.15;">🐟</span><span style="font-size:14px;opacity:0.18;">🏮</span><span style="font-size:14px;opacity:0.15;">🦇</span>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--paper);padding:2px 8px;border:1px solid var(--gold);font-size:8px;font-family:KaiTi;">鸢都文创</div>
+      </div>
+      <p style="font-size:10px;color:var(--sub);">十鸢满铺 · 中心徽标</p>
+    </div>
+  </div>
+  <h3>标签 / 吊牌 / 贴纸</h3>
+  <div class="tag-strip">
+    <div style="background:var(--paper);padding:8px 16px;border-radius:8px;text-align:center;">
+      <div style="width:6px;height:6px;border:2px solid var(--gold);border-radius:50%;margin:0 auto 4px;"></div>
+      <p style="font-size:8px;font-family:KaiTi;">吊牌</p>
+    </div>
+    <div style="display:flex;gap:4px;">
+      <div style="width:24px;height:24px;background:var(--red);border-radius:50%;"></div>
+      <div style="width:24px;height:24px;background:var(--blue);border-radius:50%;"></div>
+      <div style="width:24px;height:24px;background:var(--gold);border-radius:50%;"></div>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--gold);padding:4px 10px;border-radius:4px;font-size:7px;">说明标签</div>
+    <div style="background:var(--blue);padding:4px 10px;border-radius:4px;font-size:7px;color:var(--paper);">织唛布标</div>
+  </div>
+</div>
+
+<!-- ===== 06 · SACHET ===== -->
+<div class="section" id="sachet">
+  <h2>06 · 端午香囊「鸢香」</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="logo-stage" style="text-align:center;">
+      <h4 style="margin-bottom:12px;">正面 · 纸鸢燕尾造型</h4>
+      <svg width="160" height="220" viewBox="0 0 180 240">
+        <path d="M90,30 C75,30 60,40 55,55 C45,65 40,80 38,95 C30,110 28,130 28,150 C28,165 25,178 20,190 C25,195 35,198 50,198 C65,198 80,195 90,190 C100,195 115,198 130,198 C145,195 155,190 160,190 C155,178 152,165 152,150 C152,130 150,110 142,95 C140,80 135,65 125,55 C120,40 105,30 90,30Z" fill="#C41E2B" stroke="#D4952B" stroke-width="1.5"/>
+        <circle cx="90" cy="48" r="22" fill="#C41E2B" stroke="#D4952B" stroke-width="1.2"/>
+        <g transform="translate(90,48) scale(0.07)"><path d="M-4,-92 C10,-88 30,-82 55,-72 C78,-62 98,-50 112,-34" fill="#F5E6D3" opacity="0.9"/><path d="M4,-92 C-10,-88 -30,-82 -55,-72 C-78,-62 -98,-50 -112,-34" fill="#F5E6D3" opacity="0.86"/><ellipse cx="0" cy="-28" rx="18" ry="28" fill="#D4952B"/></g>
+        <rect x="42" y="75" width="96" height="12" rx="2" fill="#1A3C6D" stroke="#D4952B" stroke-width="0.5"/>
+        <polygon points="62,81 68,75 74,81 68,87" fill="#D4952B" opacity="0.7"/>
+        <polygon points="90,81 96,75 102,81 96,87" fill="#D4952B" opacity="0.7"/>
+        <polygon points="118,81 124,75 130,81 124,87" fill="#D4952B" opacity="0.7"/>
+        <text x="90" y="125" text-anchor="middle" font-family="KaiTi" font-size="16" fill="#F5E6D3" letter-spacing="6">鸢</text>
+        <text x="90" y="143" text-anchor="middle" font-family="KaiTi" font-size="16" fill="#F5E6D3" letter-spacing="6">都</text>
+        <g transform="translate(48,105) scale(0.6)"><path d="M0,0 C5,-9 14,-10 16,-4 C19,-10 28,-8 26,0 C30,-4 38,4 31,9 C27,14 20,13 15,10 C11,14 6,14 3,9 C-5,5 -2,-3 0,0Z" fill="#D4952B" opacity="0.45"/></g>
+        <g transform="translate(132,105) scale(-0.6,0.6)"><path d="M0,0 C5,-9 14,-10 16,-4 C19,-10 28,-8 26,0 C30,-4 38,4 31,9 C27,14 20,13 15,10 C11,14 6,14 3,9 C-5,5 -2,-3 0,0Z" fill="#D4952B" opacity="0.45"/></g>
+        <rect x="85" y="195" width="10" height="6" rx="2" fill="#D4952B" opacity="0.7"/>
+        <line x1="87" y1="201" x2="86" y2="212" stroke="#C41E2B" stroke-width="0.7" opacity="0.5"/>
+        <line x1="90" y1="201" x2="90" y2="214" stroke="#D4952B" stroke-width="0.7" opacity="0.5"/>
+        <line x1="93" y1="201" x2="94" y2="212" stroke="#C41E2B" stroke-width="0.7" opacity="0.5"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-stage dark" style="text-align:center;margin-bottom:12px;">
+        <h4 style="color:var(--gold);margin-bottom:8px;">背面 · 艾草纹样</h4>
+        <div style="font-size:32px;opacity:0.3;">🌿</div>
+        <div style="width:50px;height:1px;background:var(--gold);margin:8px auto;opacity:0.4;"></div>
+        <p style="color:var(--paper);font-size:12px;letter-spacing:2px;">端午 · 安康</p>
+        <p style="color:var(--gold);font-size:8px;">DUANWU</p>
+      </div>
+      <table>
+        <tr><th>材质</th><td>丝绸面料 + 纯棉内衬</td></tr>
+        <tr><th>填充</th><td>艾草 + 白芷 + 藿香 + 薄荷</td></tr>
+        <tr><th>尺寸</th><td>约 8×12cm（含流苏）</td></tr>
+        <tr><th>三色</th><td><span style="color:#C41E2B;">朱砂红</span> · <span style="color:#1A3C6D;">藏蓝</span> · <span style="color:#4B8B7F;">石绿</span></td></tr>
+        <tr><th>工艺</th><td>丝印 + 手工缝制 + 编织挂绳 + 玉珠</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 07 · USAGE ===== -->
+<div class="section" id="usage">
+  <h2>07 · 应用场景</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center;">
+    <div style="background:var(--paper);padding:16px;border-radius:8px;"><span style="font-size:28px;">🎒</span><p style="font-size:11px;margin-top:4px;">随身佩带</p></div>
+    <div style="background:var(--paper);padding:16px;border-radius:8px;"><span style="font-size:28px;">🚗</span><p style="font-size:11px;margin-top:4px;">车内悬挂</p></div>
+    <div style="background:var(--paper);padding:16px;border-radius:8px;"><span style="font-size:28px;">🎁</span><p style="font-size:11px;margin-top:4px;">节庆送礼</p></div>
+    <div style="background:var(--paper);padding:16px;border-radius:8px;"><span style="font-size:28px;">🏠</span><p style="font-size:11px;margin-top:4px;">家居装饰</p></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>鸢都文创 · 品牌视觉识别手册 V1.0</p>
+  <p style="opacity:0.5;">YUANDU WENCHUANG Brand VI Manual</p>
+  <p style="opacity:0.4;font-size:10px;">潍坊纸鸢非物质文化遗产 · 古韵新飞</p>
+</div>
+</div>
+</body>
+</html>
