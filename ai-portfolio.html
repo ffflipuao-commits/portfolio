@@ -209,6 +209,61 @@ body {
   border-top: 1px solid var(--line);
 }
 
+/* ── Overseas portrait visual showcase ── */
+.portrait-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.portrait-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  min-height: 520px;
+}
+
+.portrait-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.portrait-card:hover img { transform: scale(1.025); }
+
+.portrait-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 80px 20px 18px;
+  background: linear-gradient(transparent, rgba(8,8,12,0.92));
+}
+
+.portrait-overlay .kicker {
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.portrait-overlay h4 {
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  margin: 4px 0 2px;
+}
+
+.portrait-overlay p {
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
 /* ── Tech tags ── */
 .tech-tags {
   display: flex;
@@ -466,10 +521,12 @@ body {
   .highlight-list { grid-template-columns: 1fr; }
   .embed-grid { grid-template-columns: 1fr 1fr; }
   .stats { gap: 24px; }
+  .portrait-card, .portrait-card img { min-height: 420px; }
 }
 
 @media (max-width: 480px) {
   .embed-grid { grid-template-columns: 1fr; }
+  .portrait-grid { grid-template-columns: 1fr; }
   .hero { padding: 48px 16px 32px; }
 }
 </style>
@@ -581,10 +638,72 @@ body {
   </div>
 </section>
 
-<!-- ═══════════ PROJECT 2: 鸢都文创 ═══════════ -->
+<!-- ═══════════ PROJECT 2: OVERSEAS PORTRAITS ═══════════ -->
+<section class="project" id="overseas-portraits">
+  <div class="section-title">
+    <span class="num">02</span> AIGC海外人像视觉
+  </div>
+
+  <div class="project-header">
+    <h3>Overseas Portrait Visuals</h3>
+    <div class="meta">原创虚构人物 · <span>国际化商业视觉</span> · 2026.07</div>
+  </div>
+
+  <div class="tech-tags">
+    <span class="tech-tag ai">AIGC Image Generation</span>
+    <span class="tech-tag ai">Prompt Engineering</span>
+    <span class="tech-tag design">Portrait Direction</span>
+    <span class="tech-tag design">Commercial Visual</span>
+    <span class="tech-tag tool">Color Grading</span>
+  </div>
+
+  <p class="desc-block">
+    面向海外短剧、国际品牌与内容营销场景，设计四组不同用途的人像视觉。通过<strong>人物职业设定、服装材质、镜头景别、自然光与色彩气氛</strong>控制画面叙事，兼顾真实皮肤质感与商业可用性。所有人物均为原创虚构成年人，不对应现实人物或品牌。
+  </p>
+
+  <div class="process-flow">
+    <span class="process-step">角色定位</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">服装与场景设定</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">镜头与光线控制</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">质感筛选</span>
+    <span class="process-arrow">→</span>
+    <span class="process-step">商业化呈现</span>
+  </div>
+
+  <div class="portrait-grid">
+    <article class="portrait-card">
+      <img src="images/overseas-portrait-coastal-director.png" alt="海岸别墅职业女性海外人像视觉" loading="lazy">
+      <div class="portrait-overlay"><span class="kicker">Luxury Editorial</span><h4>Coastal Creative Director</h4><p>象牙白职业套装 · 海岸自然光 · 高端时尚编辑视觉</p></div>
+    </article>
+    <article class="portrait-card">
+      <img src="images/overseas-portrait-urban-architect.png" alt="雨夜都市男性电影感角色人像" loading="lazy">
+      <div class="portrait-overlay"><span class="kicker">Cinematic Character</span><h4>Urban Architect</h4><p>蓝调雨夜 · 冷暖对比 · 海外短剧角色定调</p></div>
+    </article>
+    <article class="portrait-card">
+      <img src="images/overseas-portrait-beauty-editorial.png" alt="自然皮肤质感商业美妆人像" loading="lazy">
+      <div class="portrait-overlay"><span class="kicker">Beauty Campaign</span><h4>Natural Skin Editorial</h4><p>真实肌理与雀斑 · 柔光棚拍 · 国际美妆商业视觉</p></div>
+    </article>
+    <article class="portrait-card">
+      <img src="images/overseas-portrait-gallery-curator.png" alt="现代美术馆国际生活方式人像" loading="lazy">
+      <div class="portrait-overlay"><span class="kicker">Culture & Lifestyle</span><h4>Gallery Curator</h4><p>钴蓝大衣 · 建筑空间 · 都市文化生活方式叙事</p></div>
+    </article>
+  </div>
+
+  <div class="highlight-list">
+    <div class="highlight-item"><span class="icon">🎬</span><span>覆盖短剧角色、时尚编辑、美妆广告与生活方式四类应用</span></div>
+    <div class="highlight-item"><span class="icon">🧵</span><span>利用服装专业训练控制廓形、面料、配色与人物身份表达</span></div>
+    <div class="highlight-item"><span class="icon">📷</span><span>通过景别、自然光、色温和背景虚化建立稳定镜头语言</span></div>
+    <div class="highlight-item"><span class="icon">✓</span><span>重点检查皮肤、手部、服装结构与环境材质，避免塑料感</span></div>
+  </div>
+</section>
+
+<!-- ═══════════ PROJECT 3: 鸢都文创 ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">02</span> 鸢都文创 · 品牌全案设计
+    <span class="num">03</span> 鸢都文创 · 品牌全案设计
   </div>
 
   <div class="project-header">
@@ -686,7 +805,7 @@ body {
 <!-- ═══════════ PROJECT 3: AI平面视觉设计 ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">03</span> AI平面视觉设计
+    <span class="num">04</span> AI平面视觉设计
   </div>
 
   <div class="project-header">
@@ -763,7 +882,7 @@ body {
 <!-- ═══════════ PROJECT 4: 电商与数字化设计 ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">04</span> 电商与数字化设计
+    <span class="num">05</span> 电商与数字化设计
   </div>
 
   <div class="project-header">
@@ -838,7 +957,7 @@ body {
 <!-- ═══════════ PROJECT 5: 色彩与材质实验 ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">05</span> 色彩与材质实验
+    <span class="num">06</span> 色彩与材质实验
   </div>
 
   <div class="project-header">
@@ -917,7 +1036,7 @@ body {
 <!-- ═══════════ PROJECT 6: 商业插画设计 ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">06</span> 商业插画设计
+    <span class="num">07</span> 商业插画设计
   </div>
 
   <div class="project-header">
@@ -996,7 +1115,7 @@ body {
 <!-- ═══════════ PROJECT 7: GRADUATION ═══════════ -->
 <section class="project">
   <div class="section-title">
-    <span class="num">07</span> 其他设计作品
+    <span class="num">08</span> 其他设计作品
   </div>
 
   <div class="project-header">
